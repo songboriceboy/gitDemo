@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCAC6B55-651A-4A98-9977-C6C24463EF90}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharpGo</RootNamespace>
+    <AssemblyName>CSharpGo</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UtilityLibrary, Version=1.0.3.0, Culture=neutral, PublicKeyToken=c13d07fefef8d2c7">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\UtilityLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C#基础\Frm_ConsoleBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C#基础\Frm_ConsoleBase.Designer.cs">
+      <DependentUpon>Frm_ConsoleBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C#基础\Frm_DictionaryExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C#基础\Frm_DictionaryExample.Designer.cs">
+      <DependentUpon>Frm_DictionaryExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C#基础\Frm_GetInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C#基础\Frm_GetInput.Designer.cs">
+      <DependentUpon>Frm_GetInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C#基础\Frm_GuessWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C#基础\Frm_GuessWord.Designer.cs">
+      <DependentUpon>Frm_GuessWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Frm_WinFormProgressExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Frm_WinFormProgressExample.Designer.cs">
+      <DependentUpon>Frm_WinFormProgressExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\DirNode.cs" />
+    <Compile Include="WinForm\Frm_ComboBoxExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Frm_ComboBoxExample.Designer.cs">
+      <DependentUpon>Frm_ComboBoxExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_MainToolWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MainToolWindow.Designer.cs">
+      <DependentUpon>Frm_MainToolWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C#基础\Frm_CSharpStringExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C#基础\Frm_CSharpStringExample.Designer.cs">
+      <DependentUpon>Frm_CSharpStringExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Frm_TreeViewExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Frm_TreeViewExample.Designer.cs">
+      <DependentUpon>Frm_TreeViewExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\PlatformInvokeKernel32.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="C#基础\Frm_ConsoleBase.resx">
+      <DependentUpon>Frm_ConsoleBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C#基础\Frm_DictionaryExample.resx">
+      <DependentUpon>Frm_DictionaryExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C#基础\Frm_GetInput.resx">
+      <DependentUpon>Frm_GetInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C#基础\Frm_GuessWord.resx">
+      <DependentUpon>Frm_GuessWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Frm_WinFormProgressExample.resx">
+      <DependentUpon>Frm_WinFormProgressExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Frm_ComboBoxExample.resx">
+      <DependentUpon>Frm_ComboBoxExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Main.resx">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_MainToolWindow.resx">
+      <DependentUpon>Frm_MainToolWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C#基础\Frm_CSharpStringExample.resx">
+      <DependentUpon>Frm_CSharpStringExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Frm_TreeViewExample.resx">
+      <DependentUpon>Frm_TreeViewExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\员工基本信息.xml" />
+    <Content Include="员工基本信息.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
