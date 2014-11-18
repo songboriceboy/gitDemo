@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化</a> <span class="divider">/</span></li>
+                    <li class="active">重写url</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/youhuajavaScriptdaimatigaozhixingxiaolv/index.html">&larr; 优化javaScript代码，提高执行效率</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/youhuajavaScriptdaimatigaozhixingxiaolv/index.html">优化javaScript代码，提高执行效率 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>重写url</div><br><p>废话不多说:</p>
+<p>&nbsp;1、下载Intelligencia.UrlRewriter.dll文件&nbsp;&nbsp; 并且引用</p>
+<p>2、 配置webconfig</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> &lt;configuration&gt;
+<span style="color: #008080;"> 2</span>   &lt;configSections&gt;
+<span style="color: #008080;"> 3</span>     &lt;section name=<span style="color: #800000;">"</span><span style="color: #800000;">rewriter</span><span style="color: #800000;">"</span> type=<span style="color: #800000;">"</span><span style="color: #800000;">Intelligencia.UrlRewriter.Configuration.RewriterConfigurationSectionHandler,Intelligencia.UrlRewriter</span><span style="color: #800000;">"</span> /&gt;
+<span style="color: #008080;"> 4</span>   &lt;/configSections&gt;
+<span style="color: #008080;"> 5</span>   &lt;rewriter&gt;
+<span style="color: #008080;"> 6</span>     &lt;rewrite url=<span style="color: #800000;">"</span><span style="color: #800000;">^/LogIn</span><span style="color: #800000;">"</span> to=<span style="color: #800000;">"</span><span style="color: #800000;">~/LogIn.asmx</span><span style="color: #800000;">"</span> processing=<span style="color: #800000;">"</span><span style="color: #800000;">stop</span><span style="color: #800000;">"</span> /&gt;
+<span style="color: #008080;"> 7</span>   &lt;/rewriter&gt;
+<span style="color: #008080;"> 8</span>   &lt;system.web&gt;
+<span style="color: #008080;"> 9</span>     &lt;httpModules&gt;
+<span style="color: #008080;">10</span>       &lt;add name=<span style="color: #800000;">"</span><span style="color: #800000;">UrlRewriter</span><span style="color: #800000;">"</span> type=<span style="color: #800000;">"</span><span style="color: #800000;">Intelligencia.UrlRewriter.RewriterHttpModule,Intelligencia.UrlRewriter</span><span style="color: #800000;">"</span>/&gt;
+<span style="color: #008080;">11</span>     &lt;/httpModules&gt;
+<span style="color: #008080;">12</span>     &lt;globalization requestEncoding=<span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span> responseEncoding=<span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span> culture=<span style="color: #800000;">"</span><span style="color: #800000;">zh-CN</span><span style="color: #800000;">"</span> fileEncoding=<span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span> /&gt;
+<span style="color: #008080;">13</span>     &lt;compilation debug=<span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span> targetFramework=<span style="color: #800000;">"</span><span style="color: #800000;">4.5</span><span style="color: #800000;">"</span> /&gt;
+<span style="color: #008080;">14</span>     &lt;httpRuntime targetFramework=<span style="color: #800000;">"</span><span style="color: #800000;">4.5</span><span style="color: #800000;">"</span> /&gt;
+<span style="color: #008080;">15</span>     &lt;webServices&gt;
+<span style="color: #008080;">16</span>       &lt;protocols&gt;
+<span style="color: #008080;">17</span>         &lt;add name=<span style="color: #800000;">"</span><span style="color: #800000;">HttpPost</span><span style="color: #800000;">"</span>/&gt;
+<span style="color: #008080;">18</span>         &lt;add name=<span style="color: #800000;">"</span><span style="color: #800000;">HttpGet</span><span style="color: #800000;">"</span>/&gt;
+<span style="color: #008080;">19</span>       &lt;/protocols&gt;
+<span style="color: #008080;">20</span>     &lt;/webServices&gt;
+<span style="color: #008080;">21</span>   &lt;/system.web&gt;
+<span style="color: #008080;">22</span> &lt;/configuration&gt;</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;其中 configSections&nbsp; 以及rewriter&nbsp; 还有httpModules 是跟重写URL有关的 位置 千万不要搞错了</p>
+<p>&nbsp;</p>
+<pre><span style="color: #008080;">12     &lt;globalization requestEncoding=<span style="color: #800000;">"<span style="color: #800000;">utf-8<span style="color: #800000;">" responseEncoding=<span style="color: #800000;">"<span style="color: #800000;">utf-8<span style="color: #800000;">" culture=<span style="color: #800000;">"<span style="color: #800000;">zh-CN<span style="color: #800000;">" fileEncoding=<span style="color: #800000;">"<span style="color: #800000;">utf-8<span style="color: #800000;">" /&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span>  是为了防止中文乱码的   本人搞的webservice</pre>
+<p>3、<img src="17581976736285.jpg" alt="">&nbsp;&nbsp; 这个托管管道模式改成经典模式，很多的教程里都没有 ，这个必须要改不然的话会报错，找了半天的我差点没一口血喷在电脑屏幕上。</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; 基本上到这里就已经OK了</p>
+<p>4、如果配置IIS的话&nbsp;&nbsp;</p>
+<p><img src="51776449284321.jpg" alt=""></p>
+<p>&nbsp;这里改为经典模式</p>
+<p><img src="29529108721326.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p>最后一步</p>
+<p><img src="44945325355986.jpg" alt="">把这里改成允许就可以了</p>
+<p><img src="39487368514634.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p>到现在为之已经大功告成</p>
+<p>&nbsp;</p>
+<p><img src="32916199602080.jpg" alt=""></p>
+<p>然后后缀神奇的不见了</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>PS&nbsp; 下载的DLL Intelligencia.UrlRewriter.dll</p>
+<p>下载地址:http://download.csdn.net/detail/just_smileoneveryday/7785835&nbsp;&nbsp;</p>
+<p>我的是用的VS2012开发工具</p>
+<p>希望对大家有所帮助。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------------Made by 夜色、花清浅</p>
+<p>&nbsp;</p><a href='http://www.cnblogs.com/yesehuaqingqian/p/3922850.html'>原文链接</a>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/youhuajavaScriptdaimatigaozhixingxiaolv/index.html">&larr; 优化javaScript代码，提高执行效率</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/youhuajavaScriptdaimatigaozhixingxiaolv/index.html">优化javaScript代码，提高执行效率 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="482885010231016" data-title="重写url" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/zhongxieurl/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[2]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
