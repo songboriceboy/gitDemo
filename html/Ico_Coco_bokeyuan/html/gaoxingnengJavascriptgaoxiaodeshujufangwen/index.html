@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">高性能Javascript高效的数据访问</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/BATjigedahulianwanggongsi2014qianduanbishimianshitiHtml,Csspian/index.html">&larr; BAT及各大互联网公司2014前端笔试面试题Html,Css篇</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/BATjigedahulianwanggongsi2014qianduanbishimianshitiHtml,Csspian/index.html">高性能Javascript脚本的无阻塞加载策略 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>高性能Javascript高效的数据访问</div><br><p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　接上一篇，希望能写一个高性能Javascript专题。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　第一篇：<span style="color: #0000ff;"><a href="http://www.cnblogs.com/coco1s/p/4010310.html" target="_blank"><span style="color: #0000ff;">高性能Javascript--脚本的无阻塞加载策略</span></a></span>。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　参考摘录《高性能Javascript》。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　经典计算机科学的一个问题是，数据应当存放在什么地方，以实现最佳的读写效率。数据存储是否得当，关系到代码运行期间数据被检索到的速度。在Javascript中，此问题相对简单，因为数据表现方式只有少量方式可供选择。在Javascript中，有四种基本的数据访问位置：</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>Literal values 直接量</strong>&nbsp;</span>
+<ul>
+<li>直接量仅仅代表自己，而不存储于特定的位置。</li>
+<li>Javascript的直接量包括：字符串(strings)、数字(numbers)、布尔值(booleans)、对象(objects)、数组(arrays)、函数(functions)、正则表达式(regular expressions)，具有特殊意义的空值(null)，以及未定义(undefined)。</li>
+</ul>
+</li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>Variables 变量</strong></span>
+<ul>
+<li>开发人员用var关键字创建用于存储数据值。</li>
+</ul>
+</li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>Array items 数组项</strong></span>
+<ul>
+<li>具有数字索引，存储一个Javascript数组对象。</li>
+</ul>
+</li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>Object members 对象成员</strong></span>
+<ul>
+<li>具有字符串索引，存储一个Javascript对象。</li>
+</ul>
+</li>
+</ul>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　每一种数据存储位置都具有特定的读写操作负担。在大多数情况下，对一个直接量和一个局部变量的数据访问的性能差异是微不足道的。具体而言，访问数组项和对象成员的代价要高一些，具体高多少，很大程度上取决于浏览器。一般的建议是，如果关心运行速度，那么尽量使用直接量和局部变量，限制数组项和对象成员的使用。为此，有如下几种模式，用于避免并优化我们的代码：</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;"><strong>　　Managing Scope 管理作用域</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　作用域概念是理解Javascript的关键，无论是从性能还是功能的角度而言，作用域对Javascript有着巨大影响。要理解运行速度与作用域的关系，首先要理解作用域的工作原理。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt; font-family: arial, helvetica, sans-serif;"><strong><span style="background-color: #ccffff;">　　Scope Chains and Identifier Resolution 作用域链和标识符解析</span></strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　每一个Javascript函数都被表示为对象，它是一个函数实例。它包含我们编程定义的可访问属性，和一系列不能被程序访问，仅供Javascript引擎使用的内部属性，其中一个内部属性是[[Scope]]，由ECMA-262标准第三版定义。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　内部[[Scope]]属性包含一个函数被创建的作用域中对象的集合。此集合被称为函数的作用域链，它决定哪些数据可以由函数访问。此函数中作用域链中每个对象被称为一个可变对象，以&ldquo;键值对&rdquo;表示。当一个函数创建以后，它的作用域链被填充以对象，这些对象代表创建此函数的环境中可访问的数据：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> <span style="color: #000000;">function add(num1, num2){ 
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">　　var sum = num1 + num2; 
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">　　return sum;
+</span><span style="color: #008080;">4</span> }</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　当add()函数创建以后，它的作用域链中填入了一个单独可变对象，此全局对象代表了所有全局范围定义的变量。此全局对象包含诸如窗口、浏览器和文档之类的访问接口。如下图所示：（add()函数的作用域链，注意这里只画出全局变量中很少的一部分）</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><img src="25817206943619.png" alt="" width="614" height="168"></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　add函数的作用域链将会在运行时用到，假设运行了如下代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> var total = add(5,10);</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　运行此add函数时会建立一个内部对象，称作&ldquo;运行期上下文&rdquo;(execution context)，一个运行期上下文定义了一个函数运行时的环境。且对于单独的每次运行而言，每个运行期上下文都是独立的，多次调用就会产生多此创建。而当函数执行完毕，运行期上下文被销毁。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　一个运行期上下文有自己的作用域链，用于解析标识符。当运行期上下文被创建的时，它的作用域被初始化，连同运行函数的作用域链[[Scope]]属性所包含的对象。这些值按照它们出现在函数中的顺序，被复制到运行期上下文的作用域链中。这项工作一旦执行完毕，一个被称作&ldquo;激活对象&rdquo;的新对象就位运行期上下文创建好了。此激活对象作为函数执行期一个可变对象，包含了访问所有局部变量，命名参数，参数集合和this的接口。然后，此对象被推入到作用域链的最前端。当作用域链被销毁时，激活对象也一同被销毁。如下所示：（运行add()时的作用域链）</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><img src="7370496712072.png" alt="" width="764" height="450"></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　在函数运行的过程中，每遇到一个变量，就要进行标识符识别。标识符识别这个过程要决定从哪里获得数据或者存取数据。此过程搜索运行期上下文的作用域链，查找同名的标识符。搜索工作从运行函数的激活目标的作用域前端开始。如果找到了，就使用这个具有指定标识符的变量；如果没找到，搜索工作将进入作用域链的下一个对象，此过程持续运行，直到标识符被找到或者没有更多可用对象可用于搜索，这种情况视为标识符未定义。正是这种搜索过程影响了性能。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><strong><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt;"><span style="background-color: #ccffff;">　　Identifier Resolution Performance 标识符识别性能</span></span></strong></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　标识符识别是耗能的。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　在运行期上下文的作用域链中，一个标识符所处的位置越深，它的读写速度就越慢。所以，函数中局部变量的访问速度总是最快的，而全局变量通常是最慢的（优化Javascript引擎，如Safari在某些情况下可用改变这种情况）。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　请记住，全局变量总是处于运行期上下文作用域链的最后一个位置，所以总是最远才能被访问的。一个好的经验法则是：使用局部变量存储本地范围之外的变量值，如果它们在函数中的使用多于一次。考虑下面的例子：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;"> 1</span> <span style="color: #000000;">function initUI(){
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">　　var bd = document.body,
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">　　links = document.getElementsByTagName("a"), 
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">　　i = 0,
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">　　len = links.length;
+</span><span style="color: #008080;"> 6</span> 　　
+<span style="color: #008080;"> 7</span> 　　while(i <span style="color: #0000ff;">&lt;</span><span style="color: #800000;"> len</span><span style="color: #ff0000;">){
+</span><span style="color: #008080;"> 8</span> <span style="color: #ff0000;">　　　　update(links[i++]); 
+</span><span style="color: #008080;"> 9</span> <span style="color: #ff0000;">　　}
+</span><span style="color: #008080;">10</span> 　　
+<span style="color: #008080;">11</span> <span style="color: #ff0000;">    document.getElementById("go-btn").onclick </span><span style="color: #0000ff;">= function(){ 
+</span><span style="color: #008080;">12</span> 　　　　<span style="color: #ff0000;">start();
+</span><span style="color: #008080;">13</span> <span style="color: #ff0000;">　　};
+</span><span style="color: #008080;">14</span> 　　
+<span style="color: #008080;">15</span> <span style="color: #ff0000;">　　bd.className </span><span style="color: #0000ff;">= "active"</span><span style="color: #ff0000;">; 
+</span><span style="color: #008080;">16</span> <span style="color: #ff0000;">}</span></span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　此函数包含三个对document的引用，而document是一个全局对象。搜索至document，必须遍历整个作用域链，直到最后才能找到它。使用下面的方法减轻重复的全局变量访问对性能的影响：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;"> 1</span> <span style="color: #000000;">function initUI(){
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    var doc=document,
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">　  bd = doc.body,
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">　　links = doc.getElementsByTagName("a"), 
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">　　i = 0,
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">　　len = links.length;
+</span><span style="color: #008080;"> 7</span> 　　
+<span style="color: #008080;"> 8</span> 　　while(i <span style="color: #0000ff;">&lt;</span><span style="color: #800000;"> len</span><span style="color: #ff0000;">){
+</span><span style="color: #008080;"> 9</span> <span style="color: #ff0000;">　　　　update(links[i++]); 
+</span><span style="color: #008080;">10</span> <span style="color: #ff0000;">　　}
+</span><span style="color: #008080;">11</span> 　　
+<span style="color: #008080;">12</span> <span style="color: #ff0000;">     doc.getElementById("go-btn").onclick </span><span style="color: #0000ff;">= function(){ 
+</span><span style="color: #008080;">13</span> 　　　　<span style="color: #ff0000;">start();
+</span><span style="color: #008080;">14</span> <span style="color: #ff0000;">　　};
+</span><span style="color: #008080;">15</span> 　　
+<span style="color: #008080;">16</span> <span style="color: #ff0000;">　　bd.className </span><span style="color: #0000ff;">= "active"</span><span style="color: #ff0000;">; 
+</span><span style="color: #008080;">17</span> <span style="color: #ff0000;">}</span></span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　用doc代替document更快，因为它是一个局部变量。当然，这个简单的函数不会显示出巨大的性能改进，因为数量的原因，不过可以想象一下，如果几十个全部变量反复被访问，那么性能改进将显得多么出色。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;"><strong>　　Scope Chain Augmentation 改变作用域链</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　一个来说，一个运行期上下文的作用域链不会被改变。但是，有两种表达式可以在运行时临时改变运行期上下文。第一个是with表达式：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;"> 1</span> <span style="color: #000000;">function initUI(){
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    with (document){ //avoid!
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">      var bd = body,
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">      links = getElementsByTagName("a"), 
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">      i = 0,
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">      len = links.length;
+</span><span style="color: #008080;"> 7</span>       
+<span style="color: #008080;"> 8</span>       while(i <span style="color: #0000ff;">&lt;</span><span style="color: #800000;"> len</span><span style="color: #ff0000;">){
+</span><span style="color: #008080;"> 9</span> <span style="color: #ff0000;">        update(links[i++]); 
+</span><span style="color: #008080;">10</span> <span style="color: #ff0000;">      }
+</span><span style="color: #008080;">11</span>         
+<span style="color: #008080;">12</span> <span style="color: #ff0000;">      getElementById("go-btn").onclick </span><span style="color: #0000ff;">= function(){ 
+</span><span style="color: #008080;">13</span>         <span style="color: #ff0000;">start();
+</span><span style="color: #008080;">14</span> <span style="color: #ff0000;">      };
+</span><span style="color: #008080;">15</span>     
+<span style="color: #008080;">16</span> <span style="color: #ff0000;">      bd.className </span><span style="color: #0000ff;">= "active"</span><span style="color: #ff0000;">; 
+</span><span style="color: #008080;">17</span> <span style="color: #ff0000;">  }
+</span><span style="color: #008080;">18</span> <span style="color: #ff0000;">}</span></span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　此重写版本使用了一个with表达式，避免了多次书写&ldquo;document&rdquo;。这看起来似乎更有效率，实际不然，这里产生了一个性能问题。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　当代码流执行到一个with表达式，运行期上下文的作用域被临时改变了。一个新的可变对象将被创建，它包含了指定对象（针对这个例题是document对象）的所有属性。此对象被插入到作用域链的最前端。意味着现在函数的所有局部变量都被推入到第二个作用域链对象中，所以局部变量的访问代价变的更高了。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　正式因为这个原因，最好不要使用with表达式。这样会得不偿失。正如前面提到的，只要简单的将document存储在一个局部变量中，就可以获得性能上的提升。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　另一个能改变运行期上下文的是try-catch语句的字句catch具有同样的效果。当try块发生错误的时，程序自动转入catch块，并将所有局部变量推入第二个作用域链对象中，只要catch之块执行完毕，作用域链就会返回到原来的状态。</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> <span style="color: #000000;">try { 
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">    methodThatMightCauseAnError();
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">} catch (ex){
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">    alert(ex.message); //作用域链在这里发生改变
+</span><span style="color: #008080;">5</span> }</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　如果使用得当，try-catch表达式是非常有用的语句，所以不建议完全避免。但是一个try-catch语句不应该作为Javascript错误解决的办法，如果你知道一个错误会经常发生，那么说明应该修改代码本身。不是么？</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　</span></p>
+<p><span style="font-size: 14pt; font-family: arial, helvetica, sans-serif; background-color: #ccffff;"><strong>　　Dynamic Scope 动态作用域</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　无论是with表达式还是try-catch表达式的子句catch，以及包含()的函数，都被认为是动态作用域。一个动态作用域因代码运行而生成存在，因此无法通过静态分析（通过查看代码）来确定是否存在动态作用域。例如：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000; font-size: 16px; font-family: arial, helvetica, sans-serif;">function execute(code) { <br>　　(code);
+　　function subroutine(){ <br>　　  return window;
+}
+　　var w = subroutine(); // w的值是什么？
+};</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　execute()函数看上去像一个动态作用域，因为它使用了()。w变量的值与传入的code代码有关。大多数情况下，w将等价于全局的window对象。但是如果传入的是:</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> execute("var window = {};");</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　这种情况下，()在execute()函数中创建了一个局部window变量。所以w将等价于这个局部window变量而不是全局window的那个。所以不运行这段代码是无法预知最后的具体情况，标识符window的确切含义无法预先知道。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　因此，只有在绝对必要时刻才推荐使用动态作用域。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><strong><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;">　　Closure,Scope,and Memory 闭包，作用域，和内存</span></strong></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　闭包是Javascript最强大的一个方面，它允许函数访问局部范围之外的的数据。为了解与闭包有关的性能问题，考虑下面的例子：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> <span style="color: #000000;">function assignEvents(){
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">　　var id = "xdi9592"; 
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">　　document.getElementById("save-btn").onclick = function(event){
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">　　　　saveDocument(id); 
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">  };
+</span><span style="color: #008080;">6</span> }</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　assignEvents()函数为DOM元素指定了一个事件处理句柄。此事件处理是一个闭包，当函数执行创建时可以访问其范围内部的id变量。而这种方法封闭了对id变量的访问，必须创建一个特定的作用域链。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　当assignEvents()函数执行时，一个激活对象被创建，并且包含了一些应有的内容，其中包含id变量。它将成为运行期上下文作用域链上的第一个对象，全局对象是第二个。当闭包创建的时，[[Scope]]属性与这些对象一起被初始化，如下图：</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><img src="49501396695762.png" alt="" width="795" height="469"></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　由于闭包的[[Scope]]属性包含与运行期上下文作用域链相同的对象引用，会产生副作用，通常，一个函数的激活对象与运行期上下文一同销毁。当涉及闭包时，激活对象就无法销毁了，因为仍然存在于闭包的[[Scope]]属性中。这意味着脚本中的闭包与非闭包函数相比，需要更多的内存开销。尤其在IE，使用非本地Javascript对象实现DOM对象，闭包可能导致内存泄露。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　当闭包被执行，一个运行期上下文将被创建，它的作用域链与[[Scope]]中引用的两个相同的作用域链同时被初始化，然后一个新的激活对象为闭包自身创建。如下图：</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><img src="3831628033028.png" alt="" width="824" height="609"></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　可以看到，id和saveDocument两个标识符存在于作用域链第一个对象之后的位置。这是闭包最主要的性能关注点：你经常访问一些范围之外的标识符，每次访问都将导致一些性能损失。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　在脚本中最好小心的使用闭包，内存和运行速度都值得被关注。但是，你可以通过上文谈到的，将常用的域外变量存入局部变量中，然后直接访问局部变量。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif;"><strong><span style="background-color: #99ccff;">　　Object Members 对象成员</span></strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　对象成员包括属性和方法，在Javascript中，二者差别甚微。对象的一个命名成员可以包含任何数据类型。既然函数也是一种对象，那么对象成员除了传统数据类型外，也可以包含函数。当一个命名成员引用了一个函数时，它被称作一个&ldquo;方法&rdquo;，而一个非函数类型的数据则被称作&ldquo;属性&rdquo;。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　如前所言，对象成员的访问比直接量和局部变量访问速度慢，在某些浏览器上比访问数组还慢，这与Javascript中对象的性质有关。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 14pt;"><span style="background-color: #ccffff;">　　Prototype 原型</span>　</span>　</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　Javascript中的对象是基于原型的，一个对象通过内部属性绑定到它的原型。Firefox，Safari和Chrome向开发人员开放这一属性，称作_proto_。其他浏览器不允许脚本访问这个属性。任何时候我们创建一个内置类型的实现，如Object或Array，这些实例自动拥有一个Object作为它们的原型。而对象可以有两种类型的成员：实例成员和原型成员。实例成员直接存在于实例自身而原型成员则从对象继承。考虑如下例子：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;">1</span> <span style="color: #000000;">var book = {
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">　　title: "High Performance JavaScript",
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">　　publisher: "Yahoo! Press" 
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">};
+</span><span style="color: #008080;">5</span> alert(book.toString()); //"[object Object]"</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　此代码中book有title和publisher两个实例成员。注意它并没有定义toString()接口，但这个接口却被调用且没有抛出错误。toString()函数就是一个book继承自原型对象的原型成员。下图表示了它们的关系：</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><img src="5925695354247.png" alt="" width="741" height="297"></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　处理对象成员的过程与处理变量十分相似。当book.toString()被调用时，对成员进行名为&ldquo;toString&rdquo;的搜索，首先从对象实例开始，若果没有名为toString的成员，那么就转向搜索原型对象，在那里发现了toString()方法并执行它。通过这种方法，book可以访问它的原型所拥有的每个属性和方法。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　我们可以使用hasOwnProperty()函数确定一个对象是否具有特定名称的实例成员。实例略。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-size: 14pt; font-family: arial, helvetica, sans-serif; background-color: #ccffff;"><strong>　　Prototype Chains 原型链</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　对象的原型决定了一个实例的类型。默认情况下，所有对象都是Object的实例，并继承了所有基本方法。如toString()。我们也可以使用构造器创建另外一种原型。例如：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><span style="color: #008080;"> 1</span> <span style="color: #000000;">function Book(title, publisher){ 
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">　　this.title = title;
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">　　this.publisher = publisher;
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 5</span> 
+<span style="color: #008080;"> 6</span> <span style="color: #000000;">Book.prototype.sayTitle = function(){
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">　　alert(this.title); 
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">};
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">　　var book1 = new Book("High Performance JavaScript", "Prototype Chains"); 
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">　　var book2 = new Book("JavaScript: The Good Parts", "Prototype Chains"); 
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">　　alert(book1 instanceof Book); //true
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">　　alert(book1 instanceof Object); //true
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">　　book1.sayTitle(); //"High Performance JavaScript" 
+</span><span style="color: #008080;">14</span> 　　alert(book1.toString()); //"[object Object]"</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　Book构造器用于创建一个新的book实例book1。book1的原型（_proto_）是Book.prototype，Book.prototype的原型是Object。这就创建了一条原型链。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　注意，book1和book2共享了同一个原型链。每个实例拥有自己的title和publisher属性，其他成员均继承自原型。而正如你所怀疑的那样，深入原型链越深，搜索的速度就会越慢，特别是IE，每深入原型链一层都会增加性能损失。记住，搜索实例成员的过程比访问直接量和局部变量负担更重，所以增加遍历原型链的开销正好放大了这种效果。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　</span></p>
+<p><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;"><strong>　　Nested Members 嵌套成员</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　由于对象成员可能包含其他成员。譬如window.location.href(获取当前页面的url)这种模式。每遇到一个点号(.)，Javascript引擎就要在对象成员上执行一次解析过程，而且成员嵌套越深，访问速度越慢。location.href总是快于window.location.href，而后者比window.location.href.toString()更快。如果这些属性不是对象的实例成员，那么成员解析还要在每个点上搜索原型链，这将需要更多的时间。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;"><strong>　　Summary 总结</strong></span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">在Javascript中，数据存储位置可以对代码整体性能产生重要影响。有四种数据访问类型：直接量，变量，数组项，对象成员。对它们我们有不同的性能考虑。</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">直接量和局部变量的访问速度非常快，而数组项和对象成员需要更长时间。</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">局部变量比外部变量快，是因为它位于作用域链的第一个对象中。变量在作用域链中的位置越深，访问所需的时间就越长。而全局变量总是最慢的，因为它处于作用域链的最后一环。</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">避免使用with表达式，因为它改变了运行期上下文的作用域链。而且应当特别小心对待try-catch语句的catch子句，它具有同样的效果。</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">嵌套对象成员会造成重大性能影响，尽量少用。</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">一般而言，我们通过将经常使用的对象成员，数组项，和域外变量存入局部变量中。然后，访问局部变量的速度会快于那些原始变量。</span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　通过上述策略，可以极大提高那些使用Javascript代码的网页应用的实际性能。</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　参考摘录《高性能Javascript》。</span></p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/BATjigedahulianwanggongsi2014qianduanbishimianshitiHtml,Csspian/index.html">&larr; BAT及各大互联网公司2014前端笔试面试题Html,Css篇</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/BATjigedahulianwanggongsi2014qianduanbishimianshitiHtml,Csspian/index.html">高性能Javascript脚本的无阻塞加载策略 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="20578435502218" data-title="高性能Javascript高效的数据访问" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/gaoxingnengJavascriptgaoxiaodeshujufangwen/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
