@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程</a> <span class="divider">/</span></li>
+                    <li class="active">android之使用get和post方式向服务器提交请求</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/congjavawangluobianchengxueqi1/index.html">&larr; 从java网络编程学起（1）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/congjavawangluobianchengxueqi1/index.html">05SaxDompull的比较 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>android之使用get和post方式向服务器提交请求</div><br><div id="article_content" class="article_content">
+
+<span style="font-size:14px">通过get和post方式向服务器发送请求<br>
+<br>
+<br>
+<br>
+<br>
+首先说一下get和post的区别<br>
+<br>
+<br>
+get请求方式是将提交的参数拼接在url地址后面，例如http://www.baidu.com/index.jsp?num=23&amp;jjj=888;<br>
+但是这种形式对于那种比较隐私的参数是不适合的，而且参数的大小也是有限制的，一般是1K左右吧，对于上传文件<br>
+就不是很适合。<br>
+<br>
+<br>
+<br>
+<br>
+post请求方式是将参数放在消息体内将其发送到服务器，所以对大小没有限制，对于隐私的内容也比较合适。<br>
+</span>
+<p><span style="font-size:14px">如下Post请求</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">POST /LoginCheck HTTP/1.1<br>
+Accept: text/html, application/xhtml&#43;xml, */*<br>
+Referer: http://192.168.2.1/login.asp<br>
+Accept-Language: zh-CN<br>
+User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; BOIE9;ZHCN)<br>
+Content-Type: application/x-www-form-urlencoded<br>
+Accept-Encoding: gzip, deflate<br>
+Host: 192.168.2.1<br>
+Content-Length: 39<br>
+Connection: Keep-Alive<br>
+Cache-Control: no-cache<br>
+Cookie: language=en<br>
+<br>
+<br>
+Username=admin&amp;checkEn=0&amp;Password=admin //参数位置<br>
+在android中用get方式向服务器提交请求：<br>
+<br>
+<br>
+在android模拟器中访问本机中的tomcat服务器时，注意：不能写localhost，因为模拟器是一个单独的手机系统，所以要写真是的IP地址。<br>
+否则无法访问到服务器。<br>
+<br>
+<br>
+//要访问的服务器地址，下面的代码是要向服务器提交用户名和密码，提交时中文先要经过URLEncoder编码，因为模拟器默认的编码&#26684;式是utf-8<br>
+//而tomcat内部默认的编码&#26684;式是ISO8859-1，所以先将参数进行编码，再向服务器提交。<br>
+<br>
+</span></p>
+<p><span style="font-size:14px">GET</span></p>
+<p><span style="font-size:14px"></span><pre name="code" class="java">private String address = &quot;http://192.168.2.101:80/server/loginServlet&quot;;
+
+
+public boolean get(String username, String password) throws Exception {
+username = URLEncoder.encode(username);// 中文数据需要经过URL编码
+password = URLEncoder.encode(password);
+String params = &quot;username=&quot; + username + &quot;&amp;password=&quot; + password; 
+//将参数拼接在URl地址后面
+URL url = new URL(address + &quot;?&quot; + params);
+//通过url地址打开连接
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//设置超时时间
+conn.setConnectTimeout(3000);
+//设置请求方式
+conn.setRequestMethod(&quot;GET&quot;);
+//如果返回的状态码是200，则一切Ok，连接成功。
+return conn.getResponseCode() == 200;
+}
+</pre></p>
+<div id="article_content" class="article_content"><span style="font-size:14px">在android中通过post方式提交数据。<br>
+<br>
+<br>
+<span style="white-space:pre"></span>public boolean post(String username, String password) throws Exception {<br>
+<span style="white-space:pre"></span>username = URLEncoder.encode(username);<span style="white-space:pre"></span>// 中文数据需要经过URL编码<br>
+<span style="white-space:pre"></span>password = URLEncoder.encode(password);<br>
+<span style="white-space:pre"></span>String params = &quot;username=&quot; &#43; username &#43; &quot;&amp;password=&quot; &#43; password;
+<br>
+<span style="white-space:pre"></span>byte[] data = params.getBytes();<br>
+<span style="white-space:pre"></span><br>
+<span style="white-space:pre"></span>URL url = new URL(address);<br>
+<span style="white-space:pre"></span>HttpURLConnection conn = (HttpURLConnection) url.openConnection();<br>
+<span style="white-space:pre"></span>conn.setConnectTimeout(3000);<br>
+<span style="white-space:pre"></span>//这是请求方式为POST<br>
+<span style="white-space:pre"></span>conn.setRequestMethod(&quot;POST&quot;);<br>
+<span style="white-space:pre"></span>//设置post请求必要的请求头<br>
+<span style="white-space:pre"></span>conn.setRequestProperty(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);<span style="white-space:pre"></span>// 请求头, 必须设置<br>
+<span style="white-space:pre"></span>conn.setRequestProperty(&quot;Content-Length&quot;, data.length &#43; &quot;&quot;);<span style="white-space:pre"></span>// 注意是字节长度, 不是字符长度<br>
+<span style="white-space:pre"></span><br>
+<span style="white-space:pre"></span>conn.setDoOutput(true);<span style="white-space:pre"></span>// 准备写出<br>
+<span style="white-space:pre"></span>conn.getOutputStream().write(data);<span style="white-space:pre"></span>// 写出数据<br>
+<span style="white-space:pre"></span><br>
+<span style="white-space:pre"></span>return conn.getResponseCode() == 200;<br>
+<span style="white-space:pre"></span>}</span> </div>
+<br>
+<br>
+<p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/congjavawangluobianchengxueqi1/index.html">&larr; 从java网络编程学起（1）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/congjavawangluobianchengxueqi1/index.html">05SaxDompull的比较 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="8272487450480" data-title="android之使用get和post方式向服务器提交请求" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/androidzhishiyonggethepostfangshixiangfuwuqitijiaoqingqiu/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

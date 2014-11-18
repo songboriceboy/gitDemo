@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发</a> <span class="divider">/</span></li>
+                    <li class="active">快速开发之02——textview能有点击事件发生</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/jiaonizenmequyigeAPPdeJSONshujunidongde/index.html">&larr; 教你怎么去一个APP的JSON数据，你懂的</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/jiaonizenmequyigeAPPdeJSONshujunidongde/index.html">快速开发之01——button的按钮效果 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>快速开发之02——textview能有点击事件发生</div><br><div id="article_content" class="article_content">
+
+<p>有时候点击不止只有Button组件有，为了美观 textview也能有一个美观的效果</p>
+<p>而textview的点击事件的出现，只是为了一个能显示文字又能点击而有美观的事情发生，当然你也可以用 能显示文字的button来搞定</p>
+<p>先看效果图</p>
+<p><img src="31270389312529.jpg" alt=""><br>
+</p>
+<p><br>
+</p>
+<p>代码</p>
+<p><pre name="code" class="html">    &lt;TextView
+        android:background=&quot;@drawable/shape_selector&quot;
+        android:clickable=&quot;true&quot;
+        android:onClick=&quot;reEnterSetup&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;5dip&quot;
+        android:layout_marginTop=&quot;8dip&quot;
+        android:text=&quot;重新进入设置向导&quot;
+        android:textColor=&quot;#000000&quot;
+        android:textSize=&quot;20sp&quot; /&gt;</pre><br>
+首先</p>
+<p>第一步设置 能否点击</p>
+<p>android:clickable=&quot;true&quot;</p>
+<p>第二步增加背景属性</p>
+<p>android:background=&quot;@drawable/shape_selector&quot;<br>
+</p>
+<p>其实这里设计到了一个shape图形，不及先看&nbsp;</p>
+<p>shape_selector的xml代码<pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;item android:state_pressed=&quot;true&quot;
+          android:drawable=&quot;@drawable/gradient_box_pressed&quot; /&gt; &lt;!-- pressed --&gt;
+          
+    &lt;item android:state_focused=&quot;true&quot;
+          android:drawable=&quot;@drawable/gradient_box_pressed&quot; /&gt; &lt;!-- focused --&gt;
+          
+  
+    &lt;item android:drawable=&quot;@drawable/gradient_box&quot; /&gt; &lt;!-- default --&gt;
+&lt;/selector&gt;</pre><br>
+</p>
+<p>以上&#26684;式是shape图形要求的,这里不懂就得去看谷歌官方的说明了先看</p>
+<p>1.gradient_box_pressed<br>
+</p>
+<p><pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:shape=&quot;rectangle&quot; &gt;
+
+    &lt;corners android:radius=&quot;5dip&quot; /&gt;
+    &lt;!--
+    渐变 
+    &lt;gradient android:startColor=&quot;#ff0000&quot;  android:endColor=&quot;#00ffff&quot;/&gt;
+    --&gt;
+
+
+    &lt;!-- 固定色 --&gt;
+    &lt;solid android:color=&quot;#44000000&quot; /&gt;
+
+   &lt;!--  &lt;stroke
+        android:dashWidth=&quot;3dip&quot;
+        android:width=&quot;2dip&quot;
+        android:color=&quot;#000000&quot;
+        android:dashGap=&quot;15dip&quot; /&gt; --&gt;
+
+&lt;/shape&gt;</pre>rectangle就是矩形 这是我们要求的形状,<br>
+</p>
+<p>2.gradient_box_pressed</p>
+<p><pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:shape=&quot;rectangle&quot; &gt;
+
+    &lt;corners android:radius=&quot;5dip&quot; /&gt;
+    &lt;!--
+    渐变 
+    &lt;gradient android:startColor=&quot;#ff0000&quot;  android:endColor=&quot;#00ffff&quot;/&gt;
+    --&gt;
+
+
+    &lt;!-- 固定色 --&gt;
+    &lt;solid android:color=&quot;#44000000&quot; /&gt;
+
+   &lt;!--  &lt;stroke
+        android:dashWidth=&quot;3dip&quot;
+        android:width=&quot;2dip&quot;
+        android:color=&quot;#000000&quot;
+        android:dashGap=&quot;15dip&quot; /&gt; --&gt;
+
+&lt;/shape&gt;</pre><br>
+这是当你鼠标按着这里的变化</p>
+<p>3.gradient_box</p>
+<p><pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:shape=&quot;rectangle&quot; &gt;
+
+    &lt;corners android:radius=&quot;5dip&quot; /&gt;
+    &lt;!--
+    渐变 
+    &lt;gradient android:startColor=&quot;#ff0000&quot;  android:endColor=&quot;#00ffff&quot;/&gt;
+    --&gt;
+
+
+    &lt;!-- 固定色 --&gt;
+    &lt;solid android:color=&quot;#ffffff&quot; /&gt;
+
+   &lt;!--  &lt;stroke
+        android:dashWidth=&quot;3dip&quot;
+        android:width=&quot;2dip&quot;
+        android:color=&quot;#000000&quot;
+        android:dashGap=&quot;15dip&quot; /&gt; --&gt;
+
+&lt;/shape&gt;</pre><br>
+好啦结束了，只要照搬基本就可以使用了</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/jiaonizenmequyigeAPPdeJSONshujunidongde/index.html">&larr; 教你怎么去一个APP的JSON数据，你懂的</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/jiaonizenmequyigeAPPdeJSONshujunidongde/index.html">快速开发之01——button的按钮效果 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="16825419027402" data-title="快速开发之02——textview能有点击事件发生" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi02textviewnengyoudianjishijianfasheng/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

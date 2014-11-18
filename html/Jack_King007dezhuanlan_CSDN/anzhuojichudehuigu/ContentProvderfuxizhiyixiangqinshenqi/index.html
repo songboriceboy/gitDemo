@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">ContentProvder复习之一相亲神器</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/Day13chijiuhuacunchuSQLiteshujukucunchu/index.html">&larr; Day13持久化存储——SQLite数据库存储</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/Day13chijiuhuacunchuSQLiteshujukucunchu/index.html">Android获取屏幕分辨率及DisplayMetrics简介 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>ContentProvder复习之一相亲神器</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">刚刚复习完，内容提供者，这小伙子，对安卓很重要，对我倒不是很重要，因为在开发中用的并不多，不过听我同学说，面试的时候，面试官问他通讯录的数据库结构参数，&#23612;玛，我感觉还是多看下吧</span></p>
+<p><span style="font-size:18px"></span></p>
+<div style="border:0px none; margin:0px; padding:0px; color:rgb(0,0,0); font-family:Arial; line-height:28px; white-space:normal; background-color:rgb(242,242,242)">
+<strong style="border:0px; margin:0px; padding:0px">ContentResolver /<span class="wordhighlight-toolbar-span wordhighlight-toolbar-index0" style="color:#000!important; font:inherit!important; margin:0px!important; padding:0px!important; border:none!important">getContentResolver</span>()</strong></div>
+<div style="border:0px none; margin:0px; padding:0px; color:rgb(0,0,0); font-family:Arial; line-height:28px; white-space:normal; background-color:rgb(242,242,242)">
+外界的程序通过ContentResolver接口可以访问ContentProvider提供的数据，在Activity当中通过<span class="wordhighlight-toolbar-span wordhighlight-toolbar-index0" style="color:#000!important; font:inherit!important; margin:0px!important; padding:0px!important; border:none!important">getContentResolver</span>()可以得到当前应用的ContentResolver实例<br>
+<br>
+insert 第一个参数是uri 也就是 sms的接口 第二个value&nbsp; 你用contentvalues 封装的数据<br>
+<br>
+</div>
+这个demo 主要是思路，不要任何布局，打开软件 自己设置 几秒后 发送一条信息 给自己的手机内容也就是 如下<br>
+<p>
+<p><span style="font-size:18px"><img src="14946058306965.jpg" alt=""></span></p>
+<p><span style="font-size:18px">&nbsp;几秒钟用线程控制，然后借用SMS的内存提供者 进行发送短息</span></p>
+<p><span style="font-size:18px"></span><pre name="code" class="java">package com.example.LoveMagine;
+
+import android.app.Activity;
+import android.content.ContentValues;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.SystemClock;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        new Thread(new Runnable() {
+        	// 停30秒钟, 想系统短信数据库中写一条短信
+			@Override
+			public void run() {
+				SystemClock.sleep(10*1000);
+				Uri uri=Uri.parse(&quot;content://sms/&quot;);//操作SMS的uri
+				ContentValues values = new ContentValues();
+				values.put(&quot;address&quot;, &quot;95533&quot;);
+				values.put(&quot;type&quot;, &quot;1&quot;);
+				values.put(&quot;body&quot;, &quot;您的尾号为8890的账户, 收到50, 000元的转账. 活期余额为: 80000.00元&quot;);
+				getContentResolver().insert(uri, values);
+			}
+		}).start();
+    }
+
+}
+</pre><br>
+<br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/Day13chijiuhuacunchuSQLiteshujukucunchu/index.html">&larr; Day13持久化存储——SQLite数据库存储</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/Day13chijiuhuacunchuSQLiteshujukucunchu/index.html">Android获取屏幕分辨率及DisplayMetrics简介 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="17726797159875" data-title="ContentProvder复习之一相亲神器" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/ContentProvderfuxizhiyixiangqinshenqi/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

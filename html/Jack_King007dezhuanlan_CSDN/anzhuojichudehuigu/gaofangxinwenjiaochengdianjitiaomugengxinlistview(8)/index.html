@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">高仿新闻教程——点击条目更新listview(8)</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengqingqiuwangluoshujujiaruxinwenneirongye11/index.html">&larr; 高仿新闻教程——请求网络数据加入新闻内容页（11）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengqingqiuwangluoshujujiaruxinwenneirongye11/index.html">高仿新闻教程——添加button实现加载更多数据(9) &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>高仿新闻教程——点击条目更新listview(8)</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">&nbsp; 对于要点击条目获取不同内容并让 listview更新的话，首先要获取到ID号。</span></p>
+<p>首先让list集合变成全局的，不用在new出现来，不然会导致不同空间不同数据，这也是我前代码一个bug <br>
+</p>
+<p><span style="font-size:18px">List&lt;HashMap&lt;String, Object&gt;&gt; newsData = getSpeCateNews(mCid);</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<p><span style="font-size:18px">private List&lt;HashMap&lt;String, Object&gt;&gt; mNewsData;</span><br>
+</p>
+<p>然后在gridview里面 获取ID号， 因为所有信息的传入 adapter 的时候被放入了一个集合中 categories <br>
+</p>
+<p>所以通过他可以获得ID</p>
+<p>//1.先获取一个集合categories<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//2.获取低级的条目categories.get(position)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//3.获取hashmap集合typecategories.get(position).get(&quot;category_title&quot;)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//type里面有点击的ID<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mCid = categories.get(position).get(&quot;category_title&quot;).getCid();</p>
+<p>其实这样修改并不会刷新数据，因为在前面所说 因为所对应的空间不多 数据都不同，所以刷新数据不成功最主要的是这一句话 <br>
+</p>
+<p>List&lt;HashMap&lt;String, Object&gt;&gt; newsList = new ArrayList&lt;HashMap&lt;String, Object&gt;&gt;();</p>
+<p><br>
+每一次都new出了一个新的list 空间也不同 所以代码要修改下 让所有新闻内容指向一个储存空间&nbsp; <br>
+</p>
+<p><img src="49084615426006.jpg" alt=""></p>
+<p>公用一个list集合</p>
+<p><img src="39771258161921.jpg" alt=""></p>
+<p>记住清空list集合</p>
+<p>end&nbsp; <br>
+</p>
+<p><img src="674219187847.jpg" alt=""><br>
+</p>
+<span id="pv-float-bar-container" style="top:1421px; left:0px"><span title="查看原始" class="pv-float-bar-button pv-float-bar-button-actual" style=""></span><span title="查看当前" class="pv-float-bar-button pv-float-bar-button-current"></span><span title="放大镜" class="pv-float-bar-button pv-float-bar-button-magnifier" style=""></span><span title="查看库" class="pv-float-bar-button pv-float-bar-button-gallery"></span></span><span id="pv-float-bar-container" style="top:1421px; left:0px"><span title="查看原始" class="pv-float-bar-button pv-float-bar-button-actual" style=""></span><span title="查看当前" class="pv-float-bar-button pv-float-bar-button-current"></span><span title="放大镜" class="pv-float-bar-button pv-float-bar-button-magnifier" style=""></span><span title="查看库" class="pv-float-bar-button pv-float-bar-button-gallery"></span></span>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengqingqiuwangluoshujujiaruxinwenneirongye11/index.html">&larr; 高仿新闻教程——请求网络数据加入新闻内容页（11）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengqingqiuwangluoshujujiaruxinwenneirongye11/index.html">高仿新闻教程——添加button实现加载更多数据(9) &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="25633866585084" data-title="高仿新闻教程——点击条目更新listview(8)" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengdianjitiaomugengxinlistview(8)/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

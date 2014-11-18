@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">高仿新闻教程——请求网络数据加入新闻内容页（11）</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengxinwenneirongUIdeyouhua5/index.html">&larr; 高仿新闻教程—新闻内容UI的优化（5）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengxinwenneirongUIdeyouhua5/index.html">高仿新闻教程——点击条目更新listview(8) &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>高仿新闻教程——请求网络数据加入新闻内容页（11）</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">还记得我在学校做第一个做的APP，外卖APP，我身边的大牛，跟我说一句，你把你的那个页面的数据，传给我。</span></p>
+<p><span style="font-size:18px">那个时候我才学安卓2个月，对于Intent的用法或者对于他的认识不是很深刻最后在百度《安卓，怎么传递数据》</span></p>
+<p><span style="font-size:18px">结果Intent出现了。</span></p>
+<p><span style="font-size:18px; color:#FF0000">Intent为啥出现？</span></p>
+<p><span style="font-size:18px; color:#FF0000">当一个activity跳转的到另一个activity要考谁呢，新手都知道Intent，但是其实传递数据还真不是Intent的专利。这时候我就换下背景。</span></p>
+<p><span style="font-size:18px; color:#FF0000">你要去你亲戚家过节，看完亲人，你妈说你顺便把&#31036;物带过去，帮我带个平安................</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px; color:#FF0000">其实在某个时候，安卓学完UI还真是又回到了java，还记的<span class="biTitle"></span></span></p>
+<div class="biContent"><a target="_blank" target="_blank" href="http://baike.baidu.com/view/3600579.htm">埃克尔<span style="color:#FF0000">在java编程思想中说道 万物皆对象 你以为真是你自己浅薄的理解那样么，计算机因为是一个最接近科学的一门课程，就代表着你很难用人话来描述。</span></a><br>
+<br>
+<span style="color:#000000">我所能理解的解释，用生活中的实例去理解安卓所有知识点，对象是用来服务生活的，而不是将他无限接近科学的。<br>
+<br>
+所以Intent在跳转的时候，也能传递数据。<br>
+<span style="font-size:14px">1.&#20540;由A.class传递到B.class<br>
+<span style="color:#CC0000">A.class中：</span></span><br>
+</span><pre name="code" class="java">Intent intent = new Intent();
+ //设置传递方向 
+intent.setClass(A.this,B.class); 
+//绑定数据 
+intent.putExtra(&quot;username1&quot;,username); &lt;a target=_blank href=&quot;http://download.csdn.net/detail/jack_king007/8126471&quot;&gt;点击下载源码&lt;/a&gt;
+intent.putExtra(&quot;userpwd1&quot;userpwd);
+ /*或者绑定成一捆数据 
+Bundle data = new Bundle(); 
+data.putString(&quot;username1&quot;,username); 
+data.putString(&quot;userpwd1&quot;,userpwd);
+intent.putExtras(data); 
+*/ 
+//启动activity 
+this.startActivity(intent); 
+</pre>对于Bundle 和Intent传递数据呢，我&#20284;乎记得有人这么形象的描述 Intent的是 你去超市买东西，超市没给你袋子<br>
+Boundle 就是给了你一个袋子，你可以一起带走。<br>
+<br>
+<span style="color:#CC0000">B.class中：</span><br>
+Intent intent = getIntent(); <br>
+//获取数据 <br>
+String username = intent.getStringExtra(&quot;username1&quot;); <br>
+String userpwd = intent.getStringExtra(&quot;userpwd1&quot;); <br>
+/* Bundle data = intent.getExtras(); <br>
+String username = intent.getString(&quot;username1&quot;); <br>
+String userpwd = intent.getString(&quot;userpwd1&quot;); */ <br>
+<br>
+所以呢 看得出 我去超市买东西 是想拿袋子打包一起拿走的 所以我用的是bundle<br>
+<br>
+好了回到教程中 ，我们要获取<br>
+跟帖数&nbsp; commentcount<br>
+新闻标题 mCatName<br>
+position<br>
+而新闻体标题需要用一个全局变量String 来储存 private String mCatName;&nbsp; 然后再gridview里面获取到<br>
+&nbsp;&nbsp;&nbsp;<span style="color:#FF0000"> mCatName = categories.get(position).get(&quot;category_title&quot;).getTitle();<br>
+跟帖数 需要在 解析数据的时候 解析出来<br>
+&nbsp;&nbsp;&nbsp; hashMap.put(&quot;newslist_item_comments&quot;, newsObject.getString(&quot;commentcount&quot;));<br>
+<br>
+然后开始传递 <br>
+</span><pre name="code" class="java">	//把需要的信息放到Intent中
+				intent.putExtra(&quot;newsDate&quot;, mNewsData);
+				intent.putExtra(&quot;position&quot;, position);
+				intent.putExtra(&quot;categoryName&quot;, mCatName);
+				startActivity(intent);</pre><br>
+好啦 现在应该传&#20540;到了 新闻内容类了 然后后面基本上就是复制给UI&nbsp; 然后进行JSON解析新闻内容到本地<br>
+<br>
+<br>
+<pre name="code" class="java">	/**
+	 * 获取新闻详细信息
+	 * @return
+	 */
+	private String getNewsBody()
+	{
+		String retStr = &quot;网络连接失败，请稍后再试&quot;;
+		String url=&quot;http://192.168.1.12:8080/web/getNews?nid=&quot;+mNid;
+		try
+		{
+			String json = HttpUtils.getData(url);
+			JSONObject jsonObject = new JSONObject(json);
+			//获取返回码，0表示成功
+			int retCode = jsonObject.getInt(&quot;ret&quot;);
+			if (0 == retCode)
+			{
+				JSONObject dataObject = jsonObject.getJSONObject(&quot;data&quot;);
+				JSONObject newsObject = dataObject.getJSONObject(&quot;news&quot;);
+				retStr = newsObject.getString(&quot;body&quot;);
+			}
+
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return retStr;
+	}
+	</pre><br>
+<a target="_blank" href="http://download.csdn.net/detail/jack_king007/8126471">点击下载源码</a><br>
+<br>
+<a target="_blank" target="_blank" href="http://baike.baidu.com/view/3600579.htm"><span style="color:#FF0000"></span></a></div>
+<p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengxinwenneirongUIdeyouhua5/index.html">&larr; 高仿新闻教程—新闻内容UI的优化（5）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengxinwenneirongUIdeyouhua5/index.html">高仿新闻教程——点击条目更新listview(8) &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="30527129206402" data-title="高仿新闻教程——请求网络数据加入新闻内容页（11）" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/gaofangxinwenjiaochengqingqiuwangluoshujujiaruxinwenneirongye11/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

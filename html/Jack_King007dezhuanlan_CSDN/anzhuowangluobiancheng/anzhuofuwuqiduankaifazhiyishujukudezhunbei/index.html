@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程</a> <span class="divider">/</span></li>
+                    <li class="active">安卓服务器端开发之一数据库的准备</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/caipiaoxiangmuzhixieyifenxifengzhuang/index.html">&larr; 彩票项目之协议分析，封装</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/caipiaoxiangmuzhixieyifenxifengzhuang/index.html">安卓服务器端之二服务器的建立 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>安卓服务器端开发之一数据库的准备</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:24px">最近学校来一批人培训学校的，我看了Oracle数据库的培训，我在想&#23612;玛这高级啊，直接对联企业级的开发，不过想了想平时自己开发怎么可能用那个数据库，学习成本又高。</span></p>
+<p><span style="font-size:24px">我们的猪脚：mysql，和navicat界面化操作软件。</span></p>
+<p><span style="font-size:24px">想起来我在学校老师叫我们的sql2005 哎 伤不起。</span></p>
+<p><span style="font-size:24px">对于mysql 基本命令行还是需要自己了解 &nbsp;启动服务命令</span></p>
+<p><span style="font-size:24px">开始-&gt;运行-&gt;cmd<br>
+停止：net stop mysql<br>
+启动：net start mysql<br>
+</span></p>
+<p><span style="font-size:24px">既然我都说了界面化软件 我就不多说命令了，后面的指令我会贴出来</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">安装mysql 网上都有教程</span></p>
+<p><span style="font-size:24px">http://www.jb51.net/article/23876.htm</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">在安装的时候 记得把自己的密码记住，不然你会很悲催的</span></p>
+<p><span style="font-size:24px">因为我准备的的教程是根据 一个网络商城 所写的 我把基本流程说一遍大家举一反三，基本能想出来</span></p>
+<p><span style="font-size:24px">1数据库和服务器端</span></p>
+<p><span style="font-size:24px">首先数据库的表必须是utf-8 跟服务器端编码&#26684;式是一样的，这样就不会造成乱码，我一开始用界面化软件建表，不能输入中文，这&#23612;玛很坑爹 有木有，无奈之下 用命令行吧</span></p>
+<p>先创建一个数据库 名字叫cv 和一个表<pre name="code" class="sql">	create database if not exists test;
+	use test;
+	create table help_id(
+		id int primary key auto_increment,
+		help_id int(20),
+		title varchar(20),
+		content varchar(255),
+		state int(20)
+	)default charset=utf8;</pre>然后自己在界面化软件看看是否创建成功&nbsp;</p>
+<p>以次类推 创建help表</p>
+<p><img src="10280666968026.jpg" alt=""><br>
+</p>
+<p><span style="font-size:24px">其实help_id要加入一个外键 大家可以在界面话软件中添加</span></p>
+<p><span style="font-size:24px"><img src="1503445680487.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px">再添加一些内容 help_id表</span></p>
+<p><span style="font-size:24px"><img src="3993128929589.jpg" alt=""></span></p>
+<p><span style="font-size:24px">help表</span></p>
+<p><span style="font-size:24px"><img src="13492509579917.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px">好啦，数据库就创建成功了，然后就开始第二章了 服务器端月数据库的连接了</span></p>
+<p><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/caipiaoxiangmuzhixieyifenxifengzhuang/index.html">&larr; 彩票项目之协议分析，封装</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/caipiaoxiangmuzhixieyifenxifengzhuang/index.html">安卓服务器端之二服务器的建立 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="40208949907585" data-title="安卓服务器端开发之一数据库的准备" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/anzhuofuwuqiduankaifazhiyishujukudezhunbei/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">安卓四大组件的复习——窃听电话(四)</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuofuxijichuxueshengguanlixitong/index.html">&larr; 安卓复习基础学生管理系统</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuofuxijichuxueshengguanlixitong/index.html">安卓四大组件的复习——实现IP拨号Demo &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>安卓四大组件的复习——窃听电话(四)</div><br><div id="article_content" class="article_content">
+
+<p>这一节我是用来复习service~~~~~~~~~~~~~~~·<br>
+</p>
+<p><span style="font-size:18px">安卓为什么会有服务，有什么用？</span></p>
+<p><span style="font-size:18px">答案： 起先安卓是靠着linux 定制的系统，后来自己封装了一些东西，就变成了安卓。linux 没有服务但是有进程。安卓就借着这个概念，研究出来了 service<br>
+</span></p>
+<p><span style="font-size:18px">service：没有界面的acitivty 没什么这么说呢 ，因为它有生命周期，是不是很变态。</span></p>
+<p><span style="font-size:18px">&nbsp;其实对于service 的应用，最常用的就是MP3的播放。 基本概念我就不多了。 <br>
+</span></p>
+<p><span style="font-size:18px">先用一个Demo来解释</span></p>
+<p><span style="font-size:18px">思路，用户打开应用就开启服务监控电话 ，还需要建立一个类，来开启服务和一些监控手机电话的一些操作</span></p>
+<p><span style="font-size:18px"></span></p>
+<pre name="code" class="java">package com.itheima.callstatuslintener;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		//开启服务
+		Intent intent = new Intent(this,PhoneStatusService.class);
+		startService(intent);
+		
+	}
+
+
+
+}
+</pre>到了 service类&nbsp; 按照规则 先去配置文件注册
+<p>
+<p><span style="font-size:18px">&nbsp; &lt;service android:name=&quot;.PhoneStatusService&quot;&gt;&lt;/service&gt;</span></p>
+<p><span style="font-size:18px">service&nbsp; 不像广播&nbsp; 配置名字就是service&nbsp;&nbsp; 后面是要注册的类名</span></p>
+<p><span style="font-size:18px">开始编写service 类吧</span></p>
+<p><span style="font-size:18px">我在前面说过 一个service 是有生命周期的，基本和activity差不多</span></p>
+<p><span style="font-size:18px">Oncreate&nbsp; Ondestory&nbsp; OnstartComment()&nbsp; ....但是基本能用的就是Oncreate&nbsp; 和Ondestory</span></p>
+<p><span style="font-size:18px">在service 中创建的时候 ，开始监听电话&nbsp; <br>
+</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px"></span></p>
+<pre name="code" class="java">package com.itheima.callstatuslintener;
+
+import java.io.IOException;
+
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaRecorder;
+import android.os.IBinder;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+
+public class PhoneStatusService extends Service {
+	/**
+	 * 长期在后台运行的组件,如果用户不手动的关闭 , 不会停止的.
+	 */
+	@Override
+	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		System.out.println(&quot;服务被创建了 &quot;);
+		// 监视用户电话状态的变化...
+		// 电话管理器 电话管理的服务
+		TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+		// 监听手机的通话状态的变化
+		tm.listen(new MyPhoneStatusLinstener(),
+				PhoneStateListener.LISTEN_CALL_STATE);
+
+	}
+
+	private class MyPhoneStatusLinstener extends PhoneStateListener {
+		private MediaRecorder recorder;
+
+		@Override
+		public void onCallStateChanged(int state, String incomingNumber) {
+			try {
+				switch (state) {
+				case TelephonyManager.CALL_STATE_IDLE: // 空闲状态 ,没有通话 没有响铃
+					if (recorder != null) {
+						recorder.stop();
+						recorder.reset(); // You can reuse the object by going back
+						recorder.release(); // Now the object cannot be reused
+						recorder = null;
+					}
+
+					break;
+				case TelephonyManager.CALL_STATE_RINGING: // 响铃状态.
+					System.out.println(&quot;发现来电号码 :&quot; + incomingNumber);
+					// 1.创建出来一个录音机
+					recorder = new MediaRecorder();
+					// 设置录制的音频源 从话筒里面获取声音
+					recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+					recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+					recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+					recorder.setOutputFile(&quot;/sdcard/&quot; + System.currentTimeMillis()
+							+ &quot;.3gp&quot;);
+					recorder.prepare();
+
+					break;
+				case TelephonyManager.CALL_STATE_OFFHOOK: // 通话状态
+					if (recorder != null) {
+						recorder.start(); // Recording is now started
+					}
+					break;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			super.onCallStateChanged(state, incomingNumber);
+		}
+
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		System.out.println(&quot;服务被销毁了...&quot;);
+	}
+
+}
+</pre><br>
+<p>
+<p><span style="font-size:18px">基本上上面一段代码就是监听手机和开始录音，&nbsp; 都是模板代码&nbsp; 照抄就可以了</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuofuxijichuxueshengguanlixitong/index.html">&larr; 安卓复习基础学生管理系统</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuofuxijichuxueshengguanlixitong/index.html">安卓四大组件的复习——实现IP拨号Demo &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="42093248786839" data-title="安卓四大组件的复习——窃听电话(四)" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuosidazujiandefuxiqietingdianhua(si)/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

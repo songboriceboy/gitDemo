@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">安卓(1)教你怎么使用下拉刷新</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuosidazujianfuxijiantingduanxiner/index.html">&larr; 安卓四大组件复习监听短信（二）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuosidazujianfuxijiantingduanxiner/index.html">内容观察者复习监听短信demo &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>安卓(1)教你怎么使用下拉刷新</div><br><div id="article_content" class="article_content">
+
+<p>很久没用开源项目，重新复习一下下拉刷新&nbsp; 也是想总结下一个项目，应该需要那些东西， 为自己打下基础， 你也可以自己去下 library，关于源码我会在后面放在</p>
+<p>效果图&nbsp; <br>
+</p>
+<p><img src="23921086774699.jpg" alt=""><br>
+</p>
+<p>pulltorefresh（下拉刷新） 有一个类是 PullToRefreshListView 因为我只讲下拉刷新，所以只取了一部分的类。 首先复制 将一个包
+<br>
+</p>
+<p>&nbsp;粘贴进 你的工程</p>
+<p><img src="19583279853519.jpg" alt=""></p>
+<p><br>
+</p>
+<p>需要注意&nbsp; 这个类还需要一些资源文件：</p>
+<p>layout ： header.xml 头部出现的布局&nbsp; pull_to_refresh_header.xml 刷新的时候出现的布局&nbsp;&nbsp;&nbsp; 如果你们老板不喜欢可以自己定制
+<br>
+</p>
+<p>drawable-hdpi：目录下 有两张图片 pulltorefresh_down_arrow.png&nbsp;&nbsp; pulltorefresh_up_arrow.png&nbsp; 看名字知道 一个是下拉时图片。一个下拉到一个距离 出现的</p>
+<p>还需要一个res/values/attrs.xml 自定义标签&nbsp; <br>
+</p>
+<p><br>
+</p>
+<p>还有res/values/Strings.xml</p>
+<p>加入&nbsp; 这里你可以编辑 下拉时候出现的文字<br>
+</p>
+<p><pre name="code" class="java">    &lt;string name=&quot;pull_to_refresh_pull_label&quot;&gt;Pull to refresh...&lt;/string&gt;
+    &lt;string name=&quot;pull_to_refresh_release_label&quot;&gt;Release to refresh...&lt;/string&gt;
+    &lt;string name=&quot;pull_to_refresh_refreshing_label&quot;&gt;Loading...&lt;/string&gt;
+    &lt;string name=&quot;pull_to_refresh_tap_label&quot;&gt;Tap to refresh...&lt;/string&gt;</pre></p>
+<p>其实对于这个开源项目，你可以理解为一个线性布局，因为它内置了一个Listview ，就和ListFagment一样。</p>
+<p><br>
+</p>
+<p>相信大家都已经把项目建好了，我在上面已经说过了，可以当作一个线性布局，so&nbsp; 你 就拿着当线性布局用就行了&nbsp; 先写布局</p>
+<p><br>
+</p>
+<p><pre name="code" class="html">、&lt;pre name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; &gt;
+
+    &lt;pulltorefresh.PullToRefreshListView
+        android:id=&quot;@+id/ptrlv&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;fill_parent&quot;&gt;
+    &lt;/pulltorefresh.PullToRefreshListView&gt;
+
+&lt;/RelativeLayout&gt;</pre><br>
+</p>
+<pre></pre>
+<pre name="code" class="html">&lt;pre name=&quot;code&quot; class=&quot;html&quot;&gt;pulltorefresh.PullToRefreshListView  是 PullToRefreshListView类的全名 为了避免出错 ，直接复制包名 打开 PullToRefreshListView 子节点 直接右击一下 选择  copy qualifiled Name
+
+&lt;span style=&quot;font-size:18px;&quot;&gt;开始写java代码吧 &lt;/span&gt;
+既然在xml 里定义了，肯定要在java代码中实例化，
+&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;    private PullToRefreshListView pullToRefreshListView;
+pullToRefreshListView = (PullToRefreshListView) findViewById(R.id.ptrlv);</pre><br>
+然后通过 getRefreshableView(); 得到一个 listview然后用adapter填充数据 <br>
+接着 下拉刷新有个方法 setOnRefreshListener 下拉监听 通常情况下：请求网络新数据、解析、展示<br>
+<pre></pre>
+<pre></pre>
+<p>
+<p>全部代码 <br>
+</p>
+<p><pre name="code" class="java">package com.example.day24;
+
+import pulltorefresh.PullToRefreshBase.OnRefreshListener;
+import pulltorefresh.PullToRefreshListView;
+import android.app.Activity;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.os.Build;
+
+public class MainActivity extends Activity {
+	
+    private PullToRefreshListView pullToRefreshListView;
+    /** 将会被实例化为自定义的LinearLayout（PullToRefreshListView）中得到的ListView */
+	private ListView lv;
+    
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        pullToRefreshListView = (PullToRefreshListView) findViewById(R.id.ptrlv);
+        // 从LinearLayout中得到一个ListView
+        lv= pullToRefreshListView.getRefreshableView();
+    	// 给ListView填充数据
+        ArrayAdapter&lt;String&gt;adapter=new ArrayAdapter&lt;String&gt;(MainActivity.this,android.R.layout.simple_list_item_1, initData());
+        lv.setAdapter(adapter);
+        pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
+
+			@Override
+			public void onRefresh() {
+				//刷新操作，通常情况下：请求网络新数据、解析、展示
+				//造假：异步.如果要给doInBackground（）传参，可以在execute()中传参
+				new MyAsyncT().execute();
+			}
+		});
+    }
+	//listview中得假数据
+	private String[] initData() {
+		String [] datas=new String[10];
+		for (int i = 0; i &lt; datas.length; i++) {
+			datas[i]=&quot;item&quot;+i;
+		}
+		return datas;
+	}
+	/**泛型1：doInBackground（）参数：：：String  url
+	 * 泛型2：onProgressUpdate（）参数：：：Integer  progress
+	 * 泛型3：doInBackground（）返回值类型，
+	 * 同时也是onPostExecute（）参数类型   通常：String   byte[]   Bitmap*/
+	class MyAsyncT extends AsyncTask&lt;String, Integer, String&gt;{
+
+		@Override
+		protected String doInBackground(String... params) {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+		@Override
+		protected void onPostExecute(String result) {
+			//异步任务完成工作。告诉PullToRefreshListView任务完成
+			pullToRefreshListView.onRefreshComplete();
+			
+			super.onPostExecute(result);
+		}
+		
+	}
+}
+</pre>下一章&nbsp; 将下拉刷新 上拉加载更多一起写上<br>
+<span style="font-size:18px"><a target="_blank" target="_blank" href="http://download.csdn.net/detail/jack_king007/8153171">点击下载源码</a></span><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuosidazujianfuxijiantingduanxiner/index.html">&larr; 安卓四大组件复习监听短信（二）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuosidazujianfuxijiantingduanxiner/index.html">内容观察者复习监听短信demo &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="4830629336043" data-title="安卓(1)教你怎么使用下拉刷新" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/anzhuo(1)jiaonizenmeshiyongxialashuaxin/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

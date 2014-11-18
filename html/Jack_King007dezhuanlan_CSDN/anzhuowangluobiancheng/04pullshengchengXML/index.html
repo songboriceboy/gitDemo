@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程</a> <span class="divider">/</span></li>
+                    <li class="active">04pull生成XML</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/05SaxDompulldebijiao/index.html">&larr; 05SaxDompull的比较</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/05SaxDompulldebijiao/index.html">03pull解析xml &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>04pull生成XML</div><br><div id="article_content" class="article_content">
+
+<pre class="java" name="code">package com.example.lession04_pull.service;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlSerializer;
+import android.os.Environment;
+import android.util.Xml;
+
+import com.example.lession04_pull.domain.Person;
+
+public class PullXmlService {
+	
+	public Person currentPerson;
+
+	public List&lt;Person&gt; readXml(InputStream is){
+		//声明返回值
+		List&lt;Person&gt; persons=null;
+		//首先利用Xml.newPullParser()获取解析对象
+		XmlPullParser xmlPullParser=Xml.newPullParser();
+		try{
+			// 解析文件
+			xmlPullParser.setInput(is, &quot;UTF-8&quot;);
+			//获取解析的事件类型
+			int eventType=xmlPullParser.getEventType();
+			//判断文件解析的是否完毕
+			while(eventType!=XmlPullParser.END_DOCUMENT){
+				switch (eventType) {
+				case XmlPullParser.START_DOCUMENT:
+					persons=new ArrayList&lt;Person&gt;();
+					break;
+
+				case XmlPullParser.START_TAG:
+					String tagName=xmlPullParser.getName();
+					if(&quot;person&quot;.equals(tagName)){
+						//创建person对象
+						currentPerson=new Person();
+						currentPerson.setId(Integer.parseInt(xmlPullParser
+								.getAttributeValue(null, &quot;id&quot;)));
+					}else if(&quot;name&quot;.equals(tagName)){
+						currentPerson.setName(xmlPullParser.nextText());
+					}else if(&quot;age&quot;.equals(tagName)){
+						currentPerson.setAge(new Short(xmlPullParser.nextText()));
+					}
+					break;
+				case XmlPullParser.END_TAG:
+					if(&quot;person&quot;.equals(xmlPullParser.getName()) &amp;&amp; currentPerson!=null){
+						//把person对象放到集合中去
+						persons.add(currentPerson);
+						currentPerson=null;
+					}
+					break;
+				}
+				eventType=xmlPullParser.next();
+			}
+			is.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return persons;
+	}
+	
+	
+	
+	// 写入
+		public boolean write(List&lt;Person&gt; persons) {
+			// 采用pull解析进行实现
+
+			if (Environment.getExternalStorageState().equals(
+					Environment.MEDIA_MOUNTED)) {
+
+				// 获取sdcard目录 文件对象
+				File sdCardDir = Environment.getExternalStorageDirectory();
+				// 创建文件
+				File file = new File(sdCardDir, &quot;mycsdn.xml&quot;);
+
+				XmlSerializer serializer = Xml.newSerializer();
+
+				FileOutputStream fos = null;
+				try {
+					// 根据文件对象创建一个文件的输出流对象
+					fos = new FileOutputStream(file);
+					// 设置输出的流及编码
+					serializer.setOutput(fos, &quot;UTF-8&quot;);
+					// 设置文件的开始
+					serializer.startDocument(&quot;UTF-8&quot;, true);
+					// persons标签开始
+					serializer.startTag(null, &quot;persons&quot;);
+					for (Person person : persons) {
+						// person标签的开始
+						serializer.startTag(null, &quot;person&quot;);
+						// 设置person标签的属性
+						serializer.attribute(&quot;null&quot;, &quot;id&quot;, person.getId() + &quot;&quot;);
+
+						// 设置person标签的子标签 name
+						serializer.startTag(null, &quot;name&quot;);
+						serializer.text(person.getName());
+						serializer.endTag(null, &quot;name&quot;);
+
+						// 设置person标签的子标签的age
+						serializer.startTag(null, &quot;age&quot;);
+						serializer.text(person.getAge() + &quot;&quot;);
+						serializer.endTag(null, &quot;age&quot;);
+
+						// person标签的结束
+						serializer.endTag(null, &quot;person&quot;);
+					}
+
+					// persons标签的结束
+					serializer.endTag(null, &quot;persons&quot;);
+					// 文件的结束
+					serializer.endDocument();
+
+					fos.flush();
+					fos.close();
+					return true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+
+			return false;
+		}
+
+}</pre><br>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/05SaxDompulldebijiao/index.html">&larr; 05SaxDompull的比较</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/05SaxDompulldebijiao/index.html">03pull解析xml &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="20674279470461" data-title="04pull生成XML" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/04pullshengchengXML/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">Day13持久化存储——SQLite数据库存储（使用contentValue封装）</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/day13shujukudesixiang/index.html">&larr; day13数据库的思想</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/day13shujukudesixiang/index.html">Day13持久化存储——SQLite数据库存储(增删改) &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>Day13持久化存储——SQLite数据库存储（使用contentValue封装）</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:24px; color:#ff0000">ContentValues&nbsp;</span></p>
+<p><span style="font-size:24px">在SQLiteDatabase类之中也专门提供了insert()、update()、delete()、query()等方法，但是在使用这些方法进行数据库操作的时候，所有的数据必须使用ContentValues类进行封装。&nbsp;<br>
+android.content.ContentValues的功能与HashMap类的功能类&#20284;，都是采用“key=value”的形式保存数据，唯一不同的是在ContentValues类中所设置的key都是String型的数据，而所设置的value都是基本数据类型的包装类。</span><pre name="code" class="java">package com.example.demotest;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class MyDatabaseHelper extends SQLiteOpenHelper {
+
+	private static final String DATABASENAME = &quot;mldn.db&quot; ;	// 数据库名称
+	private static final int DATABASEVERSION = 1 ;	// 数据库名称
+	private static final String TABLENAME = &quot;mytab&quot; ;	// 数据表名称
+	public MyDatabaseHelper(Context context) {
+		super(context, DATABASENAME, null, DATABASEVERSION);// 调用父类构造
+	}
+	@Override
+	public void onCreate(SQLiteDatabase db) {		// 创建数据表
+		String sql = &quot;CREATE TABLE &quot; + TABLENAME + &quot; (&quot; + 
+			&quot;id			INTEGER 		PRIMARY KEY ,&quot; + 
+			&quot;name		VARCHAR(50)		NOT NULL ,&quot; + 
+			&quot;birthday	DATE			NOT NULL)&quot;;// SQL语句
+		db.execSQL(sql) ;				// 执行SQL语句
+	}
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		String sql = &quot;DROP TABLE IF EXISTS &quot; + TABLENAME ;	// SQL语句
+		db.execSQL(sql);				// 执行SQL语句
+		this.onCreate(db); 				// 创建表
+	}
+//	public void insert(String name, String birthday) {
+//		SQLiteDatabase db = super.getWritableDatabase(); 		// 取得数据库操作对象
+//		String sql = &quot;INSERT INTO &quot; + TABLENAME + &quot; (name,birthday) VALUES (&#39;&quot;
+//				+ name + &quot;&#39;,&#39;&quot; + birthday + &quot;&#39;)&quot;; 	// SQL语句
+//		db.execSQL(sql);					// 执行SQL语句
+//		db.close() ;					// 关闭数据库操作
+//	}
+//	public void update(int id, String name, String birthday) {
+//		SQLiteDatabase db = super.getWritableDatabase(); 		// 取得数据库操作对象
+//		String sql = &quot;UPDATE &quot; + TABLENAME + &quot; SET name=&#39;&quot; + name
+//				+ &quot;&#39;,birthday=&#39;&quot; + birthday + &quot;&#39; WHERE id=&quot; + id; // SQL语句
+//		db.execSQL(sql); 					// 执行SQL语句
+//		db.close() ;					// 关闭数据库操作
+//	}
+//	public void delete(int id) {
+//		SQLiteDatabase db = super.getWritableDatabase(); 		// 取得数据库操作对象
+//		String sql = &quot;DELETE FROM &quot; + TABLENAME + &quot; WHERE id=&quot; + id;
+//		db.execSQL(sql) ;					// 执行SQL语句
+//		db.close() ;	
+//	}
+	public void insert(String name, String birthday) {
+		SQLiteDatabase db = super.getWritableDatabase(); 	// 取得数据库操作对象
+		ContentValues cv = new ContentValues() ;		// 定义ContentValues对象
+		cv.put(&quot;name&quot;, name) ;				// 设置name字段内容
+		cv.put(&quot;birthday&quot;, birthday) ;			// 设置birthday字段内容
+		db.insert(TABLENAME, null, cv) ;			// 增加操作
+		db.close() ;				// 关闭数据库操作
+	}
+	public void update(int id, String name, String birthday) {
+		SQLiteDatabase db = super.getWritableDatabase(); 	// 取得数据库操作对象
+		String whereClause = &quot;id=?&quot; ;			// 更新条件
+		String whereArgs[] = new String[] {String.valueOf(id)} ; 	// 更新id
+		ContentValues cv = new ContentValues() ;		// 定义ContentValues对象
+		cv.put(&quot;name&quot;, name) ;				// 设置name字段内容
+		cv.put(&quot;birthday&quot;, birthday) ;			// 设置birthday字段内容
+		db.update(TABLENAME, cv, whereClause, whereArgs) ;	// 更新操作
+		db.close() ;				// 关闭数据库操作
+	}
+	public void delete(int id) {
+		SQLiteDatabase db = super.getWritableDatabase(); 	// 取得数据库操作对象
+		String whereClause = &quot;id=?&quot; ;			// 删除条件
+		String whereArgs[] = new String[] {String.valueOf(id)} ; 	// 删除id
+		db.delete(TABLENAME, whereClause, whereArgs) ;		// 删除操作
+		db.close() ;				// 关闭数据库操作
+	}
+
+}
+</pre>对于使用哪种方式， 从实际出发contentvalue更为标准，这样做的好处就是为以后的contentProvid关联，如果不使用 还是用SQL语句比较方便<br>
+<br>
+</p>
+<p><span style="font-size:24px; color:#ff0000"><br>
+</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/day13shujukudesixiang/index.html">&larr; day13数据库的思想</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/day13shujukudesixiang/index.html">Day13持久化存储——SQLite数据库存储(增删改) &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="52176308464951" data-title="Day13持久化存储——SQLite数据库存储（使用contentValue封装）" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/Day13chijiuhuacunchuSQLiteshujukucunchushiyongcontentValuefengzhuang/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

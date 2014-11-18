@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强</a> <span class="divider">/</span></li>
+                    <li class="active">java基础之抽象类与接口的应用（二）</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javajichuzhijiekouyuchouxiang/index.html">&larr; java基础之接口与抽象</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javajichuzhijiekouyuchouxiang/index.html">java基础之抽象类与接口的应用（一） &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>java基础之抽象类与接口的应用（二）</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:24px">（1）代理设计模式的作用<img src="20402057792426.jpg" alt=""></span></p>
+<p><span style="font-size:24px"><img src="11931157951981.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px"><img src="16536176405779.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">2.适配器设计模式的作用<br>
+</span></p>
+<p><span style="font-size:24px"><img src="37366368649162.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px"></span></p>
+<pre name="code" class="java">package KownClass;
+
+interface Window{		// 定义Window接口，表示窗口操作
+	public void open() ;	// 打开
+	public void close() ;	// 关闭
+	public void activated() ;	// 窗口活动
+	public void iconified() ;	// 窗口最小化
+	public void deiconified();// 窗口恢复大小
+}
+abstract class WindowAdapter implements Window{
+	public void open(){} ;	// 打开
+	public void close(){} ;	// 关闭
+	public void activated(){} ;	// 窗口活动
+	public void iconified(){} ;	// 窗口最小化
+	public void deiconified(){};// 窗口恢复大小
+};
+class WindowImpl extends WindowAdapter{
+	public void open(){
+		System.out.println(&quot;窗口打开。&quot;) ;
+	}
+	public void close(){
+		System.out.println(&quot;窗口关闭。&quot;) ;
+	}
+};
+public class test1{
+	public static void main(String args[]){
+		Window win = new WindowImpl() ;
+		win.open() ;
+		win.close() ;
+	}
+};</pre><br>
+4.抽象类与接口的使用区别<br>
+<p>
+<p><span style="font-size:24px"><img src="317940910142330.jpg" alt=""><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">重要提醒&nbsp;<br>
+在开发中，一个类永远不要去继承一个已经实现好的类，要么继承抽象类，要么<br>
+继承接口，如果接口和抽象类都可以使用的话，那么优先使用接口 避免单继承的情况<br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">总结</span></p>
+<p><span style="font-size:24px">抽象类和接口的实例化，通过对象多态性<br>
+抽象类表示一个模板 接口指定的是一个标准<br>
+常见的设计模式：模板设计，工厂设计，代理设计，适配器设计<br>
+</span></p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javajichuzhijiekouyuchouxiang/index.html">&larr; java基础之接口与抽象</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javajichuzhijiekouyuchouxiang/index.html">java基础之抽象类与接口的应用（一） &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="51284886059587" data-title="java基础之抽象类与接口的应用（二）" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javajichuzhichouxiangleiyujiekoudeyingyonger/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

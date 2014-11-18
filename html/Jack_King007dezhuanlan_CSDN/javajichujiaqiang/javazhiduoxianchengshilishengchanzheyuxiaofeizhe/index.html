@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强</a> <span class="divider">/</span></li>
+                    <li class="active">java之多线程实例生产者与消费者</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javazhiduoxianchengrenshi/index.html">&larr; java之多线程认识</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javazhiduoxianchengrenshi/index.html">java之多线程实例 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>java之多线程实例生产者与消费者</div><br><div id="article_content" class="article_content">
+
+<span style="font-size:18px">&nbsp;1.加深线程同步操作的理解<br>
+</span>
+<p><span style="font-size:18px">&nbsp;2.了解object类中对线程的支持方法</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<p><span style="font-size:18px"><img src="" alt=""><br>
+</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<p><span style="font-size:18px"></span><pre name="code" class="java">package ThreadTest;
+
+class Info{	// 定义信息类
+	private String name = &quot;李兴华&quot;;	 // 定义name属性
+	private String content = &quot;JAVA讲师&quot;  ;		// 定义content属性
+	private boolean flag = false ;	// 设置标志位
+	public synchronized void set(String name,String content){
+		if(!flag){
+			try{
+				super.wait() ;
+			}catch(InterruptedException e){
+				e.printStackTrace() ;
+			}
+		}
+		this.setName(name) ;	// 设置名称
+		try{
+			Thread.sleep(300) ;
+		}catch(InterruptedException e){
+			e.printStackTrace() ;
+		}
+		this.setContent(content) ;	// 设置内容
+		flag  = false ;	// 改变标志位，表示可以取走
+		super.notify() ;
+	}
+	public synchronized void get(){
+		if(flag){
+			try{
+				super.wait() ;
+			}catch(InterruptedException e){
+				e.printStackTrace() ;
+			}
+		}
+		try{
+			Thread.sleep(300) ;
+		}catch(InterruptedException e){
+			e.printStackTrace() ;
+		}
+		System.out.println(this.getName() + 
+			&quot; --&gt; &quot; + this.getContent()) ;
+		flag  = true ;	// 改变标志位，表示可以生产
+		super.notify() ;
+	}
+	public void setName(String name){
+		this.name = name ;
+	}
+	public void setContent(String content){
+		this.content = content ;
+	}
+	public String getName(){
+		return this.name ;
+	}
+	public String getContent(){
+		return this.content ;
+	}
+};
+class Producer implements Runnable{	// 通过Runnable实现多线程
+	private Info info = null ;		// 保存Info引用
+	public Producer(Info info){
+		this.info = info ;
+	}
+	public void run(){
+		boolean flag = false ;	// 定义标记位
+		for(int i=0;i&lt;50;i++){
+			if(flag){
+				this.info.set(&quot;李兴华&quot;,&quot;JAVA讲师&quot;) ;	// 设置名称
+				flag = false ;
+			}else{
+				this.info.set(&quot;mldn&quot;,&quot;www.mldnjava.cn&quot;) ;	// 设置名称
+				flag = true ;
+			}
+		}
+	}
+};
+class Consumer implements Runnable{
+	private Info info = null ;
+	public Consumer(Info info){
+		this.info = info ;
+	}
+	public void run(){
+		for(int i=0;i&lt;50;i++){
+			this.info.get() ;
+		}
+	}
+};
+public class demo1{
+	public static void main(String args[]){
+		Info info = new Info();	// 实例化Info对象
+		Producer pro = new Producer(info) ;	// 生产者
+		Consumer con = new Consumer(info) ;	// 消费者
+		new Thread(pro).start() ;
+		new Thread(con).start() ;
+	}
+};</pre><br>
+<br>
+</p>
+<p><span style="font-size:18px"><br>
+</span></p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javazhiduoxianchengrenshi/index.html">&larr; java之多线程认识</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javazhiduoxianchengrenshi/index.html">java之多线程实例 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="476754810273314" data-title="java之多线程实例生产者与消费者" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/javazhiduoxianchengshilishengchanzheyuxiaofeizhe/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

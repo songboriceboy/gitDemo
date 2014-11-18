@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">从javaee重新理解sqlite</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/neirongtigongzhefuxiduanxinbeifen/index.html">&larr; 内容提供者复习——短信备份</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/neirongtigongzhefuxiduanxinbeifen/index.html">WebView之自定义浏览器（1） &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>从javaee重新理解sqlite</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">其实零基础去学安卓，我觉得是会欠缺很多，因为安卓的数据库语句，被安卓进行二次封装，开发者并不需要过多的去了解SQL语句，而对于一个开发着，SQL，正则表达式，版本管理器是必备。</span></p>
+<p><span style="font-size:18px">说实话，javaee 我只是一个过客，ajax 三大框架，都没有学，基础不扎实，只能说我认识他，他不认识。</span></p>
+<p><span style="font-size:18px">不废话了，先写数据库语句吧&nbsp; 不在乎就是<span style="color:#CC0000">增删改查</span>。</span></p>
+<p><span style="font-size:18px">创建表</span></p>
+<p><span style="font-size:18px"></span><pre name="code" class="sql">create table person(
+_id integer primary key,
+name varchar(20),
+age integer
+);</pre><br>
+添加 <br>
+insert into person(name,age)values('lisi',19); --在person表里 对应的name，age 进行添加属性，lisi 19</p>
+<p><br>
+</p>
+<p><span style="font-size:18px">查询 <br>
+select * from person where name=&quot;zhangsan&quot;&nbsp; 其中select&nbsp; 和where 是在sql 语句 详细的可以去看w3c的数据库API吧</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px">删除 <br>
+delete from person where _id=1&nbsp; 删除ID为1的<br>
+</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px">修改<br>
+update person set name='文杰1' where name='文杰'&nbsp; ---将name 叫 文杰--改为文杰1</span></p>
+<p><span style="font-size:18px">对于一个安卓开发者，数据库有着和举足轻重的地位，但是大部分人不怎么想去学，不过基本的语句还是要熟悉的。</span></p>
+<p><span style="font-size:18px">这篇文章我想用另外一种思维去看看安卓sqlite</span></p>
+<p><br>
+</p>
+<p><span style="font-size:24px">sqlite <br>
+</span></p>
+<p><span style="font-size:18px">有一个类，专门用来创建表和执行语句的 叫做SQLiteOpenHelper <br>
+</span></p>
+<p><span style="font-size:18px">你需要去继承他实现他的构造方法，我们只需要一个属性 context <br>
+</span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">其中super语句中第二属性就是数据库名字 第一个context 第三个是curce对象 第四个版本号 如果不是一会执行update方法</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">其中Oncreate方法实在写入语句的时候执行
+<br>
+</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">对了 其中对于一个项目来说，第一件事 考虑到 一个项目需要的包结构
+<br>
+</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">db&nbsp; 数据库</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">dao&nbsp; </span></span><span style="font-size:18px"></span>DAO层是数据库访问层<span style="font-size:24px"><span style="font-size:18px"></span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">bean entry类&nbsp; 实体类</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">test&nbsp; 测试类</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px">PersonSQLiteOpenHelper 类的代码如下</span></span></p>
+<p><span style="font-size:24px"><span style="font-size:18px"></span></span><pre name="code" class="java">package com.example.webqury.db;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class PersonSQLiteOpenHelper extends SQLiteOpenHelper {
+
+	public PersonSQLiteOpenHelper(Context context) {
+		super(context, &quot;jdk.db&quot;, null, 1);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		String sql=&quot;create table person(_id integer primary key,name varchar(20),age integer);&quot;;
+		db.execSQL(sql);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+</pre><br>
+<br>
+</p>
+<p><span style="font-size:24px"><span style="font-size:18px">对于PersonDao 这个类 是完全可以写在一起的，不过对于学过javaee的人来说，会习惯的写成MVC模式，所以读者讲究下。</span><br>
+</span></p>
+<p>首先对于SQLiteOpenHelper 是一个抽象类，里面有很多借口和抽象方法其中 有个跟数据库有很大关系的类，getWritableDatabase 他的执行也会执行Oncreate方法
+<br>
+</p>
+<p>所以要在 <span style="font-size:24px"><span style="font-size:18px">PersonDao&nbsp; </span>
+</span>实例化<span style="font-size:24px"><span style="font-size:18px">PersonSQLiteOpenHelper
+</span></span>类&nbsp; getWritableDatabase需要一个context 所以直接写在构造方法中。</p>
+<p><pre name="code" class="java">&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;package com.example.webqury.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.webqury.db.PersonSQLiteOpenHelper;
+import com.example.webqury.entities.Person;
+
+public class PersonDao {
+	private PersonSQLiteOpenHelper helper;
+
+	public PersonDao(Context context) {
+		helper = new PersonSQLiteOpenHelper(context);
+	}
+
+	/**
+	 * 添加到person表一条数据
+	 * 
+	 * @param person
+	 */
+	public void insert(Person person) {
+		SQLiteDatabase db = helper.getWritableDatabase();
+		if (db.isOpen()) {// 如果数据库打开, 执行添加的操作
+			// 执行添加到数据库的操作
+//						insert into person(name,age)values(&#39;lisi&#39;,19);
+			db.execSQL(&quot;insert into person(name,age)values(?,?);&quot;,
+					new Object[] { person.getName(), person.getAge() });
+			db.close();
+
+		}
+	}
+
+	/**
+	 * 更据id删除记录
+	 * 
+	 * @param id
+	 *            根据ID删除记录
+	 */
+	public void delete(int id) {
+		SQLiteDatabase db = helper.getWritableDatabase(); // 获得可写的数据库对象
+		if (db.isOpen()) {
+//						delete from person where _id=1
+			db.execSQL(&quot;delete from person where _id=?&quot;, new Integer[] { id });
+			db.close();
+		}
+	}
+
+	/**
+	 * 根据id找到记录, 并且修改姓名
+	 * @param id
+	 * @param name
+	 */
+	public void update(int id, String name) {
+		SQLiteDatabase db = helper.getWritableDatabase();
+		if(db.isOpen()) {	// 如果数据库打开, 执行添加的操作
+//						update person set name=&#39;文杰1&#39; where name=&#39;文杰&#39;
+			db.execSQL(&quot;update person set name = ? where _id = ?;&quot;, new Object[]{name, id});
+			
+			db.close();	// 数据库关闭
+		}
+	}
+
+	public List&lt;Person&gt; queryAll() {
+		SQLiteDatabase db = helper.getReadableDatabase(); // 获得一个只读的数据库对象
+		if (db.isOpen()) {
+//									select * from person where name=&quot;zhangsan&quot;
+			Cursor cursor = db.rawQuery(&quot;select _id, name, age from person;&quot;,
+					null);
+
+			if (cursor != null &amp;&amp; cursor.getCount() &gt; 0) {
+				List&lt;Person&gt; personList = new ArrayList&lt;Person&gt;();
+				int id;
+				String name;
+				int age;
+				while (cursor.moveToNext()) {
+					id = cursor.getInt(0); // 取第0列的数据 id
+					name = cursor.getString(1); // 取姓名
+					age = cursor.getInt(2); // 取年龄
+					personList.add(new Person(id, name, age));
+				}
+
+				db.close();
+				return personList;
+			}
+			db.close();
+		}
+		return null;
+	}
+
+	/**
+	 * 根据id查询人
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Person queryItem(int id) {
+		SQLiteDatabase db = helper.getReadableDatabase(); // 获得一个只读的数据库对象
+		if (db.isOpen()) {
+			Cursor cursor = db.rawQuery(
+					&quot;select _id, name, age from person where _id = ?;&quot;,
+					new String[] { id + &quot;&quot; });
+			if (cursor != null &amp;&amp; cursor.moveToFirst()) {
+				int _id = cursor.getInt(0);
+				String name = cursor.getString(1);
+				int age = cursor.getInt(2);
+				db.close();
+				return new Person(_id, name, age);
+			}
+			db.close();
+		}
+		return null;
+	}
+}
+</pre><br>
+</p>
+<pre></pre>
+<br>
+<br>
+<p>
+<p><br>
+</p>
+<p>我在上面讲过 DAO层是数据库访问层 所以 还需要一个test调用方法，所以PersonDao里面的方法不能写死了，需要进行传&#20540;才行。&nbsp; 注意其中的对比。</p>
+<p>在查询中，安卓队语句进行了专门的封装 <pre name="code" class="java">&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;rawQuery 方法，返回的时候 Cursor，他有随机读取的能力， 也是从web 移植过来的  一行一行的读取  
+查询一条的时候  判断是 一直读取一条就可以停止了 
+
+接着就是 test了
+
+&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;package com.example.webqury.test;
+
+import java.util.List;
+
+import android.test.AndroidTestCase;
+import android.util.Log;
+
+import com.example.webqury.dao.PersonDao;
+import com.example.webqury.db.PersonSQLiteOpenHelper;
+import com.example.webqury.entities.Person;
+
+
+public class test extends AndroidTestCase {
+	private static final String TAG = &quot;test&quot;;
+	public void test(){
+		// 数据库什么时候创建
+		PersonSQLiteOpenHelper openHelper = new PersonSQLiteOpenHelper(getContext());
+		
+		// 第一次连接数据库时创建数据库文件. onCreate会被调用
+		openHelper.getReadableDatabase();
+	}
+	public void testInsert() {
+		PersonDao dao = new PersonDao(getContext());
+		for (int i = 0; i &lt; 20; i++) {
+			
+			dao.insert(new Person(0, &quot;冠希&quot;+i, 28+i));
+		}
+	}
+	public void testDelete() {
+		PersonDao dao = new PersonDao(getContext());
+		dao.delete(1);
+	}
+
+	public void testUpdate() {
+		PersonDao dao = new PersonDao(getContext());
+		dao.update(3, &quot;凤姐&quot;);
+	}
+	public void testQueryAll() {
+		PersonDao dao = new PersonDao(getContext());
+		List&lt;Person&gt; personList = dao.queryAll();
+		
+		for (Person person : personList) {
+			Log.i(TAG, person.toString());
+		}
+	}
+	public void testQueryItem() {
+		PersonDao dao = new PersonDao(getContext());
+		Person person = dao.queryItem(4);
+		Log.i(TAG, person.toString());
+	}
+}
+</pre><br>
+<br>
+</p>
+<pre></pre>
+<pre></pre>
+<p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><span style="font-size:18px"></span><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/neirongtigongzhefuxiduanxinbeifen/index.html">&larr; 内容提供者复习——短信备份</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/neirongtigongzhefuxiduanxinbeifen/index.html">WebView之自定义浏览器（1） &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="1052629733241" data-title="从javaee重新理解sqlite" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/congjavaeezhongxinlijiesqlite/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

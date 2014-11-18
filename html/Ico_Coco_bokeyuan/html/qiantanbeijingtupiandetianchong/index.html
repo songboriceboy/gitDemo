@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">浅谈背景图片的填充</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/shenrulijieWebbiaozhunwangzhanbiaozhun/index.html">&larr; 深入理解Web标准（网站标准）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/shenrulijieWebbiaozhunwangzhanbiaozhun/index.html">浅析inlineblock使用inlineblock创建布局 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>浅谈背景图片的填充</div><br><p><span style="font-family: 幼圆; font-size: 18px; color: #3366ff;">&nbsp; &nbsp; 因为今天刚刚开了blog，作为一个前端designer，就想自己设计自己的Blog样式，看着也舒心。</span></p>
+<p><span style="font-family: 幼圆; font-size: 18px; color: #3366ff;">&nbsp; &nbsp; 在设计的过程中第一步就是先排版构建框架，后利用CSS对各个块进行定位。不过各个样式的id和class博客园本身已经定义好了，我们可以在设置面板中勾选<span>禁用模板默认CSS&rdquo;复选框。然后刷新博客首页查看源码，将代码copy到dw上修改样式。最后将自己修改满意好的css样式贴到<span>&ldquo;管理&rdquo;-&ldquo;博客设置&rdquo;中&ldquo;通过CSS定制页面&rdquo;的文本框中。</span></span></span></p>
+<p><span style="font-family: 幼圆; font-size: 18px; color: #3366ff;"><span><span>&nbsp; &nbsp; 言归正传，在设计的过程中需要填充背景图片，因为不同浏览器或窗口大小，图片可能只显示一部分或者重复填充多次，但是我们只需要一副完整的图片呈现。</span></span></span></p>
+<p><span style="font-family: 幼圆; font-size: 18px; color: #3366ff;"><span><span>&nbsp; &nbsp; 这是一个div的id样式：</span></span></span></p>
+<p><span style="font-family: 幼圆; font-size: 18px; color: #3366ff;"><span><span>&nbsp; &nbsp;<span style="color: #3366ff;">&nbsp;</span></span></span></span><span style="color: #3366ff;"><strong>#blogTitle{</strong></span></p>
+<p><span style="color: #3366ff;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; background-image:url(image/blog2.jpg) ;<br>&nbsp; &nbsp; &nbsp; &nbsp; height:400px;<br>&nbsp; &nbsp; &nbsp; &nbsp; padding-left:5%;<br>&nbsp; &nbsp; &nbsp; &nbsp; padding-top:20px;                  <br>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></span></p>
+<p><span style="color: #3366ff;"><strong><em>&nbsp; &nbsp; &nbsp; </em></strong><em>&nbsp;</em>&nbsp;<span style="font-size: large;"><span style="line-height: 27px;">如果div的尺寸与背景图片的尺寸不一样或者DIV不是固定大小，那么图片肯定是无法完全显示。</span></span></span></p>
+<p><span style="color: #3366ff;"><span style="font-size: large;"><span style="line-height: 27px;">&nbsp; &nbsp; &nbsp; &nbsp;所以加上一句</span></span></span><strong style="line-height: 1.5;">&nbsp;</strong></p>
+<p><span><strong>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #3366ff;"> #blogTitle{</span></strong></span></p>
+<p><span style="color: #3366ff;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; background-image:url(image/blog2.jpg) ;<br>&nbsp; &nbsp; &nbsp; &nbsp; height:400px;<br>&nbsp; &nbsp; &nbsp; &nbsp; padding-left:5%;<br>&nbsp; &nbsp; &nbsp; &nbsp; padding-top:20px;&nbsp;</strong></span></p>
+<p><span style="color: #3366ff;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff00ff;">background-size:cover;</span></strong></span></p>
+<p><span style="color: #3366ff;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></span></p>
+<p><span style="color: #3366ff;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; </strong><span style="font-size: 18px;">现在图片可以自动填充浏览器显示页面的大小。不过经过测试，至少在IE8上仍旧无法正常显示，然后继续测试发现这个属性在firefox，chrome，360，以及ie9上都可以使用。</span></span><span style="font-size: 18px; color: #3366ff;"><span><span style="line-height: 27px;"><br></span></span></span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp;下面是我继续查找资料测试得到的</span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p><span style="font-size: 18px;"><span style="color: #3366ff;">&nbsp; &nbsp; </span>&nbsp; <span style="color: #3366ff;">&nbsp; 1.若想要背景图片以一定大小呈现</span></span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; #background-size{</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　background-size:200px 100px; &nbsp;&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; &nbsp;　} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//背景图将以200px*100px像素大小呈现，会多次填充</span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; 2.若想要背景图片以一百分比呈现</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;">　 &nbsp; 　<span style="color: #3366ff;">#background-size2{</span></span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　background-size:30% 60%; &nbsp;&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　　 &nbsp; } &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //背景图将以原图大小的30%*60%像素大小呈现，会多次填充 &nbsp;&nbsp;</span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; 3.想要完全呈现且只呈现一次</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　#background-size3{</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　　 &nbsp; background-size:cover;</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　　 &nbsp; } &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //背景图完全填充页面 只显示一次</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #3366ff;"> 4.想要缩小比例反复填充</span></span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　　 &nbsp; #background-size4{</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　background-size:contain; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　}<span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//</span><span>按照原图等比例缩小反复填充满div</span></span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p><span style="color: #3366ff; font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; 5.按照原图大小反复填充</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;">　 &nbsp; 　<span style="color: #3366ff;">#background-size5{</span></span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　background-size:auto;</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;">　 &nbsp; 　} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//按照原图大小反复填充满div</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-size: 18px;"><strong style="line-height: 1.5;">&nbsp; &nbsp;</strong></span></p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/shenrulijieWebbiaozhunwangzhanbiaozhun/index.html">&larr; 深入理解Web标准（网站标准）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/shenrulijieWebbiaozhunwangzhanbiaozhun/index.html">浅析inlineblock使用inlineblock创建布局 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="48149176581868" data-title="浅谈背景图片的填充" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qiantanbeijingtupiandetianchong/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

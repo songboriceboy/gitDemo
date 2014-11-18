@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">客户端与服务器端的交互——上传文件</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/kehuduanyufuwuqiduandejiaoliuzijidongshouxieasynchttpjiandanban/index.html">&larr; 客户端与服务器端的交流——自己动手写asynchttp简单版</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/kehuduanyufuwuqiduandejiaoliuzijidongshouxieasynchttpjiandanban/index.html">安卓教你使用IXListView上拉更多，下拉刷新(2) &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>客户端与服务器端的交互——上传文件</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">其实嘛，这篇文章比较水，没有啥技术含量，主要是用来熟练开源框架的。</span></p>
+<p><span style="font-size:18px">PS：不过思路我先讲一下&nbsp; <br>
+</span></p>
+<p><span style="font-size:18px">页面是一个Edittext 和一个button&nbsp; 前者是你放入文件的路径的&nbsp; <br>
+</span></p>
+<p><span style="font-size:18px">至于button&nbsp; 要加入一个点击事件，首先 你要判断文件是否存在 <br>
+</span></p>
+<p><span style="font-size:18px">不存在就要提醒 文件路径错误 ，存在就要用开源框架上传数据（开启子线程进行联网，将文件上传，然后服务器会返回一个结果，我就提醒用户上传成功！）</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px">Demo 就一个主类&nbsp; 我先给大家看看代码 我在后面进行解析</span></p>
+<p><span style="font-size:18px"></span><pre name="code" class="java">import java.io.File;
+import java.io.FileNotFoundException;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpConnectionManager;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.FilePart;
+import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
+import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.http.Header;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	private EditText et_path;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		this.et_path = (EditText) this.findViewById(R.id.et_path);
+	}
+
+	public void uploadByHttpClient(View view) {
+		String path = this.et_path.getText().toString().trim();
+		final String url = &quot;http://110.65.99.66:8080/androidserver/UploadFileServlet&quot;;
+		final File file = new File(path);
+		// 先判断文件是否存在
+		if (file.exists() &amp;&amp; file.length() &gt; 0) {
+			// 网络访问为耗时操作，应该放在子线程中执行
+			new Thread() {
+				public void run() {
+
+					// 1. 创建第三方HttpClient对象
+					HttpClient client = new HttpClient();
+
+					// 2. 创建POST请求对象
+					PostMethod post = new PostMethod(url);
+
+					// 3. 设置请求体内容
+					try {
+						// 参数体
+						Part[] ps = { new FilePart(&quot;file&quot;, file) };
+						post.setRequestEntity(new MultipartRequestEntity(ps,
+								post.getParams()));
+
+						// 4. 获取连接器管理对象
+						HttpConnectionManager manager = client
+								.getHttpConnectionManager();
+
+						// 5. 设置参数提交的等待时间
+						manager.getParams().setConnectionTimeout(10000);
+
+						// 6. 执行PostMethod方法
+						client.executeMethod(post);
+
+						// 7. 程序执行到这里，说明成功
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								Toast.makeText(MainActivity.this, &quot;上传成功&quot;, 0)
+										.show();
+							}
+						});
+
+					} catch (Exception e) {
+						e.printStackTrace();
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								Toast.makeText(MainActivity.this, &quot;上传失败&quot;, 0)
+										.show();
+							}
+						});
+					}
+				};
+			}.start();
+		} else {
+			Toast.makeText(this, &quot;文件不存在！&quot;, 0).show();
+		}
+	}
+
+	public void uploadByAsyncHttpClient(View view) {
+		String path = this.et_path.getText().toString().trim();
+		final String url = &quot;http://110.65.99.66:8080/androidserver/UploadFileServlet&quot;;
+		final File file = new File(path);
+		// 先判断文件是否存在
+		if (file.exists() &amp;&amp; file.length() &gt; 0) {
+
+			// 1. 创建AsyncHttpClient对象
+			AsyncHttpClient client = new AsyncHttpClient();
+
+			// 2.设置参数体
+			RequestParams params = new RequestParams();
+			try {
+				// 其实这里的异常不可能出现，因为上边已经做了判断
+				params.put(&quot;profile_picture&quot;, file);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// 3.上传文件
+			client.post(url, params, new AsyncHttpResponseHandler() {
+				// 上传成功时回调的方法
+				@Override
+				public void onSuccess(int statusCode, Header[] headers,
+						byte[] responseBody) {
+					Toast.makeText(MainActivity.this, &quot;上传成功！&quot;, 0).show();
+				}
+
+				// 上传失败时回调的方法
+				@Override
+				public void onFailure(int statusCode, Header[] headers,
+						byte[] responseBody, Throwable error) {
+					Toast.makeText(MainActivity.this, &quot;上传失败！错误码：&quot; + statusCode,
+							0).show();
+				}
+
+			});
+		} else {
+			Toast.makeText(this, &quot;文件不存在！&quot;, 0).show();
+		}
+	}
+}
+</pre><br>
+首先或许Edittext输入的内容 准备好一个URL 然后判断文件是否存在 然后就用工具.......文章中还用 自己写的上传的进行对比 使用工具比较简单 <br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/kehuduanyufuwuqiduandejiaoliuzijidongshouxieasynchttpjiandanban/index.html">&larr; 客户端与服务器端的交流——自己动手写asynchttp简单版</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/kehuduanyufuwuqiduandejiaoliuzijidongshouxieasynchttpjiandanban/index.html">安卓教你使用IXListView上拉更多，下拉刷新(2) &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="34736299378415" data-title="客户端与服务器端的交互——上传文件" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/kehuduanyufuwuqiduandejiaohushangchuanwenjian/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

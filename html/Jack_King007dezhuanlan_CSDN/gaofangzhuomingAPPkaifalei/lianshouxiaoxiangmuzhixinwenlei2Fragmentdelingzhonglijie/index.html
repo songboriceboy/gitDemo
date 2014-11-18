@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类</a> <span class="divider">/</span></li>
+                    <li class="active">练手小项目之新闻类（2）Fragment的另种理解</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/lianshouxiaoxiangmuzhixinwenlei3tianjiaguanggaolan/index.html">&larr; 练手小项目之新闻类（3）添加广告栏</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/lianshouxiaoxiangmuzhixinwenlei3tianjiaguanggaolan/index.html">练手小项目之新闻类（1）联网 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>练手小项目之新闻类（2）Fragment的另种理解</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">我也不讲其他的，其实对于Fragment我一直有个疑惑，为毛要开启一个事务呢，一直思索不得起果。</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px">其实看到事务，我就想起来了，数据库，回滚，添加，remove，这跟Fragment 是一个道理。</span></p>
+<p><br>
+</p>
+<p><span style="font-size:18px">Fragment是一种轻量级的activity 不需要在配置文件注册，那他不是XML 他是代码呀，安卓的四大组件为啥都要注册，因为他跟系统息息相关，Fragment官方解释 activity的碎片。从事务我又想到了数据库。数据库的事务开启，是在内存中开辟了一个空间进行事务处理，那我是否可以这么理解</span></p>
+<p><span style="font-size:18px">Fragment就是在activity上面开启了一个空间进行事务处理，这个空间是依附在activity上面的</span></p>
+<p><pre name="code" class="java">		//获取到Fragment的管理对象
+		FragmentManager manager = getSupportFragmentManager();
+		//开启一个事务
+		FragmentTransaction ft = manager.beginTransaction();
+		//把Fragment添加进Activity
+		ft.add(R.id.container, new TTFragment());
+		//提交
+		ft.commit();.
+&lt;img src=&quot;http://img.blog.csdn.net/20141108075643730?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSmFja19LaW5nMDA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center&quot; alt=&quot;&quot; /&gt;
+</pre><br>
+这么去理解是不是就想通了................</p>
+<p>Mainactivity.java</p>
+<p><pre name="code" class="java">package com.example.android20_lzhxw;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
+/**
+ * 把Fragment添加到Activity：
+ * 	getFragmentMenager()  begin...():FragmentTransaction
+ * 	add()
+ */
+public class MainActivity extends FragmentActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		//获取到Fragment的管理对象
+		FragmentManager manager = getSupportFragmentManager();
+		//开启一个事务
+		FragmentTransaction ft = manager.beginTransaction();
+		//把Fragment添加进Activity
+		ft.add(R.id.container, new TTFragment());
+		//提交
+		ft.commit();
+	}
+
+}
+</pre><br>
+<br>
+</p>
+<p><br>
+<span style="font-size:18px"></span></p>
+<span id="pv-float-bar-container" style="top:938px; left:0px"><span title="查看原始" class="pv-float-bar-button pv-float-bar-button-actual"></span><span title="查看当前" class="pv-float-bar-button pv-float-bar-button-current"></span><span title="放大镜" class="pv-float-bar-button pv-float-bar-button-magnifier"></span><span title="查看库" class="pv-float-bar-button pv-float-bar-button-gallery"></span></span>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/lianshouxiaoxiangmuzhixinwenlei3tianjiaguanggaolan/index.html">&larr; 练手小项目之新闻类（3）添加广告栏</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/lianshouxiaoxiangmuzhixinwenlei3tianjiaguanggaolan/index.html">练手小项目之新闻类（1）联网 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="20424106078609" data-title="练手小项目之新闻类（2）Fragment的另种理解" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/lianshouxiaoxiangmuzhixinwenlei2Fragmentdelingzhonglijie/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

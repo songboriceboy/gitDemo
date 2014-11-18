@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">前端工程优化：javascript的优化小结</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qianduangongchengshibibeishoucangxuexiziyuanquanwangluo/index.html">&larr; 前端工程师必备收藏：学习资源全网罗</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qianduangongchengshibibeishoucangxuexiziyuanquanwangluo/index.html">【读书笔记】XHTML与HTML5的差异 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>前端工程优化：javascript的优化小结</div><br><p><span style="font-family: 宋体; font-size: 16px; color: #000000;">　 &nbsp;我觉得优化javascript是一门高深的学问，在这里也只能站在前人的肩膀上，说一些我浅显的认识，更希望的是抛钻引玉，如有不对，敬请斧正。</span></p>
+<p><span style="font-family: 宋体; font-size: 16px; color: #000000;">　　首先，要认识到是，优化js的关键之处在于，优化它的运行速度，以此为切入点。</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　javascript的优化原则是：<strong>二八原则</strong></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　<strong>满足考量大多数情况，而遇到极端情况，有能力则兼顾之，学会放弃，适当取舍；</strong></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;"><strong>　　</strong></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;"><strong>　　</strong>原因是，影响用户的体验很重要的因素之一响应时间</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体; color: #000000;">0.1s： 用户觉得很流畅</span></li>
+</ul>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体; color: #000000;">1.0s： 用户的操作可能偶尔受到影响，并且用户已经能感觉到有些不流畅</span></li>
+</ul>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;"><span style="color: #000000;">10s ： 对用户的影响比较严重，需要相应的进度提示。用户也会有一些沮丧 &nbsp;</span> <span style="color: #c0c0c0;">（//我觉得10s太宽泛了，通常而言2s以上就受不了了）</span></span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-family: 宋体;"><span style="font-size: 16px;">　　当然js优化只是提升响应时间需要改善的方面的众多之一，前端优化知识何其之深，只有深入了解，才会惊讶于前端所需要掌握的知识竟是如此之多，当然无形之中也会给人压力||动力。扯远了，但是还是想力荐两篇关于前端优化的blog：</span><span style="font-size: 18px;"><span style="color: #3366ff; font-size: 14pt;"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/zhengyun_ustc/archive/2013/05/09/frontendoptimize.html"><span style="color: #3366ff;">前端工程打开速度优化的循序渐进总结</span></a></span>&nbsp;</span><span style="font-size: 16px;">和&nbsp;<span style="font-size: 14pt; color: #3366ff;"><a href="http://www.csdn.net/article/2013-09-23/2817020-web-performance-optimization" target="_blank"><span style="color: #3366ff;">web前端优化最佳实践及工具</span></a></span>。</span></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　继续正题，ok，那么知道了目标是提升响应时间，加快运行速度，那么具体有哪些可行的方案呢：</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: 宋体;">管理作用域 </span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">操作数据 </span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">流控制 </span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">Reflow </span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">DOM操作 </span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">长时间运行的脚本处理</span></li>
+</ol>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　<span style="font-size: 14pt;"><strong>管理作用域</strong></span></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;"><strong>　</strong>　举个板栗：</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">var foo = 1;
+function test(){
+	//对变量foo进行一系列操作
+}
+
+function test2(){
+	var foo = 1;
+	 //对变量foo进行一系列操作
+}
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　也就是说，局部变量存在于活动对象中，解析器只需查找作用域中的单个对象。</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　在JavaScript中，我们应该尽可能的用局部变量来代替全局变量，这句话所有人都知道，可是这句话是谁先说的？为什么要这么做？有什么根据么？不这么做，对性能到底能带来多大的损失？以下是我摘自《JavaScript Variable Performance》的一段：</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<blockquote><span style="font-family: 宋体;"><span style="font-size: 16px;">　　<span style="color: #808080;">在如何提高JavaScript性能这个问题上，大家最常听到的建议应该就是尽量使用局部变量（local variables）来代替全局变量（global variables）。在我从事Web开发工作的九年时间里，这条建议始终萦绕在我的耳边，并且从来没有质疑过，而这条建议的基础，则来自于 JavaScript处理作用域（scoping）和标识符解析（identifier resolution）的方法。</span></span><span style="color: #808080; font-size: 16px;">　　首先我们要明确，函数在JavaScript中具体表现为对象，创建一个函数的过程，其实也就是创建一个对象的过程。每个函数对象都有一个叫做 [[Scope]]的内部属性，这个内部属性包含创建函数时的作用域信息。实际上，[[Scope]]属性对应的是一个对象（Variable Objects）列表，列表中的对象是可以从函数内部访问的。比如说我们建立一个全局函数A，那么A的[[Scope]]内部属性中只包含一个全局对象（Global Object），而如果我们在A中创建一个新的函数B，那么B的[[Scope]]属性中就包含两个对象，函数A的Activation Object对象在前面，全局对象（Global Object）排在后面。</span><span style="color: #808080; font-size: 16px;">当一个函数被执行的时候，会自动创建一个可以执行的对象（Execution Object），并同时绑定一个作用域链（Scope Chain）。作用域链会通过下面两个步骤来建立，用于进行标识符解析。</span></span><ol>
+<li><span style="color: #808080; font-size: 16px; font-family: 宋体;">首先将函数对象[[Scope]]内部属性中的对象，按顺序复制到作用域链中。</span></li>
+<li><span style="color: #808080; font-size: 16px; font-family: 宋体;">其次，在函数执行时，会创建一个新的Activation Object对象，这个对象中包含了this、参数（arguments）、局部变量（包括命名的参数）的定义，这个Activation Object对象会被置于作用域链的最前面。</span></li>
+</ol><span style="font-family: 宋体;"><span style="color: #808080; font-size: 16px;">　　在执行JavaScript代码的过程中，当遇到一个标识符，就会根据标识符的名称，在执行上下文（Execution Context）的作用域链中进行搜索。从作用域链的第一个对象（该函数的Activation Object对象）开始，如果没有找到，就搜索作用域链中的下一个对象，如此往复，直到找到了标识符的定义。如果在搜索完作用域中的最后一个对象，也就是全局对象（Global Object）以后也没有找到，则会抛出一个错误，提示用户该变量未定义（undefined）。这是在ECMA-262标准中描述的函数执行模型和标识符解析（Identifier Resolution）的过程，事实证明，大部分的JavaScript引擎确实也是这样实现的。需要注意的是，ECMA-262并没有强制要求采用这种结构，只是对这部分功能加以描述而已。</span><span style="color: #808080; font-size: 16px;">　　了解标识符解析（Identifier Resolution）的过程以后，我们就能明白为什么局部变量的解析速度要比其他作用域的变量快，主要是由于搜索过程被大幅缩短了。</span></span></blockquote>
+<p><span style="font-size: 16px; font-family: 宋体;">　　也就是：<strong>当标识符解析的过程需要进行深度搜索时，会伴随性能损失，而且性能损失的程度会随着标识符深度的增加而递增。</strong></span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;"><strong>　　<span style="font-size: 14pt;">数据操作</span></strong></span></p>
+<p><span style="font-family: 宋体;"><span style="font-size: 16px;"><strong><span style="font-size: 14pt;">　 </span></strong><span style="font-size: 14px;">1. &nbsp;</span></span><span style="font-size: 16px;">使用局部变量，它是最快的</span></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　obj.name比obj.xxx.name访问更快，访问属性的速度，与其在对象中的深度有关。&ldquo; . &rdquo;操作的次数直接影响着访问对象属性的耗时。</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　<span style="font-size: 14px;">2. &nbsp;</span>缓存频繁使用的对象、数组及相关的属性值</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　　　</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">function process(data){
+	var count = data.count;
+	if (count &gt; 0){
+		for(var i = 0; i &lt; count ; i++){
+			processData(data.item[i]);
+		}		
+	}
+}
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">　　3. &nbsp;不直接操作NodeList，将其转换成静态数组后再使用　</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　方法： Array.prototype.slice.call() =&gt; 标准浏览器</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　　　　&nbsp;逐个拷贝到一个新数组中 =&gt; For IE</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　 &nbsp; <strong>需要注意的是，遍历NodeList时，不做对当前NodeList相关结构有影响的DOM操作，并且如之前所提到的，要缓存一些频繁使用到的属性值，以免发生不必要的悲剧。</strong>板栗：</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">	var divs = document.getElementsByTagName('DIV');
+	
+	//假定页面中有div，所以divs.length是大于0的
+	for (var idx = 0; idx &lt; divs.length; idx++){
+		document.body.appendChild(
+			//杯具悄然而置
+			document.createElement('DIV')
+		);
+		console.info(divs.length);
+	}
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">　　上面的代码最后运行会报错，原因通过不断地往document.body下插入div 节点，for循环的终止条件（ div.length也随之改变）失效，陷入死循环。也就是说通过getElementsByTagName()获取得到的是一个Live NodeList的引用，任何对其相关的DOM操作都会立即反应在这个NodeList上面。</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　<span style="font-size: 14pt;">　<strong>Dom操作</strong></span></span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　1. &nbsp;增删查改</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;">　尽量使用DocumentFragment</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">　处理节点时可以使用cloneNode()复制一份</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">　若要对DOM进行直接修改，请先将其display:none;</span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: 宋体;">　　2. &nbsp;指明操作DOM的context</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　<span style="color: #ff00ff;">context.</span>getElementsByTagName()</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　3. &nbsp;拆分方法，一个方法解决一件事</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　拆分功能，让一个方法只做一件事，通过不断地调用方法来实现复杂功能，但是，这些简单方法要避免相互交叉调用。</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　<strong>Be Lazy（使脚本尽可能少地运行，或者不运行。）</strong><strong>　　</strong></span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: 宋体;">　短路表达式应用：如 a &amp;&amp; b || c</span></li>
+<li><span style="line-height: 1.5; font-size: 16px; font-family: 宋体;">&nbsp; 基于事件去写相应的处理方法</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">　惰性函数</span></li>
+</ol>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　<span style="font-size: 14pt;"><strong>流控制</strong></span></span></p>
+<p><span style="font-family: 宋体; font-size: 16px;"><strong>　　</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">if(...){
+}
+elseif(...){
+}
+elseif(...){
+}
+elseif(...){
+}
+elseif(...){
+}
+elseif(...){
+}
+else{
+}
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">　　原则：</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;">在if语句中，将经常会发生的条件，放在靠上的位置</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">if的条件为连续的区间时，可以使用二分法的方式来拆分</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">较多离散值的判断，可以使用switch来替代</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">使用数组查询的方式</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">要注意隐式的类型转换</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">小心递归<span style="line-height: 1.5;">　　</span></span></li>
+</ul>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">var foo = 0;
+	
+    if(foo == false){ //隐式转换
+		...
+     } 
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"><span style="font-size: 16px; font-family: 宋体;">function recurse(){
+	recurse();
+}
+recurse(); //又是一个悲剧，会报错，无限递归了
+</span></pre>
+</div>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-family: 宋体; font-size: 16px;">　　<span style="font-size: 14pt;"><strong>Reflow</strong></span></span></p>
+<p><span style="font-size: 16px; font-family: 宋体;"><strong>　　</strong>何为reflow，即是：在CSS规范中有一个渲染对象的概念，通常用一个盒子（box, rectangle）来表示。mozilla通过一个叫frame的对象对盒子进行操作。frame主要的动作有三个：</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;">构造frame, 以建立对象树（DOM树）</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">reflow, 以确定对象位置，或者是调用mozilla的Layout（这里是指源码的实现）</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">绘制，以便对象能显示在屏幕上</span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　总的来说，reflow就是载入内容树（在HTML中就是DOM树）和创建或更新frame结构的响应的一种过程。</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　那么造成reflow的原因有：</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;">操作DOM树</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">与布局有关的样式改变</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">改变className</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">窗口大小调整</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">字休大小</span></li>
+</ul>
+<p><span style="font-family: 宋体;"><span style="font-size: 16px;">　</span>　<span style="font-size: 16px;">所以若要要提高页面性能，其实就是避免reflow的开销，但是造成reflow的原因有时候是为了完成交互效果而不可避免的，所以不能说完全避免，只能尽最大限度的去减少,这就如我开头而言的二八原则。</span></span></p>
+<p><span style="font-family: 宋体;"><strong>　</strong></span></p>
+<p><span style="font-family: 宋体;">　　<span style="font-size: 16px;">以下是一些简单的指导方针可以帮助你页面上的回流(reflow)减到最小。</span></span></p>
+<p><span style="font-family: 宋体;">&nbsp;</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: 宋体;">减少不必要的DOM深度。因为无论你改变DOM节点树上任何一个层级都会影响节点树的每个层级&mdash;&mdash;从根结点一直到修改的子节点。不必要的节点深度将导致执行回流时花费更多的时间。</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">精简css，去除没有用处的css</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">如果你想让复杂的表现发生改变，例如动画效果，那么请在这个流动线之外实现它。使用position-absolute或position-fixed来实现它。</span></li>
+<li><span style="font-size: 16px; font-family: 宋体;">避免不必要的复杂的css选择符，尤其是使用子选择器，或消耗更多的CPU去做选择器匹配。</span></li>
+</ul>
+<p><span style="font-family: 宋体;">　　</span></p>
+<p><span style="font-family: 宋体;">&nbsp; &nbsp;<span style="font-size: 16px;"> 转载注明出处：<a href="http://www.cnblogs.com/coco1s/p/3946435.html" target="_blank">http://www.cnblogs.com/coco1s/p/3946435.html</a></span></span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">　　</span></p>
+<p><span style="font-size: 16px; font-family: 宋体;">&nbsp;</span></p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qianduangongchengshibibeishoucangxuexiziyuanquanwangluo/index.html">&larr; 前端工程师必备收藏：学习资源全网罗</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qianduangongchengshibibeishoucangxuexiziyuanquanwangluo/index.html">【读书笔记】XHTML与HTML5的差异 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="378927410212534" data-title="前端工程优化：javascript的优化小结" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/qianduangongchengyouhuajavascriptdeyouhuaxiaojie/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发</a> <span class="divider">/</span></li>
+                    <li class="active">快速开发03之手势识别器——滑动判断</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifa04zhidonghuadetongyipeizhi/index.html">&larr; 快速开发04之动画的统一配置</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifa04zhidonghuadetongyipeizhi/index.html">安卓Viewpage详解（1）——广告条 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>快速开发03之手势识别器——滑动判断</div><br><div id="article_content" class="article_content">
+
+<p>虽然现在有viewpage 但是有时候 我们还是需要自己去开发一个滚动效果的</p>
+<p>直接贴代码 此段代码可以直接拿来用<pre name="code" class="java">package com.xiaoxin.mobilesafe;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.widget.Toast;
+
+public abstract class BaseSetupActivity extends Activity {
+	//1.定义一个手势识别器
+		private GestureDetector detector;
+		@Override
+		protected void onCreate(Bundle savedInstanceState) {
+			// TODO Auto-generated method stub
+			super.onCreate(savedInstanceState);
+			//2.实例化这个手势识别器
+			detector = new GestureDetector(this, new SimpleOnGestureListener(){
+
+				/**
+				 * 当我们的手指在上面滑动的时候回调
+				 */
+				@Override
+				public boolean onFling(MotionEvent e1, MotionEvent e2,
+						float velocityX, float velocityY) {
+					
+					//屏蔽在X滑动很慢的情形
+					
+					if(Math.abs(velocityX)&lt;200){
+						Toast.makeText(getApplicationContext(), &quot;滑动得太慢了&quot;, 0).show();
+						return true;
+					}
+					
+					//屏蔽斜滑这种情况
+					if(Math.abs((e2.getRawY() - e1.getRawY())) &gt; 100){
+						Toast.makeText(getApplicationContext(), &quot;不能这样滑&quot;, 0).show();
+						
+						return true;
+					}
+					
+					if((e2.getRawX() - e1.getRawX())&gt; 200 ){
+						//显示上一个页面：从左往右滑动
+						System.out.println(&quot;显示上一个页面：从左往右滑动&quot;);
+						showPre();
+						return true;
+						
+					}
+					
+					if((e1.getRawX()-e2.getRawX()) &gt; 200 ){
+						//显示下一个页面：从右往左滑动
+						System.out.println(&quot;显示下一个页面：从右往左滑动&quot;);
+						showNext();
+						return true;
+					}
+					
+					return super.onFling(e1, e2, velocityX, velocityY);
+				}
+				
+			});
+		}
+		
+		public abstract void showNext();
+		public abstract void showPre();
+		/**
+		 * 下一步的点击事件
+		 * @param view
+		 */
+		public void next(View view){
+			showNext();
+			
+		}
+		
+		/**
+		 *   上一步
+		 * @param view
+		 */
+		public void pre(View view){
+			showPre();
+			
+		}
+			
+		//3.使用手势识别器
+		@Override
+		public boolean onTouchEvent(MotionEvent event) {
+			detector.onTouchEvent(event);
+			return super.onTouchEvent(event);
+		}
+}
+</pre>然后用其中的的页面来继承baseadapter 就是可以使用了 其子类只要实现 下一步 上一步 就可以了</p>
+<p><pre name="code" class="java">public class Setup2Activity extends BaseSetupActivity {
+	
+	}
+	
+	
+	
+
+	@Override
+	public void showNext() {
+		
+		Intent intent = new Intent(this,Setup3Activity.class);
+		startActivity(intent);
+		finish();
+		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
+		
+	}
+
+	@Override
+	public void showPre() {
+		Intent intent = new Intent(this,Setup1Activity.class);
+		startActivity(intent);
+		finish();
+		overridePendingTransition(R.anim.tran_pre_in, R.anim.tran_pre_out);
+		
+		
+	}</pre>overridePendingTransition关于这个就是<span style="color:rgb(70,70,70); font-family:simsun; font-size:14px; line-height:21px; background-color:rgb(232,220,200)">由左向右滑入的效果 其中如果你滑动的话 方法也会在baseadapter中实现 进行到下一页面&nbsp;</span></p>
+<p><span style="font-family:simsun; color:#464646"><span style="font-size:14px; line-height:21px">下一节我写一篇关于&nbsp;动画的统一配置<br>
+</span></span><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifa04zhidonghuadetongyipeizhi/index.html">&larr; 快速开发04之动画的统一配置</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifa04zhidonghuadetongyipeizhi/index.html">安卓Viewpage详解（1）——广告条 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="18122269642904" data-title="快速开发03之手势识别器——滑动判断" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifa03zhishoushishibieqihuadongpanduan/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

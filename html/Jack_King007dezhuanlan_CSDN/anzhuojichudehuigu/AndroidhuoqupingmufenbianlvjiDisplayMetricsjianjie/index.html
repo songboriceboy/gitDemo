@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾</a> <span class="divider">/</span></li>
+                    <li class="active">Android获取屏幕分辨率及DisplayMetrics简介</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/ContentProvderfuxizhiyixiangqinshenqi/index.html">&larr; ContentProvder复习之一相亲神器</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/ContentProvderfuxizhiyixiangqinshenqi/index.html">黑名单拦截之SQLite的用法 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>Android获取屏幕分辨率及DisplayMetrics简介</div><br><div id="article_content" class="article_content">
+
+<p>转载于http://blog.csdn.net/zhangqijie001/article/details/5894872 &nbsp;添加一点自己的看法</p>
+<p><br>
+</p>
+<p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><span style="font-family:'Times New Roman',serif">Android&nbsp;</span>可设置为随着窗口大小调整缩放比例，但即便如此，手机程序设计人员还是必须知道手机屏幕的边界，以避免缩放造成的布局变形问题。</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">手机的分辨率信息是手机的一项重要信息，很好的是，<span style="font-family:'Times New Roman',serif">Android</span>&nbsp;已经提供<span style="font-family:'Times New Roman',serif">DisplayMetircs&nbsp;</span>类可以很方便的获取分辨率。下面简要介绍&nbsp;<span style="font-family:'Times New Roman',serif">DisplayMetics&nbsp;</span>类：</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><span style="font-family:'Times New Roman',serif">Andorid.util&nbsp;</span>包下的<span style="font-family:'Times New Roman',serif">DisplayMetrics&nbsp;</span>类提供了一种关于显示的通用信息，如显示大小，分辨率和字体。</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">为了获取<span style="font-family:'Times New Roman',serif">DisplayMetrics&nbsp;</span>成员，首先初始化一个对象如下：</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><span style="font-family:'Times New Roman',serif">DisplayMetrics metrics&nbsp;</span>＝&nbsp;<span style="font-family:'Times New Roman',serif">new DisplayMetrics();</span></span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">getWindowManager().getDefaultDisplay().getMetrics;</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">注：构造函数<span style="font-family:'Times New Roman',serif">DisplayMetrics</span>&nbsp;不需要传递任何参数；调用<span style="font-family:'Times New Roman',serif">getWindowManager()</span>&nbsp;之后，会取得现有<span style="font-family:'Times New Roman',serif">Activity</span>&nbsp;的<span style="font-family:'Times New Roman',serif">Handle</span>&nbsp;，此时，<span style="font-family:'Times New Roman',serif">getDefaultDisplay()</span>&nbsp;方法将取得的宽高维度存放于<span style="font-family:'Times New Roman',serif">DisplayMetrics</span>&nbsp;对象中，而取得的宽高维度是以像素为单位<span style="font-family:'Times New Roman',serif">(Pixel)</span>&nbsp;，“像素”所指的是“绝对像素”而非“相对像素”。</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">通过</span>&nbsp;<span style="font-size:12px">DisplayMetrics的</span>&nbsp;<span style="font-size:12px">toString()方法可以获取到</span>&nbsp;<span style="font-size:12px">DisplayMetrics的大部分</span>&nbsp;<span style="font-size:12px">fields信息，如下是在分辨率为</span>&nbsp;<span style="font-size:12px">480x320情况下的一些输出信息：</span></p>
+<img src="20248488090872.jpg" align="left" alt=""><br>
+<p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><br>
+</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><br>
+</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><br>
+</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><span style="color:rgb(51,51,51); font-family:Arial; font-size:12px; line-height:26px">其中，density为显示的逻辑分辨率（文档中说了很多，看得不是很明白）；width及height就为屏幕分辨率（为绝对宽度与高度），与fields中的widthPixels及heightPixels一致；scaleDensity与density一致；xdpi及ydpi为准确物理像素。</span><br>
+</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">下面我们来比较Android中dip, dp, px, sp之间的区别：</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px"><br>
+</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">dip: device independent pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA 推荐使用这个，不依赖像素。&nbsp;<br>
+px: pixels(像素). 不同设备显示效果相同，一般我们HVGA代表320x480像素，这个用的比较多。&nbsp;<br>
+pt: point，是一个标准的长度单位，1pt＝1/72英寸，用于印刷业，非常简单易用；&nbsp;<br>
+sp: scaled pixels(放大像素). 主要用于字体显示best for textsize，根据 google 的建议，TextView 的字号最好使用 sp 做单位，</span></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-size:12px">过去，程序员通常以像素为单位设计计算机用户界面。例如，定义一个宽度为300像素的表单字段，列之间的间距为5个像素，图标大小为16×16像素 等。这样处理的问题在于，如果在一个每英寸点数（dpi）更高的新显示器上运行该程序，则用户界面会显得很小。在有些情况下，用户界面可能会小到难以看清 内容。&nbsp;<br>
+与分辨率无关的度量单位可以解决这一问题，Android支持下列所有单位：<br>
+px（像素）：屏幕上的点。&nbsp;<br>
+in（英寸）：长度单位。&nbsp;<br>
+mm（毫米）：长度单位。&nbsp;<br>
+pt（磅）：1/72英寸。&nbsp;<br>
+dp（与密度无关的像素）：一种基于屏幕密度的抽象单位。在每英寸160点的显示器上，1dp = 1px。&nbsp;<br>
+dip：与dp相同，多用于android/ophone示例中。&nbsp;<br>
+sp（与刻度无关的像素）：与dp类&#20284;，但是可以根据用户的字体大小首选项进行缩放。</span></p>
+<br>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/ContentProvderfuxizhiyixiangqinshenqi/index.html">&larr; ContentProvder复习之一相亲神器</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/ContentProvderfuxizhiyixiangqinshenqi/index.html">黑名单拦截之SQLite的用法 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="43851577457982" data-title="Android获取屏幕分辨率及DisplayMetrics简介" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/AndroidhuoqupingmufenbianlvjiDisplayMetricsjianjie/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

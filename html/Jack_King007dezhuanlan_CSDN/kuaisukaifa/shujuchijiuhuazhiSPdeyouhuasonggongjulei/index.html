@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发</a> <span class="divider">/</span></li>
+                    <li class="active">数据持久化之SP的优化—送工具类</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/anzhuoViewpagexiangjie1guanggaotiao/index.html">&larr; 安卓Viewpage详解（1）——广告条</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/anzhuoViewpagexiangjie1guanggaotiao/index.html">教你怎么去一个APP的JSON数据，你懂的 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>数据持久化之SP的优化—送工具类</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">&nbsp;第一点：sp存储的是键&#20540;对</span></p>
+<p>getSharedPreferences 第一个参数是你保存文件的名字，第个是保存的模式一般可以默认为0 <br>
+</p>
+<p><br>
+</p>
+<p>先看普通 使用SP 存储String类型字符串吧</p>
+<p>&nbsp;&nbsp;&nbsp; SharedPreferences.Editor edit = getSharedPreferences(&quot;config&quot;, 0).edit();<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;edit.putString(&quot;name&quot;, &quot;tom&quot;);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;edit.putInt(&quot;age&quot;, 21);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;edit.putBoolean(&quot;married&quot;, false);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;edit.commit();</p>
+<p>因为SP是无法直接编辑取&#20540;的就我们不能直接调用service里的方法一样，我们需要系统给我们提供的接口 使用 .edit 就可以得到一个Editor接口 就可以进行编辑了，可以看得出SP可以存储 数据类型 基本是可以支持的</p>
+<p>然后再看 用SP读取内容 那就更简单了</p>
+<p>SharedPreferences sp=context.getSharedPreferences(SP_NAME, 0);</p>
+<p>sp.getString(key, defValue);</p>
+<p><br>
+</p>
+<p>好啦，既然要抽出到工具类的话 ，就必须要知道sp 使用需要那些东西 <br>
+</p>
+<p>第一个 Context&nbsp;&nbsp; 要让SP知道你在那个类里使用他</p>
+<p>第二个&nbsp; key&nbsp; 文件名&nbsp; <br>
+</p>
+<p>第三个 value 设置&#20540;需要 但是获取&#20540;并不需要 <br>
+</p>
+<p>好啦 万能的SP工具类 要出现了&nbsp; 鼓掌 <pre name="code" class="java">package com.xiaoxin.NewsPaper.utils;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.apache.commons.codec.binary.Base64;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+
+
+/**
+ * SharePreferences操作工具类
+ */
+public class SharePrefUtil {
+	private static String tag = SharePrefUtil.class.getSimpleName();
+	private final static String SP_NAME = &quot;config&quot;;
+	private static SharedPreferences sp;
+
+
+	/**
+	 * 保存布尔值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void saveBoolean(Context context, String key, boolean value) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		    sp.edit().putBoolean(key, value).commit();
+	}
+
+	/**
+	 * 保存字符串
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void saveString(Context context, String key, String value) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		sp.edit().putString(key, value).commit();
+		
+	}
+	
+	public static void clear(Context context){
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		sp.edit().clear().commit();
+	}
+
+	/**
+	 * 保存long型
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void saveLong(Context context, String key, long value) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		sp.edit().putLong(key, value).commit();
+	}
+
+	/**
+	 * 保存int型
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void saveInt(Context context, String key, int value) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		sp.edit().putInt(key, value).commit();
+	}
+
+	/**
+	 * 保存float型
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void saveFloat(Context context, String key, float value) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		sp.edit().putFloat(key, value).commit();
+	}
+
+	/**
+	 * 获取字符值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static String getString(Context context, String key, String defValue) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		return sp.getString(key, defValue);
+	}
+
+	/**
+	 * 获取int值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static int getInt(Context context, String key, int defValue) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		return sp.getInt(key, defValue);
+	}
+
+	/**
+	 * 获取long值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static long getLong(Context context, String key, long defValue) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		return sp.getLong(key, defValue);
+	}
+
+	/**
+	 * 获取float值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static float getFloat(Context context, String key, float defValue) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		return sp.getFloat(key, defValue);
+	}
+
+	/**
+	 * 获取布尔值
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static boolean getBoolean(Context context, String key,
+			boolean defValue) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		return sp.getBoolean(key, defValue);
+	}
+	
+	/**
+	 * 将对象进行base64编码后保存到SharePref中
+	 * 
+	 * @param context
+	 * @param key
+	 * @param object
+	 */
+	public static void saveObj(Context context, String key, Object object) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ObjectOutputStream oos = null;
+		try {
+			oos = new ObjectOutputStream(baos);
+			oos.writeObject(object);
+			// 将对象的转为base64码
+			String objBase64 = new String(Base64.encodeBase64(baos
+					.toByteArray()));
+
+			sp.edit()
+					.putString(key,objBase64).commit();
+			oos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 将SharePref中经过base64编码的对象读取出来
+	 * 
+	 * @param context
+	 * @param key
+	 * @param defValue
+	 * @return
+	 */
+	public static Object getObj(Context context, String key) {
+		if (sp == null)
+			sp = context.getSharedPreferences(SP_NAME, 0);
+		String objBase64 = sp.getString(key, null);
+		if (TextUtils.isEmpty(objBase64))
+			return null;
+
+		// 对Base64格式的字符串进行解码
+		byte[] base64Bytes = Base64.decodeBase64(objBase64.getBytes());
+		ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
+
+		ObjectInputStream ois;
+		Object obj = null;
+		try {
+			ois = new ObjectInputStream(bais);
+			obj = (Object) ois.readObject();
+			ois.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
+
+}
+</pre><br>
+获取&#20540;得使用 用法&nbsp; <br>
+</p>
+<p>String result = SharePrefUtil.getString(ct,<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;QLApi.NEWS_CENTER_CATEGORIES, &quot;&quot;);</p>
+<p>以此类推 设置&#20540;也是差不多的</p>
+<p><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/anzhuoViewpagexiangjie1guanggaotiao/index.html">&larr; 安卓Viewpage详解（1）——广告条</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/anzhuoViewpagexiangjie1guanggaotiao/index.html">教你怎么去一个APP的JSON数据，你懂的 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="28039897572481" data-title="数据持久化之SP的优化—送工具类" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/shujuchijiuhuazhiSPdeyouhuasonggongjulei/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

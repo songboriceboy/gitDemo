@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">javascript中函数声明和函数表达式浅析</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptyouhuaxijieduanlubiaodashi/index.html">&larr; Javascript优化细节：短路表达式</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptyouhuaxijieduanlubiaodashi/index.html">Javascript中关键参数this浅析 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>javascript中函数声明和函数表达式浅析</div><br><p><span style="font-size: 16px;">　　记得在面试腾讯实习生的时候，面试官问了我这样一道问题。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">//下述两种声明方式有什么不同
+
+function foo(){}; 
+
+var bar = function foo(){};　</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">　　当初只知道两种声明方式一个是函数声明一个是函数表达式，具体有什么不同没能说得很好。最近正好看到这方面的书籍，就想好好总结一番。</span></p>
+<p><span style="font-size: 16px;">　　在ECMAScript中，有两个最常用的创建函数对象的方法，即使用函数表达式或者使用函数声明。对此，ECMAScript规范明确了一点，即是，即函数声明 必须始终带有一个标识符（Identifier），也就是我们所说的函数名，而函数表达式则可以省略。</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　<strong>函数声明：</strong></span></p>
+<p><br><span style="font-size: 16px;">　　<strong>function<em> Identifier ( FormalParameterList</em> opt<em>){ FunctionBody }</em></strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　函数声明解析过程如下:</span></p>
+<p><span style="font-size: 16px;">　　1. 创建一个new Function对象，<em>FormalParameterList</em>指定参数，<em>FunctionBody</em>指定函数体。将当前正在运行环境中作用域链作为它的作用域。</span></p>
+<p><span style="font-size: 16px;">　　2. 为当前变量对象创建一个名为Identifier的属性，值为Result(1)。</span><br><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　<strong>函数表达式：</strong></span></p>
+<p><span style="font-size: 16px;">　　(函数表达式分为匿名和具名函数表达式)</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　<strong>function <em>Identifier</em> opt( <em>FormalParameterList</em> opt){<em> FunctionBody</em> }</strong> <span style="color: #808080;">&nbsp;//</span><span style="color: #808080;">这里是具名函数表达式</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　具名函数表达式的解析过程如下：</span></p>
+<p><span style="font-size: 16px;">　　1. 创建一个new Object对象</span></p>
+<p><span style="font-size: 16px;">　　2. 将Result(1)添加到作用域链的顶端</span></p>
+<p><span style="font-size: 16px;">　　3. 创建一个new Function对象，<em>FormalParameterList</em>指定参数，<em>FunctionBody</em>指定函数体。将当前正在运行的执行环境中作用域链作为它的作用域。</span></p>
+<p><span style="font-size: 16px;">　　4. 为Result(1)创建一个名为Identifier 的属性，其值为为Result(3)，只读，不可删除</span></p>
+<p><span style="font-size: 16px;">　　5. 从作用域链中移除Result(1)</span></p>
+<p><span style="font-size: 16px;">　　6. 返回Result(3)</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　官方文档读起来十分拗口。简单来说，ECMAScript是通过上下文来区分这两者的：假如 function&nbsp;foo(){} 是一个赋值表达式的一部分，则认为它是一个函数表达式。而如果 function foo(){} 被包含在一个函数体内，或者位于程序（的最上层）中，则将它作为一个函数声明来解析。显然，在省略标识符的情况下，&ldquo;表达式&rdquo; 也就只能是表达式了。</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">function foo(){}; // 声明，因为它是程序的一部分
+
+var bar = function foo(){}; // 表达式，因为它是赋值表达（AssignmentExpression）的一部分
+
+new function bar(){}; // 表达式，因为它是New表达式（NewExpression）的一部分
+
+(function(){
+    function bar(){}; // 声明，因为它是函数体（FunctionBody）的一部分
+})();</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　还有一种情况：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;"> (function foo(){})
+</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　这种情况也是函数表达式，它被包含在一对圆括号中的函数，在其上下文环境中，()构成了一个分组操作符，而分组操作符只能包含表达式，更多的例子：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">function foo(){}; // 函数声明
+
+(function foo(){}); // 函数表达式：注意它被包含在分组操作符中
+
+try {
+(var x = 5); // 分组操作符只能包含表达式，不能包含语句（这里的var就是语句）
+} 
+catch(err) {
+// SyntaxError（因为&ldquo;var x = 5&rdquo;是一个语句，而不是表达式&mdash;&mdash;对表达式求值必须返回值，但对语句求值则未必返回值。&mdash;&mdash;译
+}</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　下面简单说说函数声明与函数表达式的异同。声明和表达式的行为存在着十分微妙而又十分重要的差别。</span></p>
+<p><span style="font-size: 16px;">　　首先，<strong>函数声明会在任何表达式被解析和求值之前先行被解析和求值</strong>。即使声明位于源代码中的最后一行，它也会先于同一作用域中位于最前面的表达式被求值。还是看个例子更容易理解。在下面这个例子中，函数 fn 是在 alert 后面声明的。但是，在alert 执行的时候，fn已经有定义了：</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">alert(fn()); //输出Helloworld!    
+
+function fn() {
+return 'Helloworld!';
+}
+</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　简单总结，区别在什么地方呢？</span></p>
+<p><span style="font-size: 16px;">　　1. <strong>声明总是在作用域开始时先行解析；</strong></span></p>
+<p><span style="font-size: 16px;">　　2. <strong>表达式在遇到时候才运算。</strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　函数声明还有另外一个重要的特点，<strong>即通过条件语句控制函数声明的行为并未标准化，因此不同环境下可能会得到不同的结果</strong>。即是：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">// 千万不要这样做！
+// 不同浏览器会有不同返回结果，
+
+if (true) {
+function foo() {
+return 'first';
+}
+}
+else {
+function foo() {
+return 'second';
+}
+}
+foo();
+
+
+// 记住，这种情况下要使用函数表达式：
+var foo;
+if (true) {
+foo = function() {
+return 'first';
+};
+}
+else {
+foo = function() {
+return 'second';
+};
+}
+foo();
+</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　那么，使用函数声明的实际规则到底是什么？　</span></p>
+<p><span style="font-size: 16px;">　　FunctionDeclaration（函数声明）只能出现在Program（程序）或FunctionBody（函数体）内。从句法上讲，它们 不能出现在Block（块）（{ ... }）中，例如不能出现在 if、while 或 for 语句中。因为 Block（块） 中只能包含Statement（语句）， 而不能包含FunctionDeclaration（函数声明）这样的SourceElement（源元素）。</span></p>
+<p><span style="font-size: 16px;">　　另一方面，仔细看一看产生规则也会发现，唯一可能让Expression（表达式）出现在Block（块）中情形，就是让它作为ExpressionStatement（表达式语句）的一部分。但是，规范明确规定了ExpressionStatement（表达式语句）不能以关键字function开头。而这实际上就是说，FunctionExpression（函数表达式）同样也不能出现在Statement（语句）或Block（块）中（别忘了Block（块）就是由Statement（语句）构成的）。</span></p>
+<p><span style="font-size: 16px;">　　由于存在上述限制，只要函数出现在块中（像上面例子中那样），实际上就应该将其看作一个语法错误，而不是什么函数声明或表达式。</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　那么我们应该在什么时候使用函数声明或函数表达式呢？函数声明只能出现在&ldquo;程序代码&rdquo;中，意味着只能在其它函数体中或者全局空间；它们的定义不能不能赋值给一个变量或属性，或者作为一个参数传递出现在函数调用中；下面的例子是函数声明的允许的用法，foo()，bar()和local()都是通过函数声明模式声明：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">// 全局环境
+function foo() {}  
+
+function local() {  
+// 局部环境  
+    function bar() {}  
+        return bar;  
+} </pre>
+</div>
+<p>&nbsp;<span style="font-size: 16px;">　</span></p>
+<p><span style="font-size: 16px;">　　当你在语法上不能使用函数声明的时候，你就可以使用函数表达式。比如：传递一个函数作为参数或者在对象字面量中定义一个函数：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">// 这是一个匿名函数表达式
+callMe(function () {  
+
+//传递一个函数作为参数
+});  
+
+// 这是一个具名函数表达式
+callMe(function me() {  
+ 
+// 传递一个函数作为参数，函数名为me
+});  
+
+// 其他函数表达式
+var myobject = {  
+    say: function () {  
+
+// I am a function expression  
+}  
+};  
+</pre>
+</div>
+<p>　　</p>
+<p><span style="font-size: 16px;">　　学识有限，如有错误，欢迎指正。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptyouhuaxijieduanlubiaodashi/index.html">&larr; Javascript优化细节：短路表达式</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptyouhuaxijieduanlubiaodashi/index.html">Javascript中关键参数this浅析 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="28934728801810" data-title="javascript中函数声明和函数表达式浅析" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/javascriptzhonghanshushengminghehanshubiaodashiqianxi/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

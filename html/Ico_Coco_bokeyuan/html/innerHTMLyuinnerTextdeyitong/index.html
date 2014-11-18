@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">innerHTML与innerText的异同</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptzhongguanjiancanshuthisqianxi/index.html">&larr; Javascript中关键参数this浅析</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptzhongguanjiancanshuthisqianxi/index.html">Html标签的语义化 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>innerHTML与innerText的异同</div><br><p><span style="color: #3366ff; background-color: #ccffff;">在一道面试题中看到的。</span></p>
+<p><span style="color: #3366ff; background-color: #ccffff;">1、功能讲解:&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">innerHTML 设置或获取位于对象起始和结束标签内的 HTML&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">outerHTML 设置或获取对象及其内容的 HTML 形式&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">innerText 设置或获取位于对象起始和结束标签内的文本&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">outerText 设置(包括标签)或获取(不包括标签)对象的文本&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">2、示例&nbsp;</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>Demo<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #800000;">&lt;!-- 
+</span><span style="color: #008080;"> 5</span> <span style="background-color: #f5f5f5; color: #800000;">body </span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">font-family</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">"宋体"</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">color="blue";font-size="9pt"</span><span style="background-color: #f5f5f5; color: #000000;">}</span> 
+<span style="color: #008080;"> 6</span> <span style="background-color: #f5f5f5; color: #800000;">--&gt; </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="JavaScript"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 8</span> <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">.innerHTML </span>
+<span style="color: #008080;"> 9</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> innerHTMLDemo() 
+</span><span style="color: #008080;">10</span> <span style="background-color: #f5f5f5; color: #000000;">{ 
+</span><span style="color: #008080;">11</span> <span style="background-color: #f5f5f5; color: #000000;">test_id1.innerHTML</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;i&gt;&lt;u&gt;设置或获取位于对象起始和结束标签内的 HTML.&lt;/u&gt;&lt;/i&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">; 
+</span><span style="color: #008080;">12</span> <span style="background-color: #f5f5f5; color: #000000;">} 
+</span><span style="color: #008080;">13</span> <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">.innerText </span>
+<span style="color: #008080;">14</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> innerTextDemo() 
+</span><span style="color: #008080;">15</span> <span style="background-color: #f5f5f5; color: #000000;">{ 
+</span><span style="color: #008080;">16</span> <span style="background-color: #f5f5f5; color: #000000;">test_id2.innerText</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;i&gt;&lt;u&gt;设置或获取位于对象起始和结束标签内的文本.&lt;/u&gt;&lt;/i&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">; 
+</span><span style="color: #008080;">17</span> <span style="background-color: #f5f5f5; color: #000000;">} 
+</span><span style="color: #008080;">18</span> <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">.outerHTML </span>
+<span style="color: #008080;">19</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> outerHTMLDemo() 
+</span><span style="color: #008080;">20</span> <span style="background-color: #f5f5f5; color: #000000;">{ 
+</span><span style="color: #008080;">21</span> <span style="background-color: #f5f5f5; color: #000000;">test_id3.outerHTML</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;i&gt;&lt;u&gt;设置或获取对象及其内容的 HTML 形式.&lt;/u&gt;&lt;/i&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">; 
+</span><span style="color: #008080;">22</span> <span style="background-color: #f5f5f5; color: #000000;">} 
+</span><span style="color: #008080;">23</span> <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">.outerText </span>
+<span style="color: #008080;">24</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> outerTextDemo() 
+</span><span style="color: #008080;">25</span> <span style="background-color: #f5f5f5; color: #000000;">{ 
+</span><span style="color: #008080;">26</span> <span style="background-color: #f5f5f5; color: #000000;">test_id4.outerText</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;i&gt;&lt;u&gt;设置(包括标签)或获取(不包括标签)对象的文本.&lt;/u&gt;&lt;/i&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">; 
+</span><span style="color: #008080;">27</span> <span style="background-color: #f5f5f5; color: #000000;">} 
+</span><span style="color: #008080;">28</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">29</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">30</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">31</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">32</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="test_id1"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="innerHTMLDemo()"</span><span style="color: #0000ff;">&gt;</span>innerHTML效果.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">33</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="test_id2"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="innerTextDemo()"</span><span style="color: #0000ff;">&gt;</span>innerText效果.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">34</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="test_id3"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="outerHTMLDemo()"</span><span style="color: #0000ff;">&gt;</span>outerHTML效果.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">35</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="test_id4"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="outerTextDemo()"</span><span style="color: #0000ff;">&gt;</span>outerText效果.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">36</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">37</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">38</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span> </pre>
+</div>
+<p>&nbsp;</p>
+<p><br><span style="color: #3366ff; background-color: #ccffff;">3、不同之处:&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">简单的说innerHTML和outerHTML、innerText与outerText的不同之处在于：&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">1）、innerHTML与outerHTML在设置对象的内容时包含的HTML会被解析，而innerText与outerText则不会。&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">2)、在设置时，innerHTML与innerText仅设置标签内的文本，而outerHTML与outerText设置包括标签在内的文本。&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;"><img src="304660410083676.gif" alt="" border="0"></span><br><span style="color: #3366ff; background-color: #ccffff;">特别说明：&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">　　innerHTML是符合W3C标准的属性，而innerText只适用于IE浏览器，因此，尽可能地去使用innerHTML，而少用innerText，如果要输出不含HTML标签的内容，可以使用innerHTML取得包含HTML标签的内容后，再用正则表达式去除HTML标签，下面是一个简单的符合W3C标准的示例：&nbsp;</span><br><span style="color: #3366ff; background-color: #ccffff;">&lt;a href="javascript:alert(document.getElementById('test').innerHTML.replace(/&lt;.+?&gt;/gim,''))"&gt;无HTML,符合W3C标准&lt;/a&gt;</span></p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptzhongguanjiancanshuthisqianxi/index.html">&larr; Javascript中关键参数this浅析</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Javascriptzhongguanjiancanshuthisqianxi/index.html">Html标签的语义化 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="34700027364336" data-title="innerHTML与innerText的异同" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/innerHTMLyuinnerTextdeyitong/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

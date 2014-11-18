@@ -1,0 +1,1058 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html</a> <span class="divider">/</span></li>
+                    <li class="active">BAT及各大互联网公司2014前端笔试面试题JavaScript篇</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Html,Css,Dom,javascriptxijiezongjie/index.html">&larr; Html,Css,Dom,javascript细节总结</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Html,Css,Dom,javascriptxijiezongjie/index.html">BAT及各大互联网公司2014前端笔试面试题Html,Css篇 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>BAT及各大互联网公司2014前端笔试面试题JavaScript篇</div><br><p><span style="font-size: 16px;">　　很多面试题是我自己面试BAT亲身经历碰到的。整理分享出来希望更多的前端er共同进步吧，不仅适用于求职者，对于巩固复习js更是大有裨益。</span></p>
+<p><span style="font-size: 16px;">　　而更多的题目是我一路以来收集的，也有往年的，答案不确保一定正确，如有错误或有更好的解法，还请斧正。</span></p>
+<p><span style="font-size: 16px;">　　附上第二篇：</span><span style="color: #3366ff; font-size: 16px;"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/coco1s/p/4034937.html"><span style="color: #3366ff;">BAT及各大互联网公司2014前端笔试面试题--Html,Css篇</span></a></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　前面几题是会很基础，越下越有深度。</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><strong><span style="font-size: 18pt; background-color: #99ccff;">　　初级Javascript：</span></strong></p>
+<p><strong><span style="font-size: 16px;">　　1.JavaScript是一门什么样的语言，它有哪些特点？</span></strong></p>
+<p><span style="font-size: 16px;">　　没有标准答案。</span></p>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><strong><span style="font-size: 16px;">　　2.JavaScript的数据类型都有什么？</span></strong></p>
+<p><span style="font-size: 16px;">　　基本数据类型：String,boolean,Number,Undefined,&nbsp;Null</span></p>
+<p class="p0"><span style="font-size: 16px;">　　引用数据类型：Object(Array,Date,RegExp,Function)</span></p>
+<p class="p0"><span style="font-size: 16px;">　　</span></p>
+<p class="p0"><span style="font-size: 16px;">　　那么问题来了，如何判断某变量是否为数组数据类型？</span></p>
+<ul>
+<li class="p0"><span style="font-size: 16px;">方法一.判断其是否具有&ldquo;数组性质&rdquo;，如slice()方法。<span style="color: #ff00ff;">可自己给该变量定义slice方法，故有时会失效</span></span></li>
+<li class="p0"><span style="font-size: 16px;">方法二.obj instanceof Array <span style="color: #ff00ff;">在某些IE版本中不正确</span></span></li>
+<li class="p0"><span style="font-size: 16px; color: #000000;">方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性，最好的方法如下：</span></li>
+</ul>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">if</span>(<span style="color: #0000ff;">typeof</span> Array.isArray==="undefined"<span style="color: #000000;">)
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">3</span>   Array.isArray = <span style="color: #0000ff;">function</span><span style="color: #000000;">(arg){
+</span><span style="color: #008080;">4</span>         <span style="color: #0000ff;">return</span> Object.prototype.toString.call(arg)==="[object Array]"
+<span style="color: #008080;">5</span> <span style="color: #000000;">    };  
+</span><span style="color: #008080;">6</span> }</span></pre>
+</div>
+<p>　　</p>
+<p><strong><span style="font-size: 16px;">　　3.</span><span style="font-size: 16px;">已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？(不使用第三方框架)</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> document.getElementById(&ldquo;ID&rdquo;).value</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　4.希望获取到页面中所有的checkbox怎么做？(不使用第三方框架)</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> domList =<span style="color: #000000;"> document.getElementsByTagName(&lsquo;input&rsquo;)
+</span><span style="color: #008080;">2</span> <span style="color: #0000ff;">var</span> checkBoxList =<span style="color: #000000;"> [];
+</span><span style="color: #008080;">3</span> <span style="color: #0000ff;">var</span> len =<span style="color: #000000;"> domList.length;　　//缓存到局部变量
+</span><span style="color: #008080;">4</span> <span style="color: #0000ff;">while</span> (len--<span style="color: #000000;">) {　　//使用while的效率会比for循环更高
+</span><span style="color: #008080;">5</span> 　　<span style="color: #0000ff;">if</span> (domList[len].type ==<span style="color: #000000;"> &lsquo;checkbox&rsquo;) {
+</span><span style="color: #008080;">6</span> <span style="color: #000000;">    　　checkBoxList.push(domList[len]);
+</span><span style="color: #008080;">7</span> <span style="color: #000000;">　　}
+</span><span style="color: #008080;">8</span> }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　5.设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色(不使用第三方框架)</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> dom =<span style="color: #000000;"> document.getElementById(&ldquo;ID&rdquo;);
+</span><span style="color: #008080;">2</span> dom.innerHTML =<span style="color: #000000;"> &ldquo;xxxx&rdquo;
+</span><span style="color: #008080;">3</span> dom.style.color = &ldquo;#000&rdquo;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？</span></strong></p>
+<ul>
+<li class="p0"><span style="font-size: 16px;">&nbsp;直接在DOM里绑定事件：&lt;div&nbsp;onclick=&rdquo;test()&rdquo;&gt;&lt;/div&gt;</span></li>
+<li class="p0"><span style="font-size: 16px;">&nbsp;在JS里通过onclick绑定：xxx.onclick&nbsp;=&nbsp;test&nbsp;</span></li>
+<li class="p0"><span style="font-size: 16px;">&nbsp;通过事件添加进行绑定：addEventListener(xxx,&nbsp;&lsquo;click&rsquo;,&nbsp;test)&nbsp;</span></li>
+</ul>
+<p><span style="font-size: 16px;">　　那么问题来了，Javascript的事件流模型都有什么？</span></p>
+<ul>
+<li class="p0"><span style="font-size: 16px;">&ldquo;事件冒泡&rdquo;：事件开始由最具体的元素接受，然后逐级向上传播</span></li>
+<li class="p0"><span style="font-size: 16px;">&ldquo;事件捕捉&rdquo;：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的</span></li>
+<li class="p0"><span style="font-size: 16px;">&ldquo;DOM事件流&rdquo;：三个阶段：事件捕捉，目标阶段，事件冒泡</span></li>
+</ul>
+<p class="p0"><span style="font-size: 16px;">&nbsp;</span></p>
+<p class="p0"><strong><span style="font-size: 16px;">　　7.什么是Ajax和JSON，它们的优缺点。</span></strong></p>
+<p class="p0"><span style="font-size: 16px;">　　Ajax是</span><span style="font-size: 16px;">异步JavaScript和XML，用于在Web页面中实现异步数据交互。</span></p>
+<p class="p0"><span style="font-size: 16px;">　　优点：</span></p>
+<ul>
+<li class="p0"><span style="font-size: 16px;">可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量</span></li>
+<li class="p0"><span style="font-size: 16px;">避免用户不断刷新或者跳转页面，提高用户体验</span></li>
+</ul>
+<p class="p0"><span style="font-size: 16px;">　　缺点：</span></p>
+<ul>
+<li class="p0"><span style="font-size: 16px;">对搜索引擎不友好（</span></li>
+<li class="p0"><span style="font-size: 16px;">要实现ajax下的前后退功能成本较大</span></li>
+<li class="p0"><span style="font-size: 16px;">可能造成请求数的增加</span></li>
+<li class="p0"><span style="font-size: 16px;">跨域问题限制</span></li>
+</ul>
+<p><span style="font-size: 16px;">　　JSON是</span><span style="font-size: 16px;">一种轻量级的数据交换格式，ECMA的一个子集</span></p>
+<p class="p0"><span style="font-size: 16px;">　　优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）</span></p>
+<p class="p0">&nbsp;</p>
+<p class="p0"><strong><span style="font-size: 16px;">　　8.看下列代码输出为何？解释原因。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span><span style="color: #000000;"> a;
+</span><span style="color: #008080;">2</span> alert(<span style="color: #0000ff;">typeof</span> a); <span style="color: #008000;">//</span><span style="color: #008000;"> undefined</span>
+<span style="color: #008080;">3</span> alert(b); <span style="color: #008000;">//</span><span style="color: #008000;"> 报错<br></span></span></pre>
+</div>
+<p>　　<span style="font-size: 16px;">解释：Undefined是一个只有一个值的数据类型，这个值就是&ldquo;undefined&rdquo;，在使用var声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未申明的变量和声明了未赋值的是不一样的。</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　9.看下列代码,输出什么？解释原因。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> a = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+</span><span style="color: #008080;">2</span> alert(<span style="color: #0000ff;">typeof</span> a); //object</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　解释：null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回&rdquo;object&rdquo;。</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　10.看下列代码,输出什么？解释原因。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span><span style="color: #000000;"> undefined;
+</span><span style="color: #008080;">2</span> undefined == <span style="color: #0000ff;">null</span>; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #008080;">3</span> 1 == <span style="color: #0000ff;">true</span>;&nbsp;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #008080;">4</span> 2 == <span style="color: #0000ff;">true</span>;&nbsp;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+<span style="color: #008080;">5</span> 0 == <span style="color: #0000ff;">false</span>;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #008080;">6</span> 0 == '';&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #008080;">7</span> NaN == NaN;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+<span style="color: #008080;">8</span> [] == <span style="color: #0000ff;">false</span>; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #008080;">9</span> [] == ![];&nbsp;&nbsp; <span style="color: #008000;">//</span><span style="color: #008000;"> true</span></span></pre>
+</div>
+<ul>
+<li class="p15"><span style="font-size: 16px;">undefined与null相等，但不恒等（===）</span></li>
+<li class="p15"><span style="font-size: 16px;">一个是number一个是string时，会尝试将string转换为number</span></li>
+<li class="p15"><span style="font-size: 16px;">尝试将boolean转换为number，0或1</span></li>
+<li class="p15"><span style="font-size: 16px;">尝试将Object转换成number或string，取决于另外一个对比量的类型</span></li>
+<li class="p15"><span style="font-size: 16px;">所以，对于0、空字符串的判断，建议使用&nbsp;&ldquo;===&rdquo;&nbsp;。&ldquo;===&rdquo;会先判断两边的值类型，类型不匹配时为false。</span></li>
+</ul>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><span style="font-size: 16px;">　　那么问题来了，看下面的代码，输出什么，foo的类型为什么？</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> foo = "11"+2-"1"<span style="color: #000000;">;
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">console.log(foo);
+</span><span style="color: #008080;">3</span> console.log(<span style="color: #0000ff;">typeof</span> foo);</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　执行完后foo的值为111，foo的类型为Number。</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> foo = "11"+2+"1"<span style="color: #000000;">;    //体会加一个字符串'1' 和 减去一个字符串'1'的不同
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">console.log(foo);
+</span><span style="color: #008080;">3</span> console.log(<span style="color: #0000ff;">typeof</span> foo);</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　执行完后foo的值为1121(<span style="color: #ff00ff;">此处是字符串拼接</span>)，foo的类型为String。</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　11.看代码给答案。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> a = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Object();
+</span><span style="color: #008080;">2</span> a.value = 1<span style="color: #000000;">;
+</span><span style="color: #008080;">3</span> b =<span style="color: #000000;"> a;
+</span><span style="color: #008080;">4</span> b.value = 2<span style="color: #000000;">;
+</span><span style="color: #008080;">5</span> alert(a.value);</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　答案：2（<span style="color: #ff00ff;">考察引用数据类型细节</span>）</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　12.</span><span style="font-size: 16px;">已知数组var&nbsp;stringArray&nbsp;=&nbsp;[&ldquo;This&rdquo;,&nbsp;&ldquo;is&rdquo;,&nbsp;&ldquo;Baidu&rdquo;,&nbsp;&ldquo;Campus&rdquo;]，Alert出&rdquo;This&nbsp;is&nbsp;Baidu&nbsp;Campus&rdquo;。</span></strong></p>
+<p><span style="font-size: 16px;">　　答案：alert(stringArray.join(" "))</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　那么问题来了，<strong>已知有字符串foo="get-element-by-id",写一个function将其转化成驼峰表示法"getElementById"。</strong></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> combo(msg){
+</span><span style="color: #008080;">2</span>     <span style="color: #0000ff;">var</span> arr = msg.split("-"<span style="color: #000000;">);
+</span><span style="color: #008080;">3</span>     <span style="color: #0000ff;">var</span> len = arr.length;    <span style="color: #008000;">//</span><span style="color: #008000;">将arr.length存储在一个局部变量可以提高for循环效率</span>
+<span style="color: #008080;">4</span>     <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=1;i&lt;len;i++<span style="color: #000000;">){
+</span><span style="color: #008080;">5</span>         arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1<span style="color: #000000;">);
+</span><span style="color: #008080;">6</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">7</span>     msg=arr.join(""<span style="color: #000000;">);
+</span><span style="color: #008080;">8</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> msg;
+</span><span style="color: #008080;">9</span> }</pre>
+</div>
+<p><span style="font-size: 16px;">　　(<span style="color: #ff00ff;">考察基础API</span>)</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　13.</span><span style="font-size: 16px;">var&nbsp;numberArray&nbsp;=&nbsp;[3,6,2,4,1,5]; （<span style="color: #ff00ff;">考察基础API</span>）</span></strong></p>
+<p class="p0"><span style="font-size: 16px;">　　1)&nbsp;实现对该数组的倒排，输出[5,1,4,2,6,3]</span></p>
+<p class="p0"><span style="font-size: 16px;">　　2)&nbsp;实现对该数组的降序排列，输出[6,5,4,3,2,1]</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> numberArray = [3,6,2,4,1,5<span style="color: #000000;">];
+</span><span style="color: #008080;">2</span> 
+<span style="color: #008080;">3</span> numberArray.reverse(); <span style="color: #008000;">//</span><span style="color: #008000;"> 5,1,4,2,6,3</span>
+<span style="color: #008080;">4</span> 
+<span style="color: #008080;">5</span> numberArray.sort(<span style="color: #0000ff;">function</span>(a,b){  <span style="color: #008000;">//</span><span style="color: #008000;">6,5,4,3,2,1</span>
+<span style="color: #008080;">6</span>    <span style="color: #0000ff;">return</span> b-<span style="color: #000000;">a; 
+</span><span style="color: #008080;">7</span> })</span></pre>
+</div>
+<p class="p0">&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　14.输出今天的日期，以YYYY-MM-DD的方式，比如今天是2014年9月26日，则输出2014-09-26</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">var</span> d = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Date();
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 获取年，getFullYear()返回4位的数字</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">var</span> year =<span style="color: #000000;"> d.getFullYear();
+</span><span style="color: #008080;"> 4</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 获取月，月份比较特殊，0是1月，11是12月</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">var</span> month = d.getMonth() + 1<span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 变成两位</span>
+<span style="color: #008080;"> 7</span> month = month &lt; 10 ? '0' +<span style="color: #000000;"> month : month;
+</span><span style="color: #008080;"> 8</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 获取日</span>
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">var</span> day =<span style="color: #000000;"> d.getDate();
+</span><span style="color: #008080;">10</span> day = day &lt; 10 ? '0' +<span style="color: #000000;"> day : day;
+</span><span style="color: #008080;">11</span> alert(year + '-' + month + '-' + day);</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　15.将字符串&rdquo;&lt;tr&gt;&lt;td&gt;{$id}&lt;/td&gt;&lt;td&gt;{$name}&lt;/td&gt;&lt;/tr&gt;&rdquo;中的{$id}替换成10，{$name}替换成Tony （使用正则表达式）</span></strong></p>
+<p><span style="font-size: 16px;">　　答案："&lt;tr&gt;&lt;td&gt;{$id}&lt;/td&gt;&lt;td&gt;{$id}_{$name}&lt;/td&gt;&lt;/tr&gt;".replace(/{\$id}/g,&nbsp;'10').replace(/{\$name}/g,&nbsp;&lsquo;Tony&rsquo;);</span></p>
+<p>　　　　</p>
+<p><strong><span style="font-size: 16px;">　　16.为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将&lt;,&nbsp;&gt;,&nbsp;&amp;,&nbsp;&ldquo;进行转义</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> escapeHtml(str) {
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">return</span> str.replace(/[&lt;&gt;&rdquo;&amp;]/g, <span style="color: #0000ff;">function</span><span style="color: #000000;">(match) {
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">switch</span><span style="color: #000000;"> (match) {
+</span><span style="color: #008080;"> 4</span>                    <span style="color: #0000ff;">case</span> &ldquo;&lt;<span style="color: #000000;">&rdquo;:
+</span><span style="color: #008080;"> 5</span>                       <span style="color: #0000ff;">return</span> &ldquo;&amp;<span style="color: #000000;">lt;&rdquo;;
+</span><span style="color: #008080;"> 6</span>                    <span style="color: #0000ff;">case</span> &ldquo;&gt;<span style="color: #000000;">&rdquo;:
+</span><span style="color: #008080;"> 7</span>                       <span style="color: #0000ff;">return</span> &ldquo;&amp;<span style="color: #000000;">gt;&rdquo;;
+</span><span style="color: #008080;"> 8</span>                    <span style="color: #0000ff;">case</span> &ldquo;&amp;<span style="color: #000000;">&rdquo;:
+</span><span style="color: #008080;"> 9</span>                       <span style="color: #0000ff;">return</span> &ldquo;&amp;<span style="color: #000000;">amp;&rdquo;;
+</span><span style="color: #008080;">10</span>                    <span style="color: #0000ff;">case</span><span style="color: #000000;"> &ldquo;\&rdquo;&rdquo;:
+</span><span style="color: #008080;">11</span>                       <span style="color: #0000ff;">return</span> &ldquo;&amp;<span style="color: #000000;">quot;&rdquo;;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">  });
+</span><span style="color: #008080;">14</span> }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　17.foo = foo||bar ，这行代码是什么意思？为什么要这样写？</span></strong></p>
+<p><span style="font-size: 16px;">　　答案：if(!foo)&nbsp;foo&nbsp;=&nbsp;bar;&nbsp;//<span style="font-family: 微软雅黑;">如果</span><span style="font-family: Arial;">foo</span><span style="font-family: 微软雅黑;">存在，值不变，否则把</span><span style="font-family: Arial;">bar</span><span style="font-family: 微软雅黑;">的值赋给</span><span style="font-family: Arial;">foo。</span></span></p>
+<p><span style="font-family: Arial; font-size: 16px;">　　短路表达式：作为"&amp;&amp;"和"||"操作符的操作数表达式，这些表达式在进行求值时，只要最终的结果已经可以确定是真或假，求值过程便告终止，这称之为短路求值。</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-family: Arial; font-size: 16px;">　　18.看下列代码，将会输出什么?(<span style="color: #ff00ff;">变量声明提升</span>)</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> foo = 1<span style="color: #000000;">;
+</span><span style="color: #008080;">2</span> <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">    console.log(foo);
+</span><span style="color: #008080;">4</span>     <span style="color: #0000ff;">var</span> foo = 2<span style="color: #000000;">;
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">    console.log(foo);
+</span><span style="color: #008080;">6</span> }   </span> </pre>
+</div>
+<p><span style="font-size: 16px;">　　答案：输出undefined 和 2。上面代码相当于：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> foo = 1<span style="color: #000000;">;
+</span><span style="color: #008080;">2</span> <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;">3</span>     <span style="color: #0000ff;">var</span><span style="color: #000000;"> foo;
+</span><span style="color: #008080;">4</span>     console.log(foo); <span style="color: #008000;">//</span><span style="color: #008000;">undefined</span>
+<span style="color: #008080;">5</span>     foo = 2<span style="color: #000000;">;
+</span><span style="color: #008080;">6</span>     console.log(foo); <span style="color: #008000;">//</span><span style="color: #008000;"> 2;   </span>
+<span style="color: #008080;">7</span> }   </span> </pre>
+</div>
+<p><span style="font-size: 16px;">　　函数声明与变量声明会被<span style="font-family: Arial;">JavaScript</span><span style="font-family: 微软雅黑;">引擎隐式地提升到当前作用域的顶部，但是只提升名称不会提升赋值部分。</span></span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;"><span style="font-family: 微软雅黑;">　　</span></span><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 16px;">19.</span><span style="font-size: 16px;">用</span></span><span style="font-size: 16px;">js实现随机选取10--100之间的10个数字，存入一个数组，并排序。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> iArray =<span style="color: #000000;"> [];&nbsp;
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">funtion getRandom(istart, iend){
+</span><span style="color: #008080;">3</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #0000ff;">var</span> iChoice = istart - iend +1<span style="color: #000000;">;
+</span><span style="color: #008080;">4</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #0000ff;">return</span> Math.floor(Math.random() * iChoice +<span style="color: #000000;"> istart;
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=0; i&lt;10; i++<span style="color: #000000;">){
+</span><span style="color: #008080;">7</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iArray.push(getRandom(10,100<span style="color: #000000;">));
+</span><span style="color: #008080;">8</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">9</span> iArray.sort();</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　20.把两个数组合并，并删除第二个元素。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> array1 = ['a','b','c'<span style="color: #000000;">];
+</span><span style="color: #008080;">2</span> <span style="color: #0000ff;">var</span> bArray = ['d','e','f'<span style="color: #000000;">];
+</span><span style="color: #008080;">3</span> <span style="color: #0000ff;">var</span> cArray =<span style="color: #000000;"> array1.concat(bArray);
+</span><span style="color: #008080;">4</span> cArray.splice(1,1);</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　21.怎样添加、移除、移动、复制、创建和查找节点（原生JS，实在基础，没细写每一步）</span></strong></p>
+<p><span style="font-size: 16px;">　　1<span style="font-family: 宋体;">）创建新节点</span></span></p>
+<p class="p0"><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createDocumentFragment()&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">创建一个</span><span style="font-family: Calibri;">DOM</span><span style="font-family: 宋体;">片段</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createElement()&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">创建一个具体的元素</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createTextNode()&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">创建一个文本节点</span></span></p>
+<p class="p0"><br><span style="font-size: 16px;">　　2<span style="font-family: 宋体;">）添加、移除、替换、插入</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appendChild()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">添加</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeChild()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">移除</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replaceChild()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">替换</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insertBefore()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">插入</span></span></p>
+<p class="p0"><br><span style="font-size: 16px;">　　3<span style="font-family: 宋体;">）查找</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getElementsByTagName()&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">通过标签名称</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getElementsByName()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">通过元素的</span><span style="font-family: Calibri;">Name</span><span style="font-family: 宋体;">属性的值</span></span><br><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getElementById()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<span style="font-family: 宋体;">通过元素</span><span style="font-family: Calibri;">Id</span><span style="font-family: 宋体;">，唯一性</span></span></p>
+<p class="p0"><span style="font-size: 16px;"><span style="font-family: 宋体;">　　</span></span></p>
+<p class="p0"><span style="font-size: 16px; font-family: 宋体;">　　<strong><span style="font-family: 'Microsoft YaHei';">22.有这样一个URL：http://item.taobao.com/item.htm?a=1&amp;b=2&amp;c=&amp;d=xxx&amp;e，请写一段JS程序提取URL中的各个GET参数(参数名和参数个数不确定)，将其按key-value形式返回到一个json结构中，如{a:'1',&nbsp;b:'2',&nbsp;c:'',&nbsp;d:'xxx',&nbsp;e:undefined}。</span></strong></span></p>
+<p class="p0"><span style="font-size: 16px;"><span style="font-family: 宋体;">　　答案：</span></span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> serilizeUrl(url) {
+</span><span style="color: #008080;">2</span>     <span style="color: #0000ff;">var</span> result =<span style="color: #000000;"> {};
+</span><span style="color: #008080;">3</span>     url = url.split("?")[1<span style="color: #000000;">];
+</span><span style="color: #008080;">4</span>     <span style="color: #0000ff;">var</span> map = url.split("&amp;"<span style="color: #000000;">);
+</span><span style="color: #008080;">5</span>     <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i = 0, len = map.length; i &lt; len; i++<span style="color: #000000;">) {
+</span><span style="color: #008080;">6</span>         result[map[i].split("=")[0]] = map[i].split("=")[1<span style="color: #000000;">];
+</span><span style="color: #008080;">7</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">8</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> result;
+</span><span style="color: #008080;">9</span> }</span></pre>
+</div>
+<p class="p0">&nbsp;</p>
+<p class="p0"><strong><span style="font-size: 16px;">　　23.正则表达式构造函数var reg=new RegExp("xxx")与正则表达字面量var reg=//有什么不同？匹配邮箱的正则表达式？</span></strong></p>
+<p class="p0"><span style="font-size: 16px;">　　答案：当使用RegExp()构造函数的时候，不仅需要转义引号（即\"表示"），并且还需要双反斜杠（即\\表示一个\）。<strong>使用正则表达字面量的效率更高。&nbsp;</strong></span></p>
+<p class="p0"><span style="font-size: 16px;"><strong>　　邮箱</strong>的正则匹配：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">var</span> regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">&nbsp;　　24.看下面代码，给出输出结果。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=1;i&lt;=3;i++<span style="color: #000000;">){
+</span><span style="color: #008080;">2</span>   setTimeout(<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">      console.log(i);    
+</span><span style="color: #008080;">4</span>   },0<span style="color: #000000;">);  
+</span><span style="color: #008080;">5</span> };</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　答案：4 4 4。</span></p>
+<p><span style="font-size: 16px;">　　原因：<span style="color: #ff00ff;">Javascript事件处理器在线程空闲之前不会运行</span>。那么问题来了，<strong>如何让上述代码输出1 2 3？</strong></span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=1;i&lt;=3;i++<span style="color: #000000;">){
+</span><span style="color: #008080;">2</span>    setTimeout((<span style="color: #0000ff;">function</span>(a){  <span style="color: #008000;">//</span><span style="color: #008000;">改成立即执行函数</span>
+<span style="color: #008080;">3</span> <span style="color: #000000;">       console.log(a);    
+</span><span style="color: #008080;">4</span>    })(i),0<span style="color: #000000;">);  
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">};
+</span><span style="color: #008080;">6</span> 
+<span style="color: #008080;">7</span> 1           <span style="color: #008000;">//</span><span style="color: #008000;">输出</span>
+<span style="color: #008080;">8</span> 2
+<span style="color: #008080;">9</span> 3</span></pre>
+</div>
+<p>　　</p>
+<p><strong><span style="font-size: 16px;">　　25.写一个function，清除字符串前后的空格。（兼容所有浏览器）</span></strong></p>
+<p><span style="font-size: 16px;">　　使用自带接口trim()，考虑兼容性：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">if</span> (!<span style="color: #000000;">String.prototype.trim) { 
+</span><span style="color: #008080;">2</span>  String.prototype.trim = <span style="color: #0000ff;">function</span><span style="color: #000000;">() { 
+</span><span style="color: #008080;">3</span>  <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span>.replace(/^\s+/, "").replace(/\s+$/,""<span style="color: #000000;">);
+</span><span style="color: #008080;">4</span> <span style="color: #000000;"> } 
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">} 
+</span><span style="color: #008080;">6</span> 
+<span style="color: #008080;">7</span> <span style="color: #008000;">//</span><span style="color: #008000;"> test the function </span>
+<span style="color: #008080;">8</span> <span style="color: #0000ff;">var</span> str = " \t\n test string "<span style="color: #000000;">.trim(); 
+</span><span style="color: #008080;">9</span> alert(str == "test string"); <span style="color: #008000;">//</span></span><span style="color: #008000;"><span style="font-size: 16px;"> alerts "true"</span> </span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　26.Javascript中callee和caller的作用？</span></strong></p>
+<p><span style="font-size: 16px;">　　答案：</span></p>
+<p><span style="font-size: 16px;">　　caller是返回一个对函数的引用，该函数调用了当前函数；</span></p>
+<p><span style="font-size: 16px;">　　callee是返回正在被执行的function函数，也就是所指定的function对象的正文。</span></p>
+<p><span style="font-size: 16px;">　　<strong>那么问题来了？</strong>如果一对兔子每月生一对兔子；一对新生兔，从第二个月起就开始生兔子；假定每对兔子都是一雌一雄，试问一对兔子，第n个月能繁殖成多少对兔子？（<span style="color: #ff00ff;">使用callee完成</span>）</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">var</span> result=<span style="color: #000000;">[];
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">function</span> fn(n){  <span style="color: #008000;">//</span><span style="color: #008000;">典型的斐波那契数列</span>
+<span style="color: #008080;"> 3</span>    <span style="color: #0000ff;">if</span>(n==1<span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">return</span> 1<span style="color: #000000;">;
+</span><span style="color: #008080;"> 5</span>    }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(n==2<span style="color: #000000;">){
+</span><span style="color: #008080;"> 6</span>            <span style="color: #0000ff;">return</span> 1<span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span>    }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;">(result[n]){
+</span><span style="color: #008080;"> 9</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;"> result[n];
+</span><span style="color: #008080;">10</span>         }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">11</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">argument.callee()表示fn()</span>
+<span style="color: #008080;">12</span>                 result[n]=arguments.callee(n-1)+arguments.callee(n-2<span style="color: #000000;">);
+</span><span style="color: #008080;">13</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;"> result[n];
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">   }
+</span><span style="color: #008080;">16</span> }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt; background-color: #99ccff;"><strong>　　中级Javascript：</strong></span></p>
+<p><strong><span style="font-size: 16px;">　　1.实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制</span></strong></p>
+<ul>
+<li><span style="font-size: 16px;">考察点1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚</span></li>
+<li class="p0"><span style="font-size: 16px;">考察点2：是否知道如何判断一个变量是什么类型的</span></li>
+<li class="p0"><span style="font-size: 16px;">考察点3：递归算法的设计</span></li>
+</ul>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 方法一：</span>
+<span style="color: #008080;"> 2</span> Object.prototype.clone = <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 3</span>         <span style="color: #0000ff;">var</span> o = <span style="color: #0000ff;">this</span>.constructor === Array ?<span style="color: #000000;"> [] : {};
+</span><span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> e <span style="color: #0000ff;">in</span> <span style="color: #0000ff;">this</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 5</span>                 o[e] = <span style="color: #0000ff;">typeof</span> <span style="color: #0000ff;">this</span>[e] === "object" ? <span style="color: #0000ff;">this</span>[e].clone() : <span style="color: #0000ff;">this</span><span style="color: #000000;">[e];
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 7</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> o;
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 9</span> 
+<span style="color: #008080;">10</span> <span style="color: #008000;">//</span><span style="color: #008000;">方法二：</span>
+<span style="color: #008080;">11</span>   <span style="color: #008000;">/*</span><span style="color: #008000;">*
+</span><span style="color: #008080;">12</span> <span style="color: #008000;">     * 克隆一个对象
+</span><span style="color: #008080;">13</span> <span style="color: #008000;">     * @param Obj
+</span><span style="color: #008080;">14</span> <span style="color: #008000;">     * @returns
+</span><span style="color: #008080;">15</span>      <span style="color: #008000;">*/</span> 
+<span style="color: #008080;">16</span>     <span style="color: #0000ff;">function</span><span style="color: #000000;"> clone(Obj) {   
+</span><span style="color: #008080;">17</span>         <span style="color: #0000ff;">var</span><span style="color: #000000;"> buf;   
+</span><span style="color: #008080;">18</span>         <span style="color: #0000ff;">if</span> (Obj <span style="color: #0000ff;">instanceof</span><span style="color: #000000;"> Array) {   
+</span><span style="color: #008080;">19</span>             buf = [];                    <span style="color: #008000;">//</span><span style="color: #008000;">创建一个空的数组 </span>
+<span style="color: #008080;">20</span>             <span style="color: #0000ff;">var</span> i =<span style="color: #000000;"> Obj.length;   
+</span><span style="color: #008080;">21</span>             <span style="color: #0000ff;">while</span> (i--<span style="color: #000000;">) {   
+</span><span style="color: #008080;">22</span>                 buf[i] =<span style="color: #000000;"> clone(Obj[i]);   
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">            }   
+</span><span style="color: #008080;">24</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> buf;    
+</span><span style="color: #008080;">25</span>         }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (Obj <span style="color: #0000ff;">instanceof</span><span style="color: #000000;"> Object){   
+</span><span style="color: #008080;">26</span>             buf = {};                   <span style="color: #008000;">//</span><span style="color: #008000;">创建一个空对象 </span>
+<span style="color: #008080;">27</span>             <span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> k <span style="color: #0000ff;">in</span> Obj) {           <span style="color: #008000;">//</span><span style="color: #008000;">为这个对象添加新的属性 </span>
+<span style="color: #008080;">28</span>                 buf[k] =<span style="color: #000000;"> clone(Obj[k]);   
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">            }   
+</span><span style="color: #008080;">30</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> buf;   
+</span><span style="color: #008080;">31</span>         }<span style="color: #0000ff;">else</span>{                         <span style="color: #008000;">//</span><span style="color: #008000;">普通变量直接赋值</span>
+<span style="color: #008080;">32</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> Obj;   
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">        }   
+</span><span style="color: #008080;">34</span>     } </span> </pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　2.如何消除一个数组里面重复的元素？</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">var</span> arr=[1,2,3,3,4,4,5,5,6,1,9,3,25,4<span style="color: #000000;">];
+</span><span style="color: #008080;"> 2</span>         <span style="color: #0000ff;">function</span><span style="color: #000000;"> deRepeat(){
+</span><span style="color: #008080;"> 3</span>             <span style="color: #0000ff;">var</span> newArr=<span style="color: #000000;">[];
+</span><span style="color: #008080;"> 4</span>             <span style="color: #0000ff;">var</span> obj=<span style="color: #000000;">{};
+</span><span style="color: #008080;"> 5</span>             <span style="color: #0000ff;">var</span> index=0<span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>             <span style="color: #0000ff;">var</span> l=<span style="color: #000000;">arr.length;
+</span><span style="color: #008080;"> 7</span>             <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=0;i&lt;l;i++<span style="color: #000000;">){
+</span><span style="color: #008080;"> 8</span>                 <span style="color: #0000ff;">if</span>(obj[arr[i]]==<span style="color: #000000;">undefined)
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">                  {
+</span><span style="color: #008080;">10</span>                     obj[arr[i]]=1<span style="color: #000000;">;
+</span><span style="color: #008080;">11</span>                     newArr[index++]=<span style="color: #000000;">arr[i];
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">                  }
+</span><span style="color: #008080;">13</span>                 <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(obj[arr[i]]==1<span style="color: #000000;">)
+</span><span style="color: #008080;">14</span>                   <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">16</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> newArr;
+</span><span style="color: #008080;">17</span> 
+<span style="color: #008080;">18</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">19</span>         <span style="color: #0000ff;">var</span> newArr2=<span style="color: #000000;">deRepeat(arr);
+</span><span style="color: #008080;">20</span>         alert(newArr2); <span style="color: #008000;">//</span><span style="color: #008000;">输出1,2,3,4,5,6,9,25</span></span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　3.小贤是一条可爱的小狗<span style="font-family: Calibri;">(Dog)</span><span style="font-family: 宋体;">，它的叫声很好听</span><span style="font-family: Calibri;">(wow)</span><span style="font-family: 宋体;">，每次看到主人的时候就会乖乖叫一声</span><span style="font-family: Calibri;">(yelp)</span><span style="font-family: 宋体;">。</span>从这段描述可以得到以下对象：</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> Dog() {
+</span><span style="color: #008080;">2</span>        <span style="color: #0000ff;">this</span>.wow = <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">               alert(&rsquo;Wow&rsquo;);
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;">5</span>        <span style="color: #0000ff;">this</span>.yelp = <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;">6</span>               <span style="color: #0000ff;">this</span><span style="color: #000000;">.wow();
+</span><span style="color: #008080;">7</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;">8</span> }</span></pre>
+</div>
+<p class="p15"><span style="font-size: 16px;">　　<strong>小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了<span style="font-family: Calibri;">(MadDog)</span><span style="font-family: 宋体;">，一看到人就会每隔半秒叫一声</span><span style="font-family: Calibri;">(wow)</span><span style="font-family: 宋体;">地不停叫唤</span><span style="font-family: Calibri;">(yelp)</span></strong><span style="font-family: 宋体;"><strong>。请根据描述，按示例的形式用代码来实。</strong>（<span style="color: #ff00ff;">继承，原型，setInterval</span>）</span></span></p>
+<p class="p15"><span style="font-size: 16px;"><span style="font-family: 宋体;">　　答案：</span></span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> MadDog() {
+</span><span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">this</span>.yelp = <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;"> 3</span>           <span style="color: #0000ff;">var</span> self = <span style="color: #0000ff;">this</span>;          
+<span style="color: #008080;"> 4</span>           setInterval(<span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;"> 5</span>                 self.wow();      
+<span style="color: #008080;"> 6</span>           }, 500<span style="color: #000000;">);
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 9</span> MadDog.prototype = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Dog();         
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #008000;">//</span><span style="color: #008000;">for test</span>
+<span style="color: #008080;">12</span> <span style="color: #0000ff;">var</span> dog = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Dog();
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">dog.yelp();
+</span><span style="color: #008080;">14</span> <span style="color: #0000ff;">var</span> madDog = <span style="color: #0000ff;">new</span><span style="color: #000000;"> MadDog();
+</span><span style="color: #008080;">15</span> madDog.yelp();</span></pre>
+</div>
+<p class="p15">&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　4.下面这个<span style="font-family: Verdana;">ul</span><span style="font-family: 宋体;">，如何点击每一列的时候</span><span style="font-family: Verdana;">alert</span><span style="font-family: 宋体;">其</span><span style="font-family: Verdana;">index?（<span style="color: #ff00ff;">闭包</span>）</span></span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> &lt;ul id=&rdquo;test&rdquo;&gt;
+<span style="color: #008080;">2</span> &lt;li&gt;这是第一条&lt;/li&gt;
+<span style="color: #008080;">3</span> &lt;li&gt;这是第二条&lt;/li&gt;
+<span style="color: #008080;">4</span> &lt;li&gt;这是第三条&lt;/li&gt;
+<span style="color: #008080;">5</span> &lt;/ul&gt;</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　答案：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 方法一：</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">var</span> lis=document.getElementById('2223').getElementsByTagName('li'<span style="color: #000000;">);
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=0;i&lt;3;i++<span style="color: #000000;">)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 5</span>     lis[i].index=<span style="color: #000000;">i;
+</span><span style="color: #008080;"> 6</span>     lis[i].onclick=<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 7</span>         alert(<span style="color: #0000ff;">this</span><span style="color: #000000;">.index);
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">    };
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #008000;">//</span><span style="color: #008000;">方法二：</span>
+<span style="color: #008080;">12</span> <span style="color: #0000ff;">var</span> lis=document.getElementById('2223').getElementsByTagName('li'<span style="color: #000000;">);
+</span><span style="color: #008080;">13</span> <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=0;i&lt;3;i++<span style="color: #000000;">)
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">15</span>     lis[i].index=<span style="color: #000000;">i;
+</span><span style="color: #008080;">16</span>     lis[i].onclick=(<span style="color: #0000ff;">function</span><span style="color: #000000;">(a){
+</span><span style="color: #008080;">17</span>         <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">            alert(a);
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">    })(i);
+</span><span style="color: #008080;">21</span> }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　5.<strong>编写一个<span style="font-family: Calibri;">JavaScript</span><span style="font-family: 宋体;">函数，输入指定类型的选择器</span><span style="font-family: Calibri;">(</span><span style="font-family: 宋体;">仅需支持</span><span style="font-family: Calibri;">id</span><span style="font-family: 宋体;">，</span><span style="font-family: Calibri;">class</span><span style="font-family: 宋体;">，</span><span style="font-family: Calibri;">tagName</span><span style="font-family: 宋体;">三种简单</span><span style="font-family: Calibri;">CSS</span><span style="font-family: 宋体;">选择器，无需兼容组合选择器</span><span style="font-family: Calibri;">)</span><span style="font-family: 宋体;">可以返回匹配的</span><span style="font-family: Calibri;">DOM</span><span style="font-family: 宋体;">节点，需考虑浏览器兼容性和性能。</span></strong></span></p>
+<p><strong><span style="font-size: 16px;"><span style="font-family: 宋体;">　　</span>/***&nbsp;@param&nbsp;selector&nbsp;{String}&nbsp;<span style="font-family: 宋体;">传入的</span><span style="font-family: Calibri;">CSS</span><span style="font-family: 宋体;">选择器。</span><span style="font-family: Calibri;">*&nbsp;@return&nbsp;{Array}*/</span></span></strong></p>
+<p><span style="font-size: 16px;"><span style="font-family: Calibri;">　　答案：（过长，点击打开）</span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('1f648f5b-cbdd-4342-b04d-05504ba78d32')"><img id="code_img_closed_1f648f5b-cbdd-4342-b04d-05504ba78d32" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_1f648f5b-cbdd-4342-b04d-05504ba78d32" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('1f648f5b-cbdd-4342-b04d-05504ba78d32',event)" src="16365178109279.gif" alt="">
+<div id="cnblogs_code_open_1f648f5b-cbdd-4342-b04d-05504ba78d32" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">var</span> query = <span style="color: #0000ff;">function</span><span style="color: #000000;">(selector) {
+</span><span style="color: #008080;"> 2</span>                 <span style="color: #0000ff;">var</span> reg = /^(#)?(\.)?(\w+)$/<span style="color: #000000;">img;
+</span><span style="color: #008080;"> 3</span>                 <span style="color: #0000ff;">var</span> regResult =<span style="color: #000000;"> reg.exec(selector);
+</span><span style="color: #008080;"> 4</span>                 <span style="color: #0000ff;">var</span> result =<span style="color: #000000;"> [];
+</span><span style="color: #008080;"> 5</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">如果是id选择器</span>
+<span style="color: #008080;"> 6</span>                 <span style="color: #0000ff;">if</span>(regResult[1<span style="color: #000000;">]) {
+</span><span style="color: #008080;"> 7</span>                     <span style="color: #0000ff;">if</span>(regResult[3<span style="color: #000000;">]) {
+</span><span style="color: #008080;"> 8</span>                         <span style="color: #0000ff;">if</span>(<span style="color: #0000ff;">typeof</span> document.querySelector === "function"<span style="color: #000000;">) {
+</span><span style="color: #008080;"> 9</span>                             result.push(document.querySelector(regResult[3<span style="color: #000000;">]));
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">                        }
+</span><span style="color: #008080;">11</span>                         <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">12</span>                             result.push(document.getElementById(regResult[3<span style="color: #000000;">]));
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">                        }
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">                    }
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">16</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">如果是class选择器</span>
+<span style="color: #008080;">17</span>                 <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(regResult[2<span style="color: #000000;">]) {
+</span><span style="color: #008080;">18</span>                     <span style="color: #0000ff;">if</span>(regResult[3<span style="color: #000000;">]) {
+</span><span style="color: #008080;">19</span>                         <span style="color: #0000ff;">if</span>(<span style="color: #0000ff;">typeof</span> document.getElementsByClassName === 'function'<span style="color: #000000;">) {
+</span><span style="color: #008080;">20</span>                             <span style="color: #0000ff;">var</span> doms = document.getElementsByClassName(regResult[3<span style="color: #000000;">]);
+</span><span style="color: #008080;">21</span>                             <span style="color: #0000ff;">if</span><span style="color: #000000;">(doms) {
+</span><span style="color: #008080;">22</span>                                 result =<span style="color: #000000;"> converToArray(doms);
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">                            }
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">                        }
+</span><span style="color: #008080;">25</span>                         <span style="color: #008000;">//</span><span style="color: #008000;">如果不支持getElementsByClassName函数</span>
+<span style="color: #008080;">26</span>                         <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">27</span>                             <span style="color: #0000ff;">var</span> allDoms = document.getElementsByTagName("*"<span style="color: #000000;">) ;
+</span><span style="color: #008080;">28</span>                             <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i = 0, len = allDoms.length; i &lt; len; i++<span style="color: #000000;">) {
+</span><span style="color: #008080;">29</span>                                 <span style="color: #0000ff;">if</span>(allDoms[i].className.search(<span style="color: #0000ff;">new</span> RegExp(regResult[2])) &gt; -1<span style="color: #000000;">) {
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">                                    result.push(allDoms[i]);
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">                                }
+</span><span style="color: #008080;">32</span> <span style="color: #000000;">                            }
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">                        }
+</span><span style="color: #008080;">34</span> <span style="color: #000000;">                    }
+</span><span style="color: #008080;">35</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">36</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">如果是标签选择器</span>
+<span style="color: #008080;">37</span>                 <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(regResult[3<span style="color: #000000;">]) {
+</span><span style="color: #008080;">38</span>                     <span style="color: #0000ff;">var</span> doms = document.getElementsByTagName(regResult[3<span style="color: #000000;">].toLowerCase());
+</span><span style="color: #008080;">39</span>                     <span style="color: #0000ff;">if</span><span style="color: #000000;">(doms) {
+</span><span style="color: #008080;">40</span>                         result =<span style="color: #000000;"> converToArray(doms);
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">                    }
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">43</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;"> result;
+</span><span style="color: #008080;">44</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">45</span> 
+<span style="color: #008080;">46</span>             <span style="color: #0000ff;">function</span><span style="color: #000000;"> converToArray(nodes){
+</span><span style="color: #008080;">47</span>                   <span style="color: #0000ff;">var</span> array = <span style="color: #0000ff;">null</span><span style="color: #000000;">;         
+</span><span style="color: #008080;">48</span>                   <span style="color: #0000ff;">try</span><span style="color: #000000;">{        
+</span><span style="color: #008080;">49</span>                         array = Array.prototype.slice.call(nodes,0);<span style="color: #008000;">//</span><span style="color: #008000;">针对非IE浏览器         </span>
+<span style="color: #008080;">50</span>                   }<span style="color: #0000ff;">catch</span><span style="color: #000000;">(ex){
+</span><span style="color: #008080;">51</span>                       array = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Array();         
+</span><span style="color: #008080;">52</span>                       <span style="color: #0000ff;">for</span>( <span style="color: #0000ff;">var</span> i = 0 ,len = nodes.length; i &lt; len ; i++<span style="color: #000000;"> ) { 
+</span><span style="color: #008080;">53</span> <span style="color: #000000;">                          array.push(nodes[i])         
+</span><span style="color: #008080;">54</span> <span style="color: #000000;">                      }         
+</span><span style="color: #008080;">55</span> <span style="color: #000000;">                  }      
+</span><span style="color: #008080;">56</span>                   <span style="color: #0000ff;">return</span><span style="color: #000000;"> array;
+</span><span style="color: #008080;">57</span>           }</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p><span style="font-size: 16px;">　　</span></p>
+<p><strong><span style="font-size: 16px;">　　6.请评价以下代码并给出改进意见。</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(window.addEventListener){
+</span><span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">var</span> addListener = <span style="color: #0000ff;">function</span><span style="color: #000000;">(el,type,listener,useCapture){
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">        el.addEventListener(type,listener,useCapture);
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">  };
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 6</span> <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(document.all){
+</span><span style="color: #008080;"> 7</span>     addListener = <span style="color: #0000ff;">function</span><span style="color: #000000;">(el,type,listener){
+</span><span style="color: #008080;"> 8</span>         el.attachEvent("on"+type,<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">          listener.apply(el);
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">      });
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">   }  
+</span><span style="color: #008080;">12</span> }</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　评价：</span></p>
+<ul>
+<li><span style="font-size: 16px;">不应该在if和else语句中声明addListener函数，应该先声明；</span></li>
+<li><span style="font-size: 16px;">不需要使用window.addEventListener或document.all来进行检测浏览器，应该使用</span><span style="font-size: 16px;">能力检测；</span></li>
+<li><span style="font-size: 16px;">由于attachEvent在IE中有this指向问题，所以调用它时需要处理一下</span></li>
+</ul>
+<p><span style="font-size: 16px;">　　改进如下：</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> addEvent(elem, type, handler){
+</span><span style="color: #008080;"> 2</span> 　　<span style="color: #0000ff;">if</span><span style="color: #000000;">(elem.addEventListener){
+</span><span style="color: #008080;"> 3</span> 　　　　elem.addEventListener(type, handler, <span style="color: #0000ff;">false</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 4</span> 　　}<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(elem.attachEvent){
+</span><span style="color: #008080;"> 5</span> 　　　　elem['temp' + type + handler] =<span style="color: #000000;"> handler;
+</span><span style="color: #008080;"> 6</span> 　　　　elem[type + handler] = <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 7</span> 　　　　elem['temp' + type +<span style="color: #000000;"> handler].apply(elem);
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">　　};
+</span><span style="color: #008080;"> 9</span> 　　elem.attachEvent('on' + type, elem[type +<span style="color: #000000;"> handler]);　
+</span><span style="color: #008080;">10</span>   }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">11</span> 　　elem['on' + type] =<span style="color: #000000;"> handler;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">　　}
+</span><span style="color: #008080;">13</span> }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　7.给String对象添加一个方法，传入一个string类型的参数，然后将string的每个字符间价格空格返回，例如：</span></strong></p>
+<p><strong><span style="font-size: 16px;">　　addSpace("hello world") // -&gt; 'h e l l o &nbsp;w o r l d'</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span>  String.prototype.spacify = <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;">2</span>       <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span>.split('').join(' '<span style="color: #000000;">);
+</span><span style="color: #008080;">3</span>     };</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　接着上述答题，那么问题来了</span></p>
+<p><span style="font-size: 16px;">　　1）<strong>直接在对象的原型上添加方法是否安全？尤其是在Object对象上。</strong>(<span style="color: #ff00ff;">这个我没能答出？希望知道的说一下。</span>)　</span></p>
+<p><span style="font-size: 16px;">　　2）<strong>函数声明与函数表达式的区别？</strong>　</span></p>
+<p><span style="font-size: 16px;">　　答案：在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。（<span style="color: #ff00ff;">函数声明提升</span>）</span></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　8.定义一个log方法，让它可以代理console.log的方法。</span></strong></p>
+<p><span style="font-size: 16px;">　　可行的方法一：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> log(msg)　{
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">    console.log(msg);
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">4</span> 
+<span style="color: #008080;">5</span> log("hello world!") <span style="color: #008000;">//</span><span style="color: #008000;"> hello world!</span>
+<span style="color: #008080;">6</span>  </span> </pre>
+</div>
+<p><span style="font-size: 16px;">　　如果要传入多个参数呢？显然上面的方法不能满足要求，所以更好的方法是：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> log(){
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">    console.log.apply(console, arguments);
+</span><span style="color: #008080;">3</span> };</span></pre>
+</div>
+<p><span style="font-size: 16px;">　　那么问题来了，<strong><span style="color: #000000;">apply和call方法的异同</span></strong>？　　</span></p>
+<p><span style="font-size: 16px;">　　答案：</span></p>
+<p><span style="font-size: 16px;">　　对于apply和call两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</span></p>
+<p><span style="font-size: 16px;">　　但两者在参数上有区别的。</span><span style="font-size: 16px;">对于第一个参数意义都一样，但对第二个参数：&nbsp;</span><span style="font-size: 16px;">apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。&nbsp;</span><span style="font-size: 16px;">如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]) 。</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　9.在Javascript中什么是伪数组？如何将伪数组转化为标准数组？</span></strong></p>
+<p><span style="font-size: 16px;">　　答案：</span></p>
+<p><span style="font-size: 16px;">　　伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</span></p>
+<p><span style="font-size: 16px;">　　假设接第八题题干，我们要给每个log方法添加一个"(app)"前缀，比如'hello world!' -&gt;'(app)hello world!'。方法如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;">1</span>  <span style="color: #0000ff;">function</span><span style="color: #000000;"> log(){
+</span><span style="color: #008080;">2</span>       <span style="color: #0000ff;">var</span> args = Array.prototype.slice.call(arguments);  <span style="color: #008000;">//</span><span style="color: #008000;">为了使用unshift数组方法，将argument转化为真正的数组</span>
+<span style="color: #008080;">3</span>       args.unshift('(app)'<span style="color: #000000;">);
+</span><span style="color: #008080;">4</span> 
+<span style="color: #008080;">5</span> <span style="color: #000000;">      console.log.apply(console, args);
+</span><span style="color: #008080;">6</span>     };</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　10.对作用域上下文和this的理解，看下列代码：</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">var</span> User =<span style="color: #000000;"> {
+</span><span style="color: #008080;"> 2</span>   count: 1<span style="color: #000000;">,
+</span><span style="color: #008080;"> 3</span> 
+<span style="color: #008080;"> 4</span>   getCount: <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span><span style="color: #000000;">.count;
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">};
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span> console.log(User.getCount());  <span style="color: #008000;">//</span><span style="color: #008000;"> what?</span>
+<span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">var</span> func =<span style="color: #000000;"> User.getCount;
+</span><span style="color: #008080;">12</span> console.log(func());  <span style="color: #008000;">//</span><span style="color: #008000;"> what?</span></span></pre>
+</div>
+<p><span style="font-size: 16px;">　　问两处console输出什么？为什么？</span></p>
+<p><span style="font-size: 16px;">　　答案是1和undefined。</span></p>
+<p><span style="font-size: 16px;">　　func是在winodw的上下文中被执行的，所以会访问不到count属性。</span></p>
+<p><span style="font-size: 16px;">　　那么问题来了，<strong>如何确保Uesr总是能访问到func的上下文，即正确返回1</strong>。</span></p>
+<p><span style="font-size: 16px;">　　答案：正确的方法是使用Function.prototype.bind。兼容各个浏览器完整代码如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> Function.prototype.bind = Function.prototype.bind || <span style="color: #0000ff;">function</span><span style="color: #000000;">(context){
+</span><span style="color: #008080;"> 2</span>    <span style="color: #0000ff;">var</span> self = <span style="color: #0000ff;">this</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 3</span> 
+<span style="color: #008080;"> 4</span>    <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 5</span>       <span style="color: #0000ff;">return</span><span style="color: #000000;"> self.apply(context, arguments);
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">   };
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">var</span> func =<span style="color: #000000;"> User.getCount.bind(User);
+</span><span style="color: #008080;">10</span> console.log(func());</span></pre>
+</div>
+<p>　　</p>
+<p><strong><span style="font-size: 16px;">　　11.原生JS的window.onload与Jquery的$(document).ready(function(){})有什么不同？如何用原生JS实现Jq的ready方法？</span></strong></p>
+<p><span style="font-size: 16px;">　　window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。</span></p>
+<p><span style="font-size: 16px;">　　$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。&nbsp;　　</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #008000;">/*</span>
+<span style="color: #008080;"> 2</span> <span style="color: #008000;"> * 传递函数给whenReady()
+</span><span style="color: #008080;"> 3</span> <span style="color: #008000;"> * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
+</span><span style="color: #008080;"> 4</span>  <span style="color: #008000;">*/</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">var</span> whenReady = (<span style="color: #0000ff;">function</span>() {               <span style="color: #008000;">//</span><span style="color: #008000;">这个函数返回whenReady()函数</span>
+<span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">var</span> funcs = [];             <span style="color: #008000;">//</span><span style="color: #008000;">当获得事件时，要运行的函数</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">var</span> ready = <span style="color: #0000ff;">false</span>;          <span style="color: #008000;">//</span><span style="color: #008000;">当触发事件处理程序时,切换为true</span>
+<span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>     <span style="color: #008000;">//</span><span style="color: #008000;">当文档就绪时,调用事件处理程序</span>
+<span style="color: #008080;">10</span>     <span style="color: #0000ff;">function</span><span style="color: #000000;"> handler(e) {
+</span><span style="color: #008080;">11</span>         <span style="color: #0000ff;">if</span>(ready) <span style="color: #0000ff;">return</span>;       <span style="color: #008000;">//</span><span style="color: #008000;">确保事件处理程序只完整运行一次</span>
+<span style="color: #008080;">12</span>         
+<span style="color: #008080;">13</span>         <span style="color: #008000;">//</span><span style="color: #008000;">如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好</span>
+<span style="color: #008080;">14</span>         <span style="color: #0000ff;">if</span>(e.type === 'onreadystatechange' &amp;&amp; document.readyState !== 'complete'<span style="color: #000000;">) {
+</span><span style="color: #008080;">15</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">17</span>         
+<span style="color: #008080;">18</span>         <span style="color: #008000;">//</span><span style="color: #008000;">运行所有注册函数</span>
+<span style="color: #008080;">19</span>         <span style="color: #008000;">//</span><span style="color: #008000;">注意每次都要计算funcs.length</span>
+<span style="color: #008080;">20</span>         <span style="color: #008000;">//</span><span style="color: #008000;">以防这些函数的调用可能会导致注册更多的函数</span>
+<span style="color: #008080;">21</span>         <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i=0; i&lt;funcs.length; i++<span style="color: #000000;">) {
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">            funcs[i].call(document);
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">24</span>         <span style="color: #008000;">//</span><span style="color: #008000;">事件处理函数完整执行,切换ready状态, 并移除所有函数</span>
+<span style="color: #008080;">25</span>         ready = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+</span><span style="color: #008080;">26</span>         funcs = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">28</span>     <span style="color: #008000;">//</span><span style="color: #008000;">为接收到的任何事件注册处理程序</span>
+<span style="color: #008080;">29</span>     <span style="color: #0000ff;">if</span><span style="color: #000000;">(document.addEventListener) {
+</span><span style="color: #008080;">30</span>         document.addEventListener('DOMContentLoaded', handler, <span style="color: #0000ff;">false</span><span style="color: #000000;">);
+</span><span style="color: #008080;">31</span>         document.addEventListener('readystatechange', handler, <span style="color: #0000ff;">false</span>);            <span style="color: #008000;">//</span><span style="color: #008000;">IE9+</span>
+<span style="color: #008080;">32</span>         window.addEventListener('load', handler, <span style="color: #0000ff;">false</span><span style="color: #000000;">);
+</span><span style="color: #008080;">33</span>     }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(document.attachEvent) {
+</span><span style="color: #008080;">34</span>         document.attachEvent('onreadystatechange'<span style="color: #000000;">, handler);
+</span><span style="color: #008080;">35</span>         window.attachEvent('onload'<span style="color: #000000;">, handler);
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">37</span>     <span style="color: #008000;">//</span><span style="color: #008000;">返回whenReady()函数</span>
+<span style="color: #008080;">38</span>     <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> whenReady(fn) {
+</span><span style="color: #008080;">39</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;">(ready) { fn.call(document); }
+</span><span style="color: #008080;">40</span>         <span style="color: #0000ff;">else</span><span style="color: #000000;"> { funcs.push(fn); }
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">42</span> })();</span></pre>
+</div>
+<p><span style="font-size: 16px;">&nbsp;　　如果上述代码十分难懂，下面这个简化版：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> ready(fn){
+</span><span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">if</span>(document.addEventListener) {        <span style="color: #008000;">//</span><span style="color: #008000;">标准浏览器</span>
+<span style="color: #008080;"> 3</span>         document.addEventListener('DOMContentLoaded', <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;"> 4</span>             <span style="color: #008000;">//</span><span style="color: #008000;">注销事件, 避免反复触发</span>
+<span style="color: #008080;"> 5</span>             document.removeEventListener('DOMContentLoaded',arguments.callee, <span style="color: #0000ff;">false</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span>             fn();            <span style="color: #008000;">//</span><span style="color: #008000;">执行函数</span>
+<span style="color: #008080;"> 7</span>         }, <span style="color: #0000ff;">false</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span>     }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(document.attachEvent) {        <span style="color: #008000;">//</span><span style="color: #008000;">IE</span>
+<span style="color: #008080;"> 9</span>         document.attachEvent('onreadystatechange', <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+</span><span style="color: #008080;">10</span>             <span style="color: #0000ff;">if</span>(document.readyState == 'complete'<span style="color: #000000;">) {
+</span><span style="color: #008080;">11</span>                 document.detachEvent('onreadystatechange'<span style="color: #000000;">, arguments.callee);
+</span><span style="color: #008080;">12</span>                 fn();        <span style="color: #008000;">//</span><span style="color: #008000;">函数执行</span>
+<span style="color: #008080;">13</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">        });
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">16</span> };</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　12.（设计题）想实现一个对页面某个节点的拖曳？如何做？（使用原生JS）</span></strong></p>
+<p class="p0"><span style="font-size: 16px;">　　回答出概念即可，下面是几个要点</span></p>
+<ol>
+<li class="p0"><span style="font-size: 16px;">给需要拖拽的节点绑定mousedown,&nbsp;mousemove,&nbsp;mouseup事件</span></li>
+<li class="p0"><span style="font-size: 16px;">mousedown事件触发后，开始拖拽</span></li>
+<li class="p0"><span style="font-size: 16px;">mousemove时，需要通过event.clientX和clientY获取拖拽位置，并实时更新位置</span></li>
+<li class="p0"><span style="font-size: 16px;">mouseup时，拖拽结束</span></li>
+<li class="p0"><span style="font-size: 16px;">需要注意浏览器边界的情况</span></li>
+</ol>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　13.</span></strong></p>
+<p><strong><span style="font-size: 16px;"><img src="11604686338958.png" alt=""></span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span> setcookie(name,value,days){  <span style="color: #008000;">//</span><span style="color: #008000;">给cookie增加一个时间变量</span>
+<span style="color: #008080;"> 2</span> 　　<span style="color: #0000ff;">var</span> exp = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Date(); 
+</span><span style="color: #008080;"> 3</span> 　　exp.setTime(exp.getTime() + days*24*60*60*1000<span style="color: #000000;">); //设置过期时间为days天
+</span><span style="color: #008080;"> 4</span> 　　document.cookie = name + "="+ escape (value) + ";expires=" +<span style="color: #000000;"> exp.toGMTString(); 
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">} 
+</span><span style="color: #008080;"> 6</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> getCookie(name){
+</span><span style="color: #008080;"> 7</span> 　　<span style="color: #0000ff;">var</span> result = ""<span style="color: #000000;">;
+</span><span style="color: #008080;"> 8</span> 　　<span style="color: #0000ff;">var</span> myCookie = ""+document.cookie+";"<span style="color: #000000;">; 
+</span><span style="color: #008080;"> 9</span> 　　<span style="color: #0000ff;">var</span> searchName = "+name+"="<span style="color: #000000;">;
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">　　var startOfCookie = myCookie.indexOf(searchName);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">　　var endOfCookie;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">　　if(satrtOfCookie != -1){
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">　　　　startOfcookie += searchName.length;
+</span><span style="color: #008080;">14</span> 　　　　endOfCookie = myCookie.indexOf(";"<span style="color: #000000;">,startOfCookie);
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">　　　　result = (myCookie.substring(startOfCookie,endOfCookie));
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">　　}
+</span><span style="color: #008080;">17</span> <span style="color: #000000;">　　return result;
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">(function(){
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">　　var oTips = document.getElementById('tips');//假设tips的id为tips
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">　　var page = {
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">　　check: function(){//检查tips的cookie是否存在并且允许显示
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">　　　　var tips = getCookie('tips');
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">　　　　if(!tips || tips == 'show') return true;//tips的cookie不存在
+</span><span style="color: #008080;">25</span> 　　　　if(tips == "never_show_again"<span style="color: #000000;">) return false;
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">　　},
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">　　hideTip: function(bNever){
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">　　　　if(bNever) setcookie('tips', 'never_show_again', 365);
+</span><span style="color: #008080;">29</span> 　　　　oTips.style.display = "none"<span style="color: #000000;">;//隐藏
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">　　},
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">　　showTip: function(){
+</span><span style="color: #008080;">32</span> 　　oTips.style.display = "inline"<span style="color: #000000;">;//显示，假设tips为行级元素
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">　　},
+</span><span style="color: #008080;">34</span> <span style="color: #000000;">　　init: function(){
+</span><span style="color: #008080;">35</span> <span style="color: #000000;">　　　　var _this = this;
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">　　　　if(this.check()){
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">　　　　_this.showTip();
+</span><span style="color: #008080;">38</span> <span style="color: #000000;">　　　　setcookie('tips', 'show', 1);
+</span><span style="color: #008080;">39</span> <span style="color: #000000;">　　}
+</span><span style="color: #008080;">40</span> <span style="color: #000000;">　　oTips.onclick = function(){
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">　　　　_this.hideTip(true);
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">　　};
+</span><span style="color: #008080;">43</span> <span style="color: #000000;">　　}
+</span><span style="color: #008080;">44</span> <span style="color: #000000;">　　};
+</span><span style="color: #008080;">45</span> <span style="color: #000000;">  page.init();
+</span><span style="color: #008080;">46</span> })();</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">　　14.说出以下函数的作用是？空白区域应该填写什么？</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">define </span>
+<span style="color: #008080;"> 2</span> (<span style="color: #0000ff;">function</span><span style="color: #000000;">(window){
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">function</span><span style="color: #000000;"> fn(str){
+</span><span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">this</span>.str=<span style="color: #000000;">str;
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>     fn.prototype.format = <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">var</span> arg =<span style="color: #000000;"> ______;
+</span><span style="color: #008080;"> 9</span>         <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span>.str.replace(_____,<span style="color: #0000ff;">function</span><span style="color: #000000;">(a,b){
+</span><span style="color: #008080;">10</span>              <span style="color: #0000ff;">return</span> arg[b]||""<span style="color: #000000;">;
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">      });
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">13</span>     window.fn =<span style="color: #000000;"> fn;
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">})(window);
+</span><span style="color: #008080;">15</span> 
+<span style="color: #008080;">16</span> <span style="color: #008000;">//</span><span style="color: #008000;">use</span>
+<span style="color: #008080;">17</span> (<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #008080;">18</span>     <span style="color: #0000ff;">var</span> t = <span style="color: #0000ff;">new</span> fn('&lt;p&gt;&lt;a href="{0}"&gt;{1}&lt;/a&gt;&lt;span&gt;{2}&lt;/span&gt;&lt;/p&gt;'<span style="color: #000000;">);
+</span><span style="color: #008080;">19</span>     console.log(t.format('http://www.alibaba.com','Alibaba','Welcome'<span style="color: #000000;">));
+</span><span style="color: #008080;">20</span> })();  </span> </pre>
+</div>
+<p><span style="font-size: 16px;">　　答案：访函数的作用是使用format函数将函数的参数替换掉{0}这样的内容，返回一个格式化后的结果：</span></p>
+<p><span style="font-size: 16px;">　　第一个空是：arguments</span><br><span style="font-size: 16px;">　　第二个空是：/\{(\d+)\}/ig</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　</span><strong><span style="font-size: 16px;">15.用面向对象的Javascript来介绍一下自己。（没答案哦亲，自己试试吧）</span></strong></p>
+<p><span style="font-size: 16px;">　　答案： 对象或者Json都是不错的选择哦。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　<strong>16.讲解原生Js实现ajax的原理。</strong></span></p>
+<p><span style="font-size: 16px;">　　<span lang="EN-US">Ajax&nbsp;的全称是<span lang="EN-US">Asynchronous JavaScript and XML，其中，<span lang="EN-US">Asynchronous&nbsp;是异步的意思，它有别于传统<span lang="EN-US">web开发中采用的同步的方式。</span></span></span></span></span></p>
+<p><span style="font-size: 16px;"><span lang="EN-US"><span lang="EN-US"><span lang="EN-US"><span lang="EN-US">　　<span lang="EN-US">Ajax的原理简单来说通过<span lang="EN-US">XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用<span lang="EN-US">javascript来操作<span lang="EN-US">DOM而更新页面。</span></span></span></span></span></span></span></span></span></p>
+<p><span style="font-size: 16px;"><span lang="EN-US">　　XMLHttpRequest是<span lang="EN-US">ajax的核心机制，它是在<span lang="EN-US">IE5中首先引入的，是一种支持异步请求的技术。简单的说，也就是<span lang="EN-US">javascript可以及时向服务器提出请求和处理响应，而不阻塞用户。达到无刷新的效果。</span></span></span></span></span></p>
+<p><span style="font-size: 16px;"><span lang="EN-US"><span lang="EN-US"><span lang="EN-US"><span lang="EN-US">　　XMLHttpRequest这个对象的属性有：</span></span></span></span></span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;onreadystatechang &nbsp; &nbsp;每次状态改变所触发事件的事件处理程序。</span></li>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;responseText &nbsp; &nbsp;从服务器进程返回数据的字符串形式。</span></li>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;responseXML &nbsp; &nbsp;从服务器进程返回的DOM兼容的文档数据对象。</span></li>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;status &nbsp; &nbsp;从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）</span></li>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;status Text &nbsp; &nbsp;伴随状态码的字符串信息</span></li>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;readyState &nbsp; &nbsp;对象状态值</span></li>
+<ul>
+<li><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;0 (未初始化)&nbsp;对象已建立，但是尚未初始化（尚未调用open方法）</span></li>
+<li>
+<p><span style="font-size: 16px; font-family: verdana, geneva;">&nbsp;1 (初始化)&nbsp;对象已建立，尚未调用send方法</span></p>
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>&nbsp;<span style="font-size: 16px; font-family: verdana, geneva;">2 (发送数据) send方法已调用，但是当前的状态及http头未知</span></p>
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>&nbsp;<span style="font-size: 16px; font-family: verdana, geneva;">3 (数据传送中)&nbsp;已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</span></p>
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>&nbsp;<span style="font-size: 16px; font-family: verdana, geneva;">4 (完成)&nbsp;数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</span></p>
+
+
+
+
+
+
+
+
+</li>
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+</ul>
+<p><span style="font-size: 16px;">　　下面简单封装一个函数：（<span style="color: #ff00ff;">略长，点击打开</span>）<span style="font-family: verdana, geneva;"><span style="line-height: 24px;">　　</span></span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('b7b5b6f2-8726-4d80-9090-c3d04ead6f60')"><img id="code_img_closed_b7b5b6f2-8726-4d80-9090-c3d04ead6f60" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_b7b5b6f2-8726-4d80-9090-c3d04ead6f60" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('b7b5b6f2-8726-4d80-9090-c3d04ead6f60',event)" src="16365178109279.gif" alt="">
+<div id="cnblogs_code_open_b7b5b6f2-8726-4d80-9090-c3d04ead6f60" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">    ajax({
+</span><span style="color: #008080;"> 2</span>         url: "./TestXHR.aspx",              <span style="color: #008000;">//</span><span style="color: #008000;">请求地址</span>
+<span style="color: #008080;"> 3</span>         type: "POST",                       <span style="color: #008000;">//</span><span style="color: #008000;">请求方式</span>
+<span style="color: #008080;"> 4</span>         data: { name: "super", age: 20 },        <span style="color: #008000;">//</span><span style="color: #008000;">请求参数</span>
+<span style="color: #008080;"> 5</span>         dataType: "json"<span style="color: #000000;">,
+</span><span style="color: #008080;"> 6</span>         success: <span style="color: #0000ff;">function</span><span style="color: #000000;"> (response, xml) {
+</span><span style="color: #008080;"> 7</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> 此处放成功后执行的代码</span>
+<span style="color: #008080;"> 8</span> <span style="color: #000000;">        },
+</span><span style="color: #008080;"> 9</span>         fail: <span style="color: #0000ff;">function</span><span style="color: #000000;"> (status) {
+</span><span style="color: #008080;">10</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> 此处放失败后执行的代码</span>
+<span style="color: #008080;">11</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    });
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span>     <span style="color: #0000ff;">function</span><span style="color: #000000;"> ajax(options) {
+</span><span style="color: #008080;">15</span>         options = options ||<span style="color: #000000;"> {};
+</span><span style="color: #008080;">16</span>         options.type = (options.type || "GET"<span style="color: #000000;">).toUpperCase();
+</span><span style="color: #008080;">17</span>         options.dataType = options.dataType || "json"<span style="color: #000000;">;
+</span><span style="color: #008080;">18</span>         <span style="color: #0000ff;">var</span> params =<span style="color: #000000;"> formatParams(options.data);
+</span><span style="color: #008080;">19</span> 
+<span style="color: #008080;">20</span>         <span style="color: #008000;">//</span><span style="color: #008000;">创建 - 非IE6 - 第一步</span>
+<span style="color: #008080;">21</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;"> (window.XMLHttpRequest) {
+</span><span style="color: #008080;">22</span>             <span style="color: #0000ff;">var</span> xhr = <span style="color: #0000ff;">new</span><span style="color: #000000;"> XMLHttpRequest();
+</span><span style="color: #008080;">23</span>         } <span style="color: #0000ff;">else</span> { <span style="color: #008000;">//</span><span style="color: #008000;">IE6及其以下版本浏览器</span>
+<span style="color: #008080;">24</span>             <span style="color: #0000ff;">var</span> xhr = <span style="color: #0000ff;">new</span> ActiveXObject('Microsoft.XMLHTTP'<span style="color: #000000;">);
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">26</span> 
+<span style="color: #008080;">27</span>         <span style="color: #008000;">//</span><span style="color: #008000;">接收 - 第三步</span>
+<span style="color: #008080;">28</span>         xhr.onreadystatechange = <span style="color: #0000ff;">function</span><span style="color: #000000;"> () {
+</span><span style="color: #008080;">29</span>             <span style="color: #0000ff;">if</span> (xhr.readyState == 4<span style="color: #000000;">) {
+</span><span style="color: #008080;">30</span>                 <span style="color: #0000ff;">var</span> status =<span style="color: #000000;"> xhr.status;
+</span><span style="color: #008080;">31</span>                 <span style="color: #0000ff;">if</span> (status &gt;= 200 &amp;&amp; status &lt; 300<span style="color: #000000;">) {
+</span><span style="color: #008080;">32</span>                     options.success &amp;&amp;<span style="color: #000000;"> options.success(xhr.responseText, xhr.responseXML);
+</span><span style="color: #008080;">33</span>                 } <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">34</span>                     options.fail &amp;&amp;<span style="color: #000000;"> options.fail(status);
+</span><span style="color: #008080;">35</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">38</span> 
+<span style="color: #008080;">39</span>         <span style="color: #008000;">//</span><span style="color: #008000;">连接 和 发送 - 第二步</span>
+<span style="color: #008080;">40</span>         <span style="color: #0000ff;">if</span> (options.type == "GET"<span style="color: #000000;">) {
+</span><span style="color: #008080;">41</span>             xhr.open("GET", options.url + "?" + params, <span style="color: #0000ff;">true</span><span style="color: #000000;">);
+</span><span style="color: #008080;">42</span>             xhr.send(<span style="color: #0000ff;">null</span><span style="color: #000000;">);
+</span><span style="color: #008080;">43</span>         } <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (options.type == "POST"<span style="color: #000000;">) {
+</span><span style="color: #008080;">44</span>             xhr.open("POST", options.url, <span style="color: #0000ff;">true</span><span style="color: #000000;">);
+</span><span style="color: #008080;">45</span>             <span style="color: #008000;">//</span><span style="color: #008000;">设置表单提交时的内容类型</span>
+<span style="color: #008080;">46</span>             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"<span style="color: #000000;">);
+</span><span style="color: #008080;">47</span> <span style="color: #000000;">            xhr.send(params);
+</span><span style="color: #008080;">48</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">49</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">50</span>     <span style="color: #008000;">//</span><span style="color: #008000;">格式化参数</span>
+<span style="color: #008080;">51</span>     <span style="color: #0000ff;">function</span><span style="color: #000000;"> formatParams(data) {
+</span><span style="color: #008080;">52</span>         <span style="color: #0000ff;">var</span> arr =<span style="color: #000000;"> [];
+</span><span style="color: #008080;">53</span>         <span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> name <span style="color: #0000ff;">in</span><span style="color: #000000;"> data) {
+</span><span style="color: #008080;">54</span>             arr.push(encodeURIComponent(name) + "=" +<span style="color: #000000;"> encodeURIComponent(data[name]));
+</span><span style="color: #008080;">55</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">56</span>         arr.push(("v=" + Math.random()).replace("."<span style="color: #000000;">));
+</span><span style="color: #008080;">57</span>         <span style="color: #0000ff;">return</span> arr.join("&amp;"<span style="color: #000000;">);
+</span><span style="color: #008080;">58</span>     }</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p><span style="font-size: 16px;">　　上述代码大致表述了ajax的过程，释义自行google，问题未完，<strong>那么知道什么是Jsonp和pjax吗？</strong></span></p>
+<p><span style="font-size: 16px;"><strong>　　答案：</strong></span></p>
+<p><span style="font-size: 16px; font-family: verdana, geneva;"><strong>　　Jsonp：</strong>(JSON with Padding)是一种跨域请求方式。主要原理是利用了script 标签可以跨域请求的特点，由其 src 属性发送请求到服务器，服务器返回 js 代码，网页端接受响应，然后就直接执行了，这和通过 script 标签引用外部文件的原理是一样的。JSONP由两部分组成：回调函数和数据，回调函数一般是由网页端控制，作为参数发往服务器端，服务器端把该函数和数据拼成字符串返回。<strong><br></strong></span></p>
+<p><span style="font-size: 16px; font-family: verdana, geneva;">　　<strong>pjax：</strong>pjax是一种基于ajax+history.pushState的新技术，该技术可以无刷新改变页面的内容，并且可以改变页面的URL。（<span style="color: #ff00ff;">关键点：可以实现ajax无法实现的后退功能</span>）pjax是<span style="font-family: verdana, geneva;"><code>ajax</code>+<code>pushState</code></span>的封装，同时支持本地存储、动画等多种功能。目前支持jquery、qwrap、kissy等多种版本。</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">　　觉得题目还ok的亲点个推荐哦，题量会不断增加。</span></p>
+<p><span style="font-size: 16px;">　　你可能会感兴趣：</span><span style="color: #3366ff; font-size: 16px;"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/coco1s/p/4034937.html"><span style="color: #3366ff;">BAT及各大互联网公司2014前端笔试面试题--Html,Css篇</span></a></span></p>
+<p><span style="font-size: 16px;">　　暂且贴出我做出答案的部分。有时间把未做出答案也贴出来。针对文中各题，如有更好的解决方法或者错误之处，各位亲务必告知我，误人子弟实乃罪过。</span></p>
+<p>&nbsp;</p>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Html,Css,Dom,javascriptxijiezongjie/index.html">&larr; Html,Css,Dom,javascript细节总结</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/Html,Css,Dom,javascriptxijiezongjie/index.html">BAT及各大互联网公司2014前端笔试面试题Html,Css篇 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="28441895619329" data-title="BAT及各大互联网公司2014前端笔试面试题JavaScript篇" data-url="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/BATjigedahulianwanggongsi2014qianduanbishimianshitiJavaScriptpian/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/wangyezhanshi/index.html">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/qianduankuangjialeiku/index.html">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Javascriptyouhua/index.html">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/html/index.html">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/Encourage/index.html">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

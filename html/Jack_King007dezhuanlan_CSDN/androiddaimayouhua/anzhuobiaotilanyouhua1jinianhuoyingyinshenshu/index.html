@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化</a> <span class="divider">/</span></li>
+                    <li class="active">安卓标题栏优化（1）——纪念火影隐身术</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/jiaonizenmeshiyongapilicationjinianhuoyingyingzimofangshu/index.html">&larr; 教你怎么使用apilication—纪念火影影子模仿术</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/jiaonizenmeshiyongapilicationjinianhuoyingyingzimofangshu/index.html">教你怎么使用apilication—纪念火影影子模仿术 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>安卓标题栏优化（1）——纪念火影隐身术</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:18px">在老师的号召下，我们做着痛苦的代码抽取，封装，只要一样的，都要抽取，封装。 <br>
+</span></p>
+<p><span style="font-size:18px"><img src="21096247501352.jpg" alt=""></span></p>
+<p><span style="font-size:18px">忍者世界，有着一个传奇忍术，就算是自来也不知道的忍术，他明明站在你面前，你却看不到他，就在你掉以轻心的时候，他在你背后给你致命一击。</span><span style="color:#FF0000"> 他就是隐身术。</span></p>
+<p><span style="font-size:18px">思路： </span>对于一个标题栏，一个APP要多次用到 ，我们要单独抽取出来，作为一个XML 如果一个界面需要到了 就用include&nbsp; 包括进来</p>
+<p><pre name="code" class="html">   &lt;include
+        android:id=&quot;@+id/title_bar&quot;
+        layout=&quot;@layout/layout_title_bar&quot; /&gt;</pre><br>
+<br>
+</p>
+<p><pre name="code" class="java">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/title_bar&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;55dp&quot;
+    android:background=&quot;@drawable/title_red_bg2&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:orientation=&quot;horizontal&quot; &gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_left&quot;
+        style=&quot;@style/style_title_btn&quot;
+        android:layout_width=&quot;wrap_content&quot;
+         android:background=&quot;@android:color/transparent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:padding=&quot;5dp&quot;
+        android:text=&quot;&quot; /&gt;
+
+    &lt;ImageButton
+        android:id=&quot;@+id/imgbtn_left&quot;
+        android:layout_width=&quot;40dp&quot;
+        android:layout_height=&quot;40dp&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:layout_marginRight=&quot;5dp&quot;
+        android:background=&quot;@android:color/transparent&quot;
+        android:scaleType=&quot;centerInside&quot; /&gt;
+
+    &lt;RelativeLayout
+        android:layout_width=&quot;0dip&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot; &gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_title&quot;
+            style=&quot;@style/style_title&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_centerInParent=&quot;true&quot;
+            android:drawablePadding=&quot;5dp&quot;
+            android:gravity=&quot;center&quot;
+            android:singleLine=&quot;true&quot;
+            android:text=&quot;新闻&quot; /&gt;
+    &lt;/RelativeLayout&gt;
+    
+    &lt;ImageButton
+        android:id=&quot;@+id/imgbtn_text&quot;
+        android:layout_width=&quot;40dp&quot;
+        android:layout_height=&quot;40dp&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:layout_marginRight=&quot;5dp&quot;
+        android:visibility=&quot;gone&quot;
+        android:src=&quot;@drawable/icon_textsize&quot;
+        android:background=&quot;@android:color/transparent&quot;
+        android:scaleType=&quot;centerInside&quot; /&gt;
+
+    &lt;ImageButton
+        android:id=&quot;@+id/imgbtn_right&quot;
+        android:layout_width=&quot;40dp&quot;
+        android:layout_height=&quot;40dp&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:layout_marginRight=&quot;5dp&quot;
+        android:background=&quot;@android:color/transparent&quot;
+        android:scaleType=&quot;centerInside&quot; /&gt;
+
+    &lt;ImageButton 
+        android:id=&quot;@+id/btn_right&quot;
+        android:layout_width=&quot;40dp&quot;
+        android:layout_height=&quot;40dp&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:layout_marginRight=&quot;5dp&quot;
+        android:background=&quot;@android:color/transparent&quot;
+        android:scaleType=&quot;centerInside&quot;  /&gt;
+
+&lt;/LinearLayout&gt;</pre></p>
+<p><span style="font-size:18px">关于布局嘛&nbsp; Button ImageView 都设置成 #00000000 透明色 <br>
+</span></p>
+<p><span style="font-size:18px"></span><pre name="code" class="html">&lt;span style=&quot;font-size:18px;&quot;&gt;  android:background=&quot;@android:color/transparent&quot;    
+其实 这个标题栏做的不错啦 ，如果你开发的时候没有适合的，可以手残下来。
+&lt;/span&gt;</pre><br>
+</p>
+<p>然后再 Oncreate 方法里面&nbsp; 初始化&nbsp; <br>
+</p>
+<p><pre name="code" class="java">	protected void initTitleBar(View view) {
+		leftBtn = (Button) view.findViewById(R.id.btn_left);
+		rightBtn = (ImageButton) view.findViewById(R.id.btn_right);
+		leftImgBtn = (ImageButton) view.findViewById(R.id.imgbtn_left);
+		rightImgBtn = (ImageButton) view.findViewById(R.id.imgbtn_right);
+		leftImgBtn.setImageResource(R.drawable.img_menu);
+		titleTv = (TextView) view.findViewById(R.id.txt_title);
+		leftBtn.setVisibility(View.GONE);
+		rightBtn.setVisibility(View.GONE);
+		if(leftImgBtn!=null)
+		leftImgBtn.setOnClickListener(this);
+
+	}</pre><br>
+<br>
+</p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<span id="pv-float-bar-container" style="top:495px; left:0px"><span title="查看原始" class="pv-float-bar-button pv-float-bar-button-actual"></span><span title="查看当前" class="pv-float-bar-button pv-float-bar-button-current"></span><span title="放大镜" class="pv-float-bar-button pv-float-bar-button-magnifier"></span><span title="查看库" class="pv-float-bar-button pv-float-bar-button-gallery"></span></span>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/jiaonizenmeshiyongapilicationjinianhuoyingyingzimofangshu/index.html">&larr; 教你怎么使用apilication—纪念火影影子模仿术</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/jiaonizenmeshiyongapilicationjinianhuoyingyingzimofangshu/index.html">教你怎么使用apilication—纪念火影影子模仿术 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="325067010353344" data-title="安卓标题栏优化（1）——纪念火影隐身术" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/anzhuobiaotilanyouhua1jinianhuoyingyinshenshu/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

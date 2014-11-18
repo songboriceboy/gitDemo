@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类</a> <span class="divider">/</span></li>
+                    <li class="active">day2自定义对话框</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/zuoweianzhuokaifazhebibeidexiaoruanjianquanshiganhuo/index.html">&larr; 作为安卓开发者必备的小软件（全是干货）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/zuoweianzhuokaifazhebibeidexiaoruanjianquanshiganhuo/index.html">android之代码优化（base类） &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>day2自定义对话框</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:24px">小新最近打算把360安全卫士中的知识点给列出来，为自己以后的快速开发提供帮助，先看效果吧</span></p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><img src="31194276753229.jpg" alt=""><br>
+</p>
+<p><br>
+</p>
+<p><span style="font-size:24px">其实也就是将一个XML用view形式传入进去</span><pre name="code" class="java">/**
+  * 设置密码对话框
+  */
+ private void showSetupPwdDialog() {
+  AlertDialog.Builder builder=new Builder(HomeActivity.this);
+  //自定义一个布局文件
+  View view=	View.inflate(HomeActivity.this, R.layout.dialog_setup_password, null);
+  et_setup_pwd = (EditText) view.findViewById(R.id.et_setup_pwd);
+  et_setup_confirm = (EditText) view.findViewById(R.id.et_setup_confirm);
+  ok = (Button) view.findViewById(R.id.ok);
+  cancel = (Button) view.findViewById(R.id.cancel);
+  cancel.setOnClickListener(new OnClickListener() {
+
+   @Override
+   public void onClick(View v) {
+    //把这个对话框取消掉
+    dialog.dismiss();
+   }
+  });
+  ok.setOnClickListener(new OnClickListener() {
+
+   @Override
+   public void onClick(View v) {
+   // 取出密码
+    String password = et_setup_pwd.getText().toString().trim();
+    String password_confirm = et_setup_confirm.getText().toString().trim();
+    if(TextUtils.isEmpty(password) || TextUtils.isEmpty(password_confirm)){
+     Toast.makeText(HomeActivity.this, &quot;密码为空&quot;, 0).show();
+     return;
+    }
+    //判断是否一致才去保存
+    if(password.equals(password_confirm)){
+     //一致的话，就保存密码，把对话框消掉，还要进入手机防盗页面
+     Editor editor = sp.edit();
+     editor.putString(&quot;password&quot;, MD5Utils.md5Password(password));//保存加密后的
+     editor.commit();
+     dialog.dismiss();
+     Log.i(TAG, &quot;一致的话，就保存密码，把对话框消掉，还要进入手机防盗页面&quot;);
+     Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+     startActivity(intent);
+    }else{
+
+     Toast.makeText(HomeActivity.this, &quot;密码不一致&quot;, 0).show();
+     return ;
+    }
+
+
+
+   }
+  });
+  dialog=builder.create();
+  dialog.setView(view,0,0,0,0);
+  dialog.show();
+ }</pre><br>
+<br>
+</p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<br>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px">xml代码</span></p>
+<p><span style="font-size:24px"></span><pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;300dip&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+
+    &lt;TextView
+        android:layout_width=&quot;300dip&quot;
+        android:layout_height=&quot;50dip&quot;
+        android:background=&quot;#66ff6600&quot;
+        android:gravity=&quot;center&quot;
+        android:text=&quot;设置密码&quot;
+        android:textColor=&quot;#000000&quot;
+        android:textSize=&quot;22sp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/et_setup_pwd&quot;
+        android:layout_width=&quot;280dip&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;请输入你的密码&quot;
+        android:inputType=&quot;textPassword&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/et_setup_confirm&quot;
+        android:layout_width=&quot;280dip&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;请再次输入密码&quot;
+        android:inputType=&quot;textPassword&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;300dip&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:gravity=&quot;center_horizontal&quot;
+        android:orientation=&quot;horizontal&quot; &gt;
+
+        &lt;Button
+            android:id=&quot;@+id/ok&quot;
+            android:layout_width=&quot;140dip&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;确定&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/cancel&quot;
+            android:layout_width=&quot;140dip&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;取消&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</pre><br>
+<br>
+</p>
+<p><span style="font-size:24px"><br>
+<br>
+</span></p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/zuoweianzhuokaifazhebibeidexiaoruanjianquanshiganhuo/index.html">&larr; 作为安卓开发者必备的小软件（全是干货）</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/zuoweianzhuokaifazhebibeidexiaoruanjianquanshiganhuo/index.html">android之代码优化（base类） &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="27923125545503" data-title="day2自定义对话框" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/day2zidingyiduihuakuang/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

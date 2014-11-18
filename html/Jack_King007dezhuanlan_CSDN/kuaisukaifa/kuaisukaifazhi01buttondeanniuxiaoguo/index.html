@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+        <meta name="keywords" content="QQ空间，新浪博客，宝宝树博客，豆瓣日记，天涯博客，简书，博客园，和讯博客，CSDN博客，Iteye博客，搜狐博客，51CTO,Iteye,Itpub,ChinaUnix" />
+
+        <title>博客备份专家博客备份演示站</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>博客备份专家博客备份演示站</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.github.io/gitDemo/html/guweiling_xinlang/index.html">谷为陵_新浪</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Ico_Coco_bokeyuan/index.html">Ico_Coco_博客园</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/index.html">Jack_King007的专栏_CSDN</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发</a> <span class="divider">/</span></li>
+                    <li class="active">快速开发之01——button的按钮效果</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi02textviewnengyoudianjishijianfasheng/index.html">&larr; 快速开发之02——textview能有点击事件发生</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi02textviewnengyoudianjishijianfasheng/index.html">快速开发14之创建快捷方式 &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>快速开发之01——button的按钮效果</div><br><div id="article_content" class="article_content">
+
+<p><span style="font-size:24px">这一章非常基础，也是很人新手会用到的一端代码，让你的按钮不再单调</span></p>
+<p><img src="16556345377768.jpg" align="middle" alt=""><br>
+</p>
+<p><br>
+</p>
+<p>不说多了贴代码</p>
+<pre name="code" class="java"> &lt;Button
+            android:background=&quot;@drawable/button_select&quot;
+            android:id=&quot;@+id/ok&quot;
+            android:layout_width=&quot;140dip&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;确定&quot; /&gt;
+
+        &lt;Button
+               android:background=&quot;@drawable/button_select&quot;
+            android:id=&quot;@+id/cancel&quot;
+            android:layout_width=&quot;140dip&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;取消&quot; /&gt;
+			</pre><pre name="code" class="java">&lt;/pre&gt;&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;</pre>其中button的属性有一个background设置一个xml文件&nbsp;button_select &nbsp;&nbsp;将两个效果图引入 点击就会有效果了
+<p>
+<p>先贴button_select的代码</p>
+<p>
+<pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;item android:state_pressed=&quot;true&quot;
+          android:drawable=&quot;@drawable/function_greenbutton_pressed&quot; /&gt; &lt;!-- pressed --&gt;
+          
+    &lt;item android:state_focused=&quot;true&quot;
+          android:drawable=&quot;@drawable/function_greenbutton_pressed&quot; /&gt; &lt;!-- focused --&gt;
+          
+  
+    &lt;item android:drawable=&quot;@drawable/function_greenbutton_normal&quot; /&gt; &lt;!-- default --&gt;
+&lt;/selector&gt;</pre><br>
+让我们先来看看两个效果图
+<p>
+<p><img src="216247310066688.jpg" alt=""><img src="381260410115289.jpg" alt=""></p>
+<p>相信大家看出来了有啥不同，其实大家可以看到别人的APP有些按钮漂亮可以逆向破解出来 把图片收藏起来 图片是.9的&#26684;式</p>
+<p><br>
+</p>
+
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi02textviewnengyoudianjishijianfasheng/index.html">&larr; 快速开发之02——textview能有点击事件发生</a></li>
+  <li class="next"><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi02textviewnengyoudianjishijianfasheng/index.html">快速开发14之创建快捷方式 &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="43745726269454" data-title="快速开发之01——button的按钮效果" data-url="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/kuaisukaifazhi01buttondeanniuxiaoguo/index.html"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/gaofangzhuomingAPPkaifalei/index.html">高仿著名APP开发类[7]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/weifenlei/index.html">未分类[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/kuaisukaifa/index.html">快速开发[17]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuowangluobiancheng/index.html">安卓网络编程[12]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuokuaisurumenlianshouxiaoxiangmuxilie/index.html">安卓快速入门——练手小项目系列[6]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuojichudehuigu/index.html">安卓基础的回顾[35]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/anzhuozhijishuguilei/index.html">安卓之技术归类[4]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/yipianwenzhangjiunengzaijianlishangjiayitiaojishudian/index.html">一片文章就能在简历上加一条技术点[1]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/javajichujiaqiang/index.html">java基础加强[28]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/appkaifazhiwogeinisilu/index.html">app开发之我给你思路[3]</a></li>
+    				          				<li><a href="http://songboriceboy.github.io/gitDemo/html/Jack_King007dezhuanlan_CSDN/androiddaimayouhua/index.html">android代码优化[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
