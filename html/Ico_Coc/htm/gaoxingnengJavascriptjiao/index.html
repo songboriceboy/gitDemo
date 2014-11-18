@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="测试生成" />
+        <meta name="keywords" content="测试生成" />
+
+        <title>测试生成</title>
+        <style type='text/css'>
+            body {
+                background-color: #CCC;
+            }
+        </style>
+        <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tiantiancode"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>测试生成</h1>
+
+            <div class='navbar navbar-inverse'>
+                <div class='navbar-inner nav-collapse' style="height: auto;">
+                    <ul class="nav">
+                              				<li><a href="http://songboriceboy.gith">Ico_Coco</a></li>
+    				                      </ul>
+                </div>
+            </div>
+
+            <div id='content' class='row-fluid'>
+
+                <div class='span9 main'>
+                <ul class="breadcrumb">
+                    <li><a href="http://songboriceboy.gith">Ico_Coco</a> <span class="divider">/</span></li>
+                    <li><a href="http://songboriceboy.gith">html</a> <span class="divider">/</span></li>
+                    <li class="active">高性能Javascript脚本的无阻塞加载策略</li>
+                </ul>
+           <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.gith">&larr; 高性能Javascript高效的数据访问</a></li>
+  <li class="next"><a href="http://songboriceboy.gith">由position属性引申的关于css的进阶讨论（包含块、BFC、margincollapse） &rarr;</a></li>
+</ul>
+				<div style="color:blue" align=center>高性能Javascript脚本的无阻塞加载策略</div><br><p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　Javascript在浏览器中的性能，可以说是前端开发者所要面对的最重要的可用性问题。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　在Yahoo的Yslow23条规则当中，其中一条是将<strong>JS放在底部</strong>&nbsp;。原因是，事实上，大多数浏览器使用单进程处理UI和更新Javascript运行等多个任务，而同一时间只能有一个任务被执行。Javascript运行了多长时间，那么在浏览器空闲下来响应用户交互之前的等待时间就有多长。　</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><img src="345563910050276.png" alt="" width="777" height="267"></span></p>
+<div class="page" title="Page 2">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　从基本层面说,这意味着&lt;script&gt;标签的出现使整个页面因脚本解析、运行而出现等待。不论实际的 JavaScript 代码是内联的还是包含在一个不相干的外部文件中,页面下载和解析过程必须停下,等待脚本 完成这些处理,然后才能继续。这是页面生命周期必不可少的部分,因为脚本可能在运行过程中修改页面 内容。典型的例子是 document.write()函数,例如:</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 2</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>Script Example<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 4</span>   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 5</span>   
+<span style="color: #008080;"> 6</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 7</span>      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 9</span> <span style="background-color: #f5f5f5; color: #000000;">           document.write(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">The date is </span><span style="background-color: #f5f5f5; color: #000000;">"</span> <span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> (</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> Date()).toDateString());
+</span><span style="color: #008080;">10</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">11</span>      <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">12</span>   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">13</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>  　</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<div class="page" title="Page 3">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　当浏览器遇到一个&lt;script&gt;标签时,正如上面 HTML 页面中那样,无法预知 JavaScript 是否在&lt;p&gt;标签中 添加内容。因此,浏览器停下来,运行此 JavaScript 代码,然后再继续解析、翻译页面。同样的事情发生 在使用 src 属性加载 JavaScript 的过程中。浏览器必须首先下载外部文件的代码,这要占用一些时间,然后 解析并运行此代码。此过程中,页面解析和用户交互是被完全阻塞的。&nbsp;　　</span></p>
+<div class="page" title="Page 6">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　因为脚本阻塞其他页面资源的下载过程,所以推荐的办法是:将所有&lt;script&gt;标签放在尽可能接近&lt;body&gt; 标签底部的位置,尽量减少对整个页面下载的影响。例如:</span><br>
+</p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> &lt;html&gt;
+<span style="color: #008080;"> 2</span>   &lt;head&gt;
+<span style="color: #008080;"> 3</span>     &lt;title&gt;Script Example&lt;/title&gt;
+<span style="color: #008080;"> 4</span>     &lt;link rel=<span style="color: #800000;">"</span><span style="color: #800000;">stylesheet</span><span style="color: #800000;">"</span> type=<span style="color: #800000;">"</span><span style="color: #800000;">text/css</span><span style="color: #800000;">"</span> href=<span style="color: #800000;">"</span><span style="color: #800000;">styles.css</span><span style="color: #800000;">"</span>&gt; 
+<span style="color: #008080;"> 5</span>   &lt;/head&gt;
+<span style="color: #008080;"> 6</span>   
+<span style="color: #008080;"> 7</span>   &lt;body&gt;
+<span style="color: #008080;"> 8</span>     &lt;p&gt;Hello world!&lt;/p&gt;
+<span style="color: #008080;"> 9</span>     &lt;-- Example of recommended script positioning --&gt; 
+<span style="color: #008080;">10</span>       &lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span> src=<span style="color: #800000;">"</span><span style="color: #800000;">file1.js</span><span style="color: #800000;">"</span>&gt;&lt;/script&gt; 
+<span style="color: #008080;">11</span>       &lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span> src=<span style="color: #800000;">"</span><span style="color: #800000;">file2.js</span><span style="color: #800000;">"</span>&gt;&lt;/script&gt; 
+<span style="color: #008080;">12</span>       &lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span> src=<span style="color: #800000;">"</span><span style="color: #800000;">file3.js</span><span style="color: #800000;">"</span>&gt;&lt;/script&gt;
+<span style="color: #008080;">13</span>   &lt;/body&gt; 
+<span style="color: #008080;">14</span> &lt;/html&gt;</span></pre>
+</div>
+<div class="page" title="Page 6">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此代码展示了所推荐的&lt;script&gt;标签在 HTML 文件中的位置。尽管脚本下载之间互相阻塞,但页面已经 下载完成并且显示在用户面前了,进入页面的速度不会显得太慢。这就是上面提到的<strong>将JS放到底部</strong>。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　另外，Yahoo! 为他的&ldquo;Yahoo! 用户接口(Yahoo! User Interface,YUI)&rdquo;库创建一个&ldquo;联合句柄&rdquo;,这是通过他 们的&ldquo;内容投递网络(Content Delivery Network,CDN)&rdquo;实现的。任何一个网站可以使用一个&ldquo;联合句柄&rdquo;URL 指出包含 YUI 文件包中的哪些文件。例如,下面的 URL 包含两个文件:&nbsp;　　</span></p>
+<div class="page" title="Page 8">
+<div class="layoutArea">
+<div class="column">
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;">1</span> 　　&lt;script type="text/javascript"&nbsp;src="http://yui.yahooapis.com/combo?2.7.0/build/yahoo/yahoo-min.js&amp;2.7.0/build/event/event-min.js"&gt;&lt;/script&gt;&nbsp;</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此 URL 调用 2.7.0 版本的 yahoo-min.js 和 event-min.js 文件。这些文件在服务器上是两个分离的文件,但是 当服务器收到此 URL 请求时,两个文件将被合并在一起返回给客户端。通过这种方法,就不再需要两个 &lt;script&gt;标签(每个标签加载一个文件),一个&lt;script&gt;标签就可以加载他们。这是在HTML页面包含多个外部Javascript的最佳方法。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<p><strong><span style="font-size: 18pt; font-family: arial, helvetica, sans-serif; background-color: #99ccff;">　　Noblocking Scripts 非阻塞脚本</span></strong></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　上述是页面初始状态包含多个Javascript脚本加载的最佳方法。Javascript倾向于阻塞浏览器某些处理过程，如http请求和界面刷新，这是开发者面临的最显著性能问题。保持Javascript文件短小，并限制http请求的数量，只是创建反应迅速的网页应用第一步。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　但诸如大型网页有大量的Js代码，保持源码短小并不总是一种最佳选择。So，非阻塞脚本应运而生，我们需要的是向页面中逐步添加javascript，某种程度上而言不会阻塞浏览器。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　而非阻塞脚本的关键在于，等页面完成加载之后，再加载Javascript源码，这意味着在window的load事件发出之后开始下载代码。</span></p>
+<blockquote>
+<p><span style="color: #808080; font-family: arial, helvetica, sans-serif; font-size: 16px;">相关解释：　　</span></p>
+<p><span style="color: #808080; font-family: arial, helvetica, sans-serif; font-size: 16px;">　　window 的load事件只会在页面载入完毕后触发一次且仅一次。</span></p>
+<p><span style="color: #808080; font-family: arial, helvetica, sans-serif; font-size: 16px;">　　window.onload=function(){}必须等待网页中所有的内容加载完毕后&nbsp;<span lang="EN-US">( 包括元素的所有关联文件，例如图片&nbsp;<span lang="EN-US">)&nbsp;才能执行，即Javascript此时才可以访问页面中的任何元素。</span></span></span></p>
+</blockquote>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　如下述几种方法：</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt; background-color: #ccffff;"><strong>　　Deferred Scripts 延期脚本</strong></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　Html4为&lt;script&gt;标签定义了一个扩展属性：defer。<br></span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　这个defer属性指明元素中所包含的脚本不打算修改DOM，因此代码可以稍后执行。defer属性只被Internet Explorer 4+和Firefox 3.5+支持，它不是一个理想的跨浏览器解决方案。在其他浏览器上，defer属性将被忽略。所以，&lt;script&gt;标签会按照正常默认方式处理，即是会造成阻塞。如果得到各个主流浏览器的支持，这仍是一种有效的解决方式。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span> src=<span style="color: #800000;">"</span><span style="color: #800000;">file1.js</span><span style="color: #800000;">"</span> defer&gt;&lt;/script&gt;</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　一个带有defer属性的&lt;script&gt;标签可以放置在文档的任何位置，它会在被解析时启动下载，直到DOM加载完成（在onload事件句柄被调用之前）。当一个defer的Javascript文件被下载时，它不会阻塞浏览器的其他处理过程，所以这些文件可以与其他资源一起并行下载。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　可以使用下述代码测试浏览器是否支持defer属性：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> &lt;html&gt;
+<span style="color: #008080;"> 2</span>   &lt;head&gt;
+<span style="color: #008080;"> 3</span>     &lt;title&gt;Script Defer Example&lt;/title&gt;
+<span style="color: #008080;"> 4</span>   &lt;/head&gt; 
+<span style="color: #008080;"> 5</span> 
+<span style="color: #008080;"> 6</span>   &lt;body&gt;
+<span style="color: #008080;"> 7</span>     &lt;script defer&gt; alert(<span style="color: #800000;">"</span><span style="color: #800000;">defer</span><span style="color: #800000;">"</span>);&lt;/script&gt; 
+<span style="color: #008080;"> 8</span>     &lt;script&gt; alert(<span style="color: #800000;">"</span><span style="color: #800000;">script</span><span style="color: #800000;">"</span>); &lt;/script&gt; 
+<span style="color: #008080;"> 9</span>     &lt;script&gt; window.onload = function(){ alert(<span style="color: #800000;">"</span><span style="color: #800000;">load</span><span style="color: #800000;">"</span>);}; &lt;/script&gt;
+<span style="color: #008080;">10</span>   &lt;/body&gt; 
+<span style="color: #008080;">11</span> &lt;/html&gt;</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　如果浏览器不支持defer，那么弹出的对话框的顺序是&ldquo;defer&rdquo;，&ldquo;script&rdquo;，&ldquo;load&rdquo;。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　如果浏览器支持defer，那么弹出的对话框的顺序是&ldquo;script&rdquo;，&ldquo;load&rdquo;，&ldquo;defer&rdquo;。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　根据大家评论的反馈，HTML5新增了一个<strong>async</strong>属性。在上述的基础上，对比一下defer与async的异同：</span></p>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　<strong>相同之处：</strong></span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">加载文件时不阻塞页面渲染</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">使用这两个属性的脚本中不能调用document.write方法</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">有脚本的onload的事件回调</span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　<strong>区别点：</strong></span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>html的版本 &nbsp;</strong>html4.0中定义了defer；html5.0中定义了async</span></li>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>执行时刻</strong></span></li>
+</ul>
+<p><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">　　 &nbsp;每一个async属性的脚本都在它下载结束之后立刻执行，同时会在window的load事件之前执行。所以就有可能出现脚本执行顺序被打乱的情况；每一个defer属性的脚本都是在页面解析完毕之后，按照原本的顺序执行，同时会在document的　　 　DOMContentLoaded之前执行。</span></p>
+<ul>
+<li><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><strong>浏览器</strong></span></li>
+</ul>
+<table class="compat-table" style="height: 84px; margin-left: 30px; width: 710px;">
+<tbody>
+<tr><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Feature</span></th><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Chrome</span></th><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Firefox (Gecko)</span></th><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Internet Explorer</span></th><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Opera</span></th><th><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Safari</span></th></tr>
+<tr>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">Basic support</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">1.0</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">1.0 (1.7 or earlier)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+</tr>
+<tr>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><code>async</code>attribute</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">3.6 (1.9.2)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">10</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Not supported.">&ndash;</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+</tr>
+<tr>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;"><code>defer</code>attribute</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">3.5 (1.9.1)</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">4</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Not supported.">&ndash;</span></td>
+<td><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;" title="Please update this with the earliest version of support.">(Supported)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><strong>　　</strong></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><strong style="line-height: 1.5;"><br></strong></span><span style="font-size: 14pt;"><span style="font-family: arial, helvetica, sans-serif;"><strong style="line-height: 1.5;"><span style="background-color: #ccffff;">　　Dynamic Script Elements 动态脚本元素</span></strong></span><span style="font-family: arial, helvetica, sans-serif;">&nbsp;</span></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　DOM允许我们使用Javascript动态创建HTML的几乎所有文档内容，一个新的&lt;script&gt;元素可以非常容易的通过标准DOM创建：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #000000;">var script = document.createElement ("script");
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">script.type = "text/javascript";
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">script.src = "file1.js"; 
+</span><span style="color: #008080;">4</span> document.body.appendChild(script);</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　新的&lt;script&gt;元素加载file1.js源文件。此文件当元素添加到页面后立刻开始下载。此技术的重点在于：无论在何处启动下载，文件的下载和运行都不会阻塞其他页面处理过程。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　当文件使用动态脚本节点下载时，返回的代码通常立即执行（除了Firefox和Opera，它们将等待此前的所有动态脚本节点执行完毕）。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　大多数情况下，我们希望调用一个函数就可以实现Javascript文件的动态下载。下面的函数封装实现了标准实现和IE实现：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #000000;"> function loadScript(url, callback){
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    var script = document.createElement ("script") ;
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">　  script.type = "text/javascript";
+</span><span style="color: #008080;"> 4</span>      
+<span style="color: #008080;"> 5</span> <span style="color: #000000;">    if (script.readyState){ //IE
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">       script.onreadystatechange = function(){
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">         if (script.readyState == "loaded" || script.readyState == "complete"){
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">           script.onreadystatechange = null;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">           callback(); 
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">          }
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">       };
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">     } 
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">     else { //Others
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">       script.onload = function(){ callback();
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">     }; 
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">   }
+</span><span style="color: #008080;">17</span> <span style="color: #000000;">   script.src = url;
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">   document.getElementsByTagName("head")[0].appendChild(script); 
+</span><span style="color: #008080;">19</span> <span style="color: #000000;"> }
+</span><span style="color: #008080;">20</span> 
+<span style="color: #008080;">21</span> <span style="color: #000000;">loadScript("file1.js", function(){  //调用
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">    alert("File is loaded!"); 
+</span><span style="color: #008080;">23</span> });</span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此函数接受两个参数：Javascript文件的Url和一个当Javascript接收完成时触发的回调函数。属性检查用于决定监视哪种事件。最后一步src属性，并将javascript文件添加到head。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　动态脚本加载是非阻塞Javascript下载中最常用的模式，因为它可以跨浏览器，而且简单易用。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt; background-color: #ccffff;"><strong>　　XMLHttpRequest Script Injection XHR脚本注入</strong></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　另一个以非阻塞方式获得脚本的方法是使用XMLHttpRequest(XHR)对象将脚本注入到页面中。此技术首先创建一个XHR对象，然后下载Javascript文件，接着用一个动态&lt;script&gt;元素将Javascript代码注入页面。看demo：　</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #000000;">var xhr = new XMLHttpRequest(); 
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">xhr.open("get", "file1.js", true); 
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">xhr.onreadystatechange = function(){
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    if (xhr.readyState == 4){
+</span><span style="color: #008080;"> 5</span>       if (xhr.status &gt;= 200 &amp;&amp; xhr.status <span style="color: #0000ff;">&lt;</span><span style="color: #800000;"> 300 </span><span style="color: #ff0000;">|| xhr.status </span><span style="color: #0000ff;">== </span><span style="color: #ff0000;">304){ // 检查http状态码
+</span><span style="color: #008080;"> 6</span> <span style="color: #ff0000;">        var script </span><span style="color: #0000ff;">= document.createElement</span><span style="color: #ff0000;">("script"); 
+</span><span style="color: #008080;"> 7</span> <span style="color: #ff0000;">        script.type </span><span style="color: #0000ff;">= "text/javascript"</span><span style="color: #ff0000;">;
+</span><span style="color: #008080;"> 8</span> <span style="color: #ff0000;">        script.text </span><span style="color: #0000ff;">= xhr.responseText;
+</span><span style="color: #008080;"> 9</span>         <span style="color: #ff0000;">document.body.appendChild(script);
+</span><span style="color: #008080;">10</span> <span style="color: #ff0000;">      } 
+</span><span style="color: #008080;">11</span> <span style="color: #ff0000;">   }
+</span><span style="color: #008080;">12</span> <span style="color: #ff0000;">}; 
+</span><span style="color: #008080;">13</span> <span style="color: #ff0000;">xhr.send(null);</span></span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此代码向服务器发送一个获取file1.js的文件get请求。onreadystatechange事件处理函数检查readyState是不是4，然后检查http状态码是不是有效（200表示确定客户端请求已成功，2xx表示有效回应，304表示一个缓存响应）。如果收到一个有效响应，那么就创建一个新的&lt;script&gt;元素，将它的文本属性设置为从服务器接收到的responseText字符串。这样做实际上会创建一个带有内联代码的&lt;script&gt;元素，一旦新的&lt;script&gt;元素被添加到文档，代码将被执行，并准备使用。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此方法的优点是兼容性佳，且你可以下载不立即执行的Javascript代码。由于代码返回在&lt;script&gt;标签之外，它下载后不会自动执行，这使得你可以推迟执行。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　此方法的确定是受到浏览器同源限制，Javascript文件必须与页面放置在同一个域内，不能从CDN(内容分发网络Content Delivery Network)下载。正因为这个原因，大型网页通常不采用XHR脚本注入技术。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt; background-color: #ccffff;"><strong>　　Recommended Noblocking Pattern 推荐的非阻塞模式</strong></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　推荐的向页面加载大量Javascript的方法分为两个步骤：</span></p>
+<ul>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">第一步，包含动态加载Javascript所需的代码，然后加载页面初始化所需的除了Javascript之外的部分。这部分代码尽量小，可能只包含loadScript()函数，它的下载和运行非常迅速，不会对页面造成很大干扰。</span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">第二步，当初始代码准备好之后，用它来加载其余的Javascript。</span></li>
+</ul>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　例如：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="loader.js"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">3</span> <span style="background-color: #f5f5f5; color: #000000;">loadScript(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">the-rest.js</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){ 
+</span><span style="color: #008080;">4</span> <span style="background-color: #f5f5f5; color: #000000;">　　Application.init();
+</span><span style="color: #008080;">5</span> <span style="background-color: #f5f5f5; color: #000000;">}); 
+</span><span style="color: #008080;">6</span> 
+<span style="color: #008080;">7</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　将此代码放置在body的关闭标签&lt;/body&gt;之前。这样做的好处是，首先，这样确保Javascript运行不会影响其他页面的其他部分显示。其次，当第二部分Javascript文件完成下载，所有应用程序所必须的DOM已经创建完毕，并做好被访问的准备，避免使用额外的事件处理（如window.onload）来得知页面是否已经准备好了。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　另一个选择是直接将loadScript()函数嵌入在页面中，这可以减少一个http请求的开销。例如：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 2</span>   <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> loadScript(url, callback){
+</span><span style="color: #008080;"> 3</span>     <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> script </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.createElement (</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">script</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 4</span> <span style="background-color: #f5f5f5; color: #000000;">　  script.type </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">text/javascript</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;
+</span><span style="color: #008080;"> 5</span>    
+<span style="color: #008080;"> 6</span>     <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (script.readyState){ </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">IE script.onreadystatechange = function(){</span>
+<span style="color: #008080;"> 7</span>       <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (script.readyState </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">loaded</span><span style="background-color: #f5f5f5; color: #000000;">"</span> <span style="background-color: #f5f5f5; color: #000000;">||</span><span style="background-color: #f5f5f5; color: #000000;"> script.readyState </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">complete</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">){
+</span><span style="color: #008080;"> 8</span> <span style="background-color: #f5f5f5; color: #000000;">        script.onreadystatechange </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">null</span><span style="background-color: #f5f5f5; color: #000000;">; 
+</span><span style="color: #008080;"> 9</span> <span style="background-color: #f5f5f5; color: #000000;">        callback();
+</span><span style="color: #008080;">10</span> <span style="background-color: #f5f5f5; color: #000000;">      } 
+</span><span style="color: #008080;">11</span> <span style="background-color: #f5f5f5; color: #000000;">    };
+</span><span style="color: #008080;">12</span> <span style="background-color: #f5f5f5; color: #000000;">  } </span><span style="background-color: #f5f5f5; color: #0000ff;">else</span><span style="background-color: #f5f5f5; color: #000000;"> { </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">Others </span>
+<span style="color: #008080;">13</span> <span style="background-color: #f5f5f5; color: #000000;">   script.onload </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+</span><span style="color: #008080;">14</span> <span style="background-color: #f5f5f5; color: #000000;">   　　callback(); 
+</span><span style="color: #008080;">15</span> <span style="background-color: #f5f5f5; color: #000000;">   };
+</span><span style="color: #008080;">16</span> <span style="background-color: #f5f5f5; color: #000000;">  }
+</span><span style="color: #008080;">17</span> <span style="background-color: #f5f5f5; color: #000000;">  script.src </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> url; 
+</span><span style="color: #008080;">18</span> <span style="background-color: #f5f5f5; color: #000000;">  document.getElementsByTagName(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">head</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">)[</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">].appendChild(script);
+</span><span style="color: #008080;">19</span> <span style="background-color: #f5f5f5; color: #000000;">}
+</span><span style="color: #008080;">20</span> 
+<span style="color: #008080;">21</span> <span style="background-color: #f5f5f5; color: #000000;">loadScript(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">the-rest.js</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+</span><span style="color: #008080;">22</span> <span style="background-color: #f5f5f5; color: #000000;">　　Application.init(); 
+</span><span style="color: #008080;">23</span> <span style="background-color: #f5f5f5; color: #000000;">});
+</span><span style="color: #008080;">24</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　一旦页面初始化代码下载完成，还可以使用loadScript()函数加载页面所需的额外功能函数。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　介绍一个通用的工具，Yahoo! Search的Ryan Grove创建了LazyLoad库（参见：<span style="color: #0000ff;"><a href="http://github.com/rgrove/lazyload/%20" target="_blank"><span style="color: #0000ff;">http://github.com/rgrove/lazyload/&nbsp;</span></a></span>）。LazyLoad是一个强大的loadScript()函数。LazyLoad精缩之后只有大约1.5KB。用法举例如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="lazyload-min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">3</span> <span style="background-color: #f5f5f5; color: #000000;">　　LazyLoad.js(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">the-rest.js</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){ 
+</span><span style="color: #008080;">4</span> <span style="background-color: #f5f5f5; color: #000000;">　　　　Application.init();
+</span><span style="color: #008080;">5</span> <span style="background-color: #f5f5f5; color: #000000;">　　}); 
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></span></pre>
+</div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 18pt; background-color: #99ccff;"><strong>　　Summary 总结</strong></span></p>
+<ul>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">将所有&lt;script&gt;标签放置在页面底部，紧靠关闭标签&lt;/body&gt;的上方。此方法可以保证页面在脚本运行之前完成解析。</span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">将脚本成组打包。页面的&lt;script&gt;标签越少，页面的加载速度就越快，响应也更迅速。不论外部脚本文件还是内联代码都是如此。</span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">有几种方法可以使用非阻塞方式下载Javascript：</span>
+<ul>
+<li>为&lt;script&gt;标签添加defer属性</li>
+<li>动态创建&lt;script&gt;元素，用它下载并执行代码</li>
+<li>用XHR对象下载代码，并注入到页面</li>
+</ul>
+</li>
+</ul>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　通过上述策略，可以极大提高那些使用Javascript代码的网页应用的实际性能。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　参考书籍《高性能Javascript》。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　高性能Javascript专题，第二篇：<span style="color: #0000ff;"><a href="http://www.cnblogs.com/coco1s/p/4017544.html" target="_blank"><span style="color: #0000ff;">高性能Javascript--高效的数据访问</span></a></span>。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 16px;">　　</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <ul class="pager">
+  <li class="previous"><a href="http://songboriceboy.gith">&larr; 高性能Javascript高效的数据访问</a></li>
+  <li class="next"><a href="http://songboriceboy.gith">由position属性引申的关于css的进阶讨论（包含块、BFC、margincollapse） &rarr;</a></li>
+</ul>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="6252947179872" data-title="高性能Javascript脚本的无阻塞加载策略" data-url="http://songboriceboy.gith"></div>
+<!-- 多说评论框 end -->
+                </div>
+
+                <div class='span3 sidebar'>
+                    <h3>导航栏</h3>
+                    <ul class="nav nav-tabs nav-stacked">
+                             				<li><a href="http://songboriceboy.gith">网页展示[1]</a></li>
+    				          				<li><a href="http://songboriceboy.gith">前端框架类库[1]</a></li>
+    				          				<li><a href="http://songboriceboy.gith">Javascript优化[1]</a></li>
+    				          				<li><a href="http://songboriceboy.gith">html[19]</a></li>
+    				          				<li><a href="http://songboriceboy.gith">Encourage[2]</a></li>
+    				                                         
+                    </ul>
+
+                    <section>
+        <h3>最近评论</h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+      </section>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
